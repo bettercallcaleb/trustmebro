@@ -6,7 +6,8 @@
 - Recover bounded answer declarations, split labels, terminal Markdown and math wrappers, repeated claims, safe representation changes, and structured answers.
 - Preserve incorrect claims, evidence failures, conflicts and unresolved/truncated responses; never solve the underlying task or substitute a reference value.
 - Report original and recovered semantic outcomes side by side, with per-label strategies and explicit unresolved reasons.
-- Add 12 recovery regression tests and frozen-corpus replay. Original scoring and raw outputs remain unchanged.
+- Partition unresolved replies by observed blocker and termination, with separate residual review counts.
+- Add recovery regression tests and frozen-corpus replay. Original scoring and raw outputs remain unchanged.
 
 ## v0.3.0
 

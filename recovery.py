@@ -5,7 +5,7 @@ import math
 import re
 from pathlib import Path
 
-VERSION="answer-recovery-v0.1"
+VERSION="answer-recovery-v0.2"
 MISSING=object()
 LABEL=re.compile(r"(?i)^(?:final(?: answer| result)?|answer|return|result|solution|corrected answer|output)\s*:\s*(.*)$")
 HEADING=re.compile(r"^#{1,6}\s+")
@@ -249,7 +249,14 @@ def recover(spec,reply):
             elif all(x[3] is not MISSING for x in parsed) and len({canonical(x[3]) for x in parsed})==1 and len(parsed)>=2:
                 complete=parsed
             else:return result(MISSING,"truncated_or_conflicting_declarations",steps)
-        if any(x[3] is MISSING for x in complete):return result(MISSING,"malformed_or_conflicting_declaration",steps)
+        if any(x[3] is MISSING for x in complete):
+            if len({canonical(x[3]) for x in complete if x[3] is not MISSING})>1:
+                return result(MISSING,"conflicting_declarations",steps)
+            if any(x[4]=="conflicting_json_keys" for x in complete):
+                return result(MISSING,"conflicting_json_keys",steps)
+            if any(not x[2].strip() for x in complete):
+                return result(MISSING,"empty_declaration",steps)
+            return result(MISSING,"malformed_declaration",steps)
         if len({canonical(x[3]) for x in complete})!=1:return result(MISSING,"conflicting_declarations",steps)
         if parsed[-1][1]!=last_nonempty:return result(MISSING,"nonterminal_declaration",steps)
         if len(complete)==1 and complete[0][0]>0:
@@ -325,6 +332,36 @@ def compare(task,rec):
         if a is not None and b is not None:return a==b,None
     return c==str(gold),None
 
+UNKNOWN_METHODS={
+    "empty_output":"empty_output",
+    "no_visible_answer":"no_visible_answer",
+    "empty_declaration":"empty_declaration",
+    "conflicting_declarations":"conflicting_declarations",
+    "conflicting_json_keys":"conflicting_json_keys",
+    "malformed_declaration":"malformed_declaration",
+    "nonterminal_declaration":"nonterminal_declaration",
+    "uncertain_claim":"uncertain_claim",
+    "example_or_unendorsed_declaration":"unendorsed_declaration",
+    "tool_call":"tool_call",
+    "special_marker_inside_response":"special_marker_blocked",
+    "unsupported_finish":"unsupported_finish",
+    "no_complete_structured_claim":"structured_claim_unresolved",
+    "no_complete_literal_claim":"literal_claim_unresolved",
+    "unsupported_literal_family":"unsupported_format",
+    "no_explicit_claim":"unclassified_response",
+    "no_unambiguous_final_answer":"unclassified_response",
+}
+UNKNOWN_REVIEW={"malformed_declaration","structured_claim_unresolved","literal_claim_unresolved","unclassified_response","unsupported_format","unsupported_finish","nonterminal_declaration","special_marker_blocked"}
+
+def classify_unknown(rec,reply,correct):
+    finish=reply.get("finish_reason")
+    termination="length" if finish=="length" else "stop" if finish=="stop" else "missing" if finish is None else "other"
+    if correct is not None:
+        return {"finish_reason":finish,"termination":termination,"truncated":None if finish is None else finish=="length","unknown_reason":None,"unknown_detail":None,"review_required":False}
+    method=rec["method"]
+    reason="truncated" if termination=="length" else UNKNOWN_METHODS.get(method,"unclassified_response")
+    return {"finish_reason":finish,"termination":termination,"truncated":None if finish is None else finish=="length","unknown_reason":reason,"unknown_detail":method,"review_required":reason in UNKNOWN_REVIEW}
+
 def assess(task,reply,prior=None):
     from failure_corpus import diagnose
     prior=prior or {};d=diagnose(task,reply,prior)
@@ -332,11 +369,32 @@ def assess(task,reply,prior=None):
     legacy=prior.get("score",{});old=legacy.get("semantic_correct")
     compliant=legacy.get("format_compliant")
     joint=correct is True and compliant is True and (task.get("kind")!="extraction" or rec["candidate"]["decision"]=="abstain" or evidence is True)
-    return {**rec,"semantic_correct":correct,"evidence_supported":evidence,"format_compliant_unchanged":compliant,"joint_success_recovered":joint if compliant is not None else None,"legacy_score":legacy,"transition":("correct" if old is True else "wrong" if old is False else "unknown")+"->"+("correct" if correct is True else "wrong" if correct is False else "unknown"),"label_strategies":{f:STRATEGIES.get(f,"inspect_without_guessing") for f in d["labels"]},"labels":d["labels"],"observations":d["observations"],"evaluator_flags":d["evaluator_flags"]}
+    return {**rec,**classify_unknown(rec,reply,correct),"semantic_correct":correct,"evidence_supported":evidence,"format_compliant_unchanged":compliant,"joint_success_recovered":joint if compliant is not None else None,"legacy_score":legacy,"transition":("correct" if old is True else "wrong" if old is False else "unknown")+"->"+("correct" if correct is True else "wrong" if correct is False else "unknown"),"label_strategies":{f:STRATEGIES.get(f,"inspect_without_guessing") for f in d["labels"]},"labels":d["labels"],"observations":d["observations"],"evaluator_flags":d["evaluator_flags"]}
 
 def report(rows):
     transitions=collections.Counter(r["transition"] for r in rows)
-    return {"attempted":len(rows),"legacy_unknown":sum(r["legacy_score"].get("semantic_correct") is None for r in rows),"recovered_correct":sum(r["semantic_correct"] is True for r in rows),"recovered_wrong":sum(r["semantic_correct"] is False for r in rows),"remaining_unknown":sum(r["semantic_correct"] is None for r in rows),"original_joint_success":sum(r["legacy_score"].get("joint_success") is True for r in rows),"recovered_joint_success":sum(r["joint_success_recovered"] is True for r in rows),"transitions":dict(sorted(transitions.items())),"methods":dict(collections.Counter(r["method"] for r in rows))}
+    reasons=collections.Counter()
+    details=collections.Counter()
+    matrix={k:{v:0 for v in ("correct","wrong","unknown")} for k in ("stop","length","missing","other")}
+    unknown_by_termination={k:{} for k in matrix}
+    review=0
+    for r in rows:
+        state="correct" if r["semantic_correct"] is True else "wrong" if r["semantic_correct"] is False else "unknown"
+        termination=r["termination"]
+        matrix[termination][state]+=1
+        if state=="unknown":
+            reason=r["unknown_reason"]
+            if reason is None:raise ValueError("Unknown row without reason")
+            reasons[reason]+=1
+            details[r["unknown_detail"]]+=1
+            bucket=unknown_by_termination[termination]
+            bucket[reason]=bucket.get(reason,0)+1
+            review+=int(r["review_required"])
+    unknown=sum(reasons.values())
+    truncated=reasons["truncated"]
+    assert unknown==sum(v["unknown"] for v in matrix.values())
+    assert truncated==matrix["length"]["unknown"]
+    return {"attempted":len(rows),"legacy_unknown":sum(r["legacy_score"].get("semantic_correct") is None for r in rows),"recovered_correct":sum(r["semantic_correct"] is True for r in rows),"recovered_wrong":sum(r["semantic_correct"] is False for r in rows),"remaining_unknown":unknown,"unknown_truncated":truncated,"unknown_nontruncated":matrix["stop"]["unknown"]+matrix["other"]["unknown"],"unknown_finish_missing":matrix["missing"]["unknown"],"unknown_unclassified":reasons["unclassified_response"],"unknown_nontruncated_classified":sum(v for k,v in unknown_by_termination["stop"].items() if k!="unclassified_response")+sum(v for k,v in unknown_by_termination["other"].items() if k!="unclassified_response"),"unknown_breakdown":dict(sorted((k,v) for k,v in reasons.items() if v)),"unknown_details":dict(sorted(details.items())),"unknown_by_termination":unknown_by_termination,"termination_by_semantic_outcome":matrix,"unknown_review_required":review,"original_joint_success":sum(r["legacy_score"].get("joint_success") is True for r in rows),"recovered_joint_success":sum(r["joint_success_recovered"] is True for r in rows),"transitions":dict(sorted(transitions.items())),"methods":dict(collections.Counter(r["method"] for r in rows))}
 
 def corpus_replay(path):
     from failure_corpus import records

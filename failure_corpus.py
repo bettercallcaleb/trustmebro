@@ -180,7 +180,7 @@ def diagnose_run(run):
         prior={"score":{k:legacy[k] for k in ("semantic_correct","format_compliant","joint_success")},"flags":provisional["flags"]}
         output.append({**entry,**diagnose(t,reply,prior),"experimental_semantic_correct":provisional["semantic_correct"],"recovery":recovery.assess(t,reply,prior)})
     planned=len(tasks)*len(run["modes"])*len(run["budgets"])
-    return {"version":VERSION,"recovery_version":recovery.VERSION,"planned":planned,"attempted":len(output),"not_run":planned-len(output),"recovery_summary":recovery.report([x["recovery"] for x in output if "recovery" in x]),"rows":output}
+    return {"version":VERSION,"recovery_version":recovery.VERSION,"planned":planned,"attempted":len(output),"transport_errors":sum(x.get("transport_error",False) for x in output),"not_run":planned-len(output),"recovery_summary":recovery.report([x["recovery"] for x in output if "recovery" in x]),"rows":output}
 
 def main():
     p=argparse.ArgumentParser(description="Offline response diagnostics; does not alter benchmark scores.")

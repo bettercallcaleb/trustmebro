@@ -1,4 +1,4 @@
-# Answer recovery v0.1
+# Answer recovery v0.2
 
 Recovery answers a different question from strict compliance: what did the model actually commit to?
 
@@ -85,3 +85,18 @@ Counts overlap across labels. A strategy does not imply every occurrence is reco
     python3 failure_corpus.py diagnose-run run.json --out diagnostics.json
 
 The official v0.2 score is frozen. The diagnostic output contains the original score, recovered candidate, recovered correctness, evidence support, unchanged contract compliance, recovery method and explicit unresolved reason. Transport errors and missing attempts are reported separately. No new model inference is required.
+
+## Unknown is an outcome, not a diagnosis
+
+Each unresolved reply receives exactly one primary unknown_reason. A confirmed length finish takes precedence, and the original recovery blocker remains in unknown_detail. Otherwise the reason describes the observed blocker, such as conflicting declarations, an empty declaration, malformed declaration, nonterminal declaration, explicit uncertainty, special markers, invalid or unresolved structured claims, or an unsupported format. unclassified_response is reserved for replies where the current parser cannot establish a specific cause. Known blockers do not establish the model's underlying failure mechanism; ambiguous/parser-limited cases are marked review_required.
+
+Termination is independently recorded for every reply: stop, length, missing, or other. A truncated reply can still contain a recoverable correct or wrong answer. Missing finish metadata is not evidence of truncation or normal completion. Transport errors and unrun tasks remain outside response-level unknown counts.
+
+Each report and profile includes:
+- unknown_breakdown: mutually exclusive primary reasons that sum exactly to remaining_unknown.
+- unknown_details: the recovery-level blocker, including for truncated replies.
+- unknown_truncated, unknown_nontruncated, unknown_finish_missing: a mutually exclusive termination partition of unresolved replies.
+- unknown_unclassified: residual unexplained replies, across termination categories.
+- unknown_nontruncated_classified: stopped or otherwise non-length replies with a specific observed blocker.
+- unknown_review_required: cases where an independent review may reveal parser limitations.
+- termination_by_semantic_outcome: separate correct/wrong/unknown counts at each termination state.

@@ -95,11 +95,56 @@ class RecoveryTests(unittest.TestCase):
         labels=json.loads((ROOT/"corpus/summary.json").read_text())["label_counts"]
         self.assertEqual(set(labels)-set(r.STRATEGIES),set())
 
+    def test_unknown_reason_partition(self):
+        task={"format":"integer","answer":"42"}
+        cases=[
+            ("42","stop",None),
+            ("43","stop",None),
+            ("FINAL: 42\n","length",None),
+            ("Working on it","length","truncated"),
+            ("<tool_call>42</tool_call>","length","truncated"),
+            ("","stop","empty_output"),
+            ("FINAL:","stop","empty_declaration"),
+            ("FINAL: 42\nFINAL: 43","stop","conflicting_declarations"),
+            ("FINAL: xyz","stop","malformed_declaration"),
+            ("FINAL: 42\nNot sure.","stop","nonterminal_declaration"),
+            ("The answer might be 42.","stop","uncertain_claim"),
+            ("<tool_call>42</tool_call>","stop","special_marker_blocked"),
+            ("Something else","stop","unclassified_response"),
+            ("Something else",None,"unclassified_response"),
+        ]
+        rows=[]
+        for text,finish,reason in cases:
+            d=r.assess(task,{"content":text,"finish_reason":finish})
+            self.assertEqual(d["unknown_reason"],reason,text)
+            rows.append(d)
+        summary=r.report(rows)
+        self.assertEqual(summary["remaining_unknown"],11)
+        self.assertEqual(summary["unknown_truncated"],2)
+        self.assertEqual(summary["unknown_nontruncated"],8)
+        self.assertEqual(summary["unknown_finish_missing"],1)
+        self.assertEqual(summary["unknown_unclassified"],2)
+        self.assertEqual(summary["unknown_nontruncated_classified"],7)
+        self.assertEqual(summary["termination_by_semantic_outcome"]["length"],{"correct":1,"wrong":0,"unknown":2})
+        self.assertEqual(sum(summary["unknown_breakdown"].values()),summary["remaining_unknown"])
+        self.assertEqual(rows[4]["unknown_detail"],"special_marker_inside_response")
+        self.assertTrue(rows[-1]["review_required"])
+        self.assertIsNone(rows[-1]["truncated"])
+
+    def test_structured_unknown_reasons(self):
+        task={"format":"json","answer":{"x":1}}
+        for text,expected in [('{"x":1,"x":2}',"conflicting_json_keys"),('{"x":',"structured_claim_unresolved")]:
+            d=r.assess(task,{"content":text,"finish_reason":"stop"})
+            self.assertEqual(d["unknown_reason"],expected)
+
     def test_frozen_replay(self):
         report=r.corpus_replay(ROOT/"corpus/responses.jsonl")
         summary=json.loads((ROOT/"corpus/recovery-summary.json").read_text())
         self.assertEqual({k:v for k,v in report.items() if k!="rows"},summary)
         self.assertEqual(report["overall"]["attempted"],3048)
+        for group in [report["overall"],*report["by_model"].values(),*report["by_label"].values()]:
+            self.assertEqual(sum(group["unknown_breakdown"].values()),group["remaining_unknown"])
+            self.assertEqual(group["unknown_truncated"]+group["unknown_nontruncated"]+group["unknown_finish_missing"],group["remaining_unknown"])
         self.assertEqual(report["overall"]["transitions"].get("correct->unknown",0),0)
         self.assertEqual(report["overall"]["transitions"].get("correct->wrong",0),0)
         self.assertEqual(report["overall"]["original_joint_success"],report["overall"]["recovered_joint_success"])
