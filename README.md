@@ -1,8 +1,19 @@
-# TrustMeBro v0.2-alpha
+# TrustMeBro v0.3.0
 
 **Don't trust us. Reproduce us.**
 
 An independent open-weight model benchmark for people who actually run models locally. No paid placement. No LLM judge. No universal intelligence score.
+
+## New in v0.3.0: Failure Corpus
+
+**3,048 real model replies. Four model architectures. 2,367 unique anomalous response texts.**
+
+TrustMeBro now ships a public [Failure Corpus](corpus/README.md) and a standalone response-diagnostics tool. Inspect nonstandard answers, malformed output, repeated declarations, JSON schema deviations and special-token leakage without silently repairing the answer or changing the official score.
+
+    python3 failure_corpus.py summarize corpus/responses.jsonl
+    python3 failure_corpus.py diagnose-run run.json --out diagnostics.json
+
+The corpus is exploratory, not a model ranking. Diagnostic annotations remain candidate labels; the v0.2 benchmark protocol and its scoring semantics are unchanged. Core Depth, extraction and supplied-answer delivery prototypes are available under [draft/](draft/README.md), with their calibration limitations documented.
 
 ## What ships
 
