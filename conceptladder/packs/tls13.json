@@ -1,0 +1,130 @@
+{
+  "id": "tls13",
+  "title": "TLS 1.3 security properties",
+  "source": "https://www.rfc-editor.org/rfc/rfc8446.html",
+  "concepts": [
+    {
+      "id": "early-data",
+      "questions": [
+        {
+          "prompt": "Which TLS 1.3 feature allows a client to send application data before completing the new handshake?",
+          "correct": "0-RTT early data",
+          "wrong": [
+            "CertificateVerify",
+            "KeyUpdate",
+            "HelloRetryRequest"
+          ]
+        },
+        {
+          "prompt": "Why can accepted TLS 1.3 0-RTT application data have a replay risk?",
+          "correct": "It can be sent using PSK-derived early keys before the fresh ServerHello contributes to the handshake",
+          "wrong": [
+            "Every 0-RTT record is plaintext",
+            "TLS disables authentication whenever early data is used",
+            "The server always reuses the same certificate signature"
+          ]
+        },
+        {
+          "prompt": "An application accepts TLS 1.3 0-RTT requests. Which request is the more dangerous candidate to permit without application-level replay protection?",
+          "correct": "Transfer funds between accounts",
+          "wrong": [
+            "Retrieve a static public help page",
+            "Fetch a cacheable public image",
+            "Read a public status description"
+          ]
+        },
+        {
+          "prompt": "A resumed TLS 1.3 session authenticates the client via a valid PSK. Does that, by itself, eliminate replay risk for accepted 0-RTT requests?",
+          "correct": "No; PSK authentication alone does not make early data replay-safe",
+          "wrong": [
+            "Yes; every authenticated TLS record is inherently single-use",
+            "Yes; 0-RTT uses the fresh ServerHello random in its keys",
+            "No; because PSKs cannot authenticate anything in TLS 1.3"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "forward-secrecy",
+      "questions": [
+        {
+          "prompt": "What key-establishment technique is used to obtain forward secrecy in a typical TLS 1.3 full handshake?",
+          "correct": "Ephemeral Diffie-Hellman key exchange",
+          "wrong": [
+            "A static server RSA key exchange",
+            "An HTTP redirect",
+            "A checksum of the server certificate"
+          ]
+        },
+        {
+          "prompt": "For TLS 1.3 PSK resumption, which mode adds fresh Diffie-Hellman to provide forward secrecy for handshake traffic keys?",
+          "correct": "psk_dhe_ke",
+          "wrong": [
+            "psk_ke",
+            "No key-exchange mode can use DHE with PSK",
+            "Renegotiation using TLS 1.2"
+          ]
+        },
+        {
+          "prompt": "A TLS 1.3 full handshake used ephemeral (EC)DHE, and its ephemeral secrets were erased. An attacker later steals the server's certificate signing key. What follows for the recorded past traffic?",
+          "correct": "The signing-key theft alone does not reveal the erased ephemeral shared secret",
+          "wrong": [
+            "All recorded traffic is decrypted automatically",
+            "The client must retroactively resend its traffic under a new certificate",
+            "The server's public certificate contains the traffic secret"
+          ]
+        },
+        {
+          "prompt": "A TLS 1.3 resumed handshake uses PSK plus DHE for 1-RTT keys and also accepts 0-RTT. Which statement correctly distinguishes their protection?",
+          "correct": "Fresh DHE can protect 1-RTT traffic, but 0-RTT early data lacks the same forward secrecy",
+          "wrong": [
+            "Both 0-RTT and 1-RTT use the fresh DHE secret from the start",
+            "Neither 0-RTT nor 1-RTT can ever use forward secrecy",
+            "Early data is more forward-secret than later application data"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "authentication",
+      "questions": [
+        {
+          "prompt": "In a certificate-authenticated TLS 1.3 server handshake, which message proves possession of the private key corresponding to the certificate?",
+          "correct": "CertificateVerify",
+          "wrong": [
+            "ClientHello",
+            "ChangeCipherSpec",
+            "NewSessionTicket"
+          ]
+        },
+        {
+          "prompt": "What does the TLS 1.3 Finished message primarily authenticate?",
+          "correct": "The handshake transcript using a key derived from the negotiated handshake secrets",
+          "wrong": [
+            "Only the DNS A record of the server",
+            "The server's operating-system patch level",
+            "The client's HTTP request body before it exists"
+          ]
+        },
+        {
+          "prompt": "A server sends a syntactically valid certificate chain, but the leaf certificate does not match the requested hostname. How should a standard HTTPS client validating server identity treat it?",
+          "correct": "Reject the identity check despite the chain being syntactically valid",
+          "wrong": [
+            "Accept it because any CA-issued certificate authenticates every hostname",
+            "Ignore the hostname mismatch if TLS 1.3 is negotiated",
+            "Assume Finished automatically fixes the hostname mismatch"
+          ]
+        },
+        {
+          "prompt": "A TLS 1.3 resumed handshake authenticates the peer using a previously established PSK and does not send a new Certificate message. Which conclusion is justified?",
+          "correct": "Omitting a new certificate can be valid in PSK resumption; authentication relies on the PSK context",
+          "wrong": [
+            "The resumed handshake is necessarily unauthenticated",
+            "TLS 1.3 always mandates a new server certificate on resumption",
+            "The peer must secretly have negotiated TLS 1.0"
+          ]
+        }
+      ]
+    }
+  ]
+}

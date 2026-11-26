@@ -86,7 +86,7 @@ def request(url,model,task,budget,seed,timeout):
             raw=json.load(r)
         choice=raw["choices"][0]
         message=choice["message"]
-        if not isinstance(message,dict):
+        if not isinstance(message,dict) or not isinstance(message.get("content"),(str,type(None))):
             raise ValueError("Invalid message")
         return {"id":task["id"],"budget":budget,"raw":raw,"elapsed_s":time.monotonic()-start}
     except Exception as exc:
@@ -133,26 +133,64 @@ def score(run):
     return profiles
 
 def main():
+    import sys
+    if len(sys.argv)>1 and sys.argv[1]=="ifeval":
+        from conceptladder.measurement import main as official_main
+        return official_main([sys.argv[2],"--track","ifeval",*sys.argv[3:]] if len(sys.argv)>2 and sys.argv[2] in ("run","score") else ["--help"])
     p=argparse.ArgumentParser()
     sub=p.add_subparsers(dest="command",required=True)
+    sub.add_parser("ifeval",help="Separate official IFEval reference track; ifeval --help")
     g=sub.add_parser("generate")
     g.add_argument("--seed",type=int,default=17)
     g.add_argument("--out",required=True)
+    g.add_argument("--suite",choices=["core","ladder","all"],help="v0.2 suite; omit for legacy core v0.1")
+    g.add_argument("--variants",type=int,default=20)
+    g.add_argument("--ladder-variants",type=int,default=4)
     r=sub.add_parser("run")
     for name in ("tasks","url","model","runtime","hardware","out"):
         r.add_argument("--"+name,required=True)
     r.add_argument("--artifact",action="append",required=True)
     r.add_argument("--budgets",default="128,512,2048")
     r.add_argument("--timeout",type=float,default=300)
+    r.add_argument("--modes",default="strict",help="v0.2: strict,relaxed")
+    r.add_argument("--reasoning-policy",default="unspecified")
     s=sub.add_parser("score")
     s.add_argument("run")
     args=p.parse_args()
     if args.command=="generate":
-        save(args.out,generate(args.seed))
+        if args.suite:
+            import measurement
+            save(args.out,measurement.generate(args.seed,args.variants,args.suite,args.ladder_variants))
+        else:
+            save(args.out,generate(args.seed))
     elif args.command=="score":
-        print(json.dumps(score(json.loads(Path(args.run).read_text())),indent=2))
+        run=json.loads(Path(args.run).read_text())
+        if run["manifest"]["version"]==VERSION:
+            print(json.dumps(score(run),indent=2))
+        else:
+            import measurement
+            print(json.dumps(measurement.score(run),indent=2))
     else:
         m=json.loads(Path(args.tasks).read_text())
+        if m["version"]!=VERSION:
+            import measurement
+            measurement.verify(m)
+            budgets=list(map(int,args.budgets.split(",")))
+            modes=args.modes.split(",")
+            if not budgets or any(b<=0 for b in budgets) or len(set(budgets))!=len(budgets) or not modes or len(set(modes))!=len(modes) or any(x not in measurement.MODES for x in modes):
+                raise ValueError("Invalid budgets or modes")
+            out=Path(args.out)
+            if out.exists():raise FileExistsError(out)
+            run={"version":measurement.VERSION,"manifest":m,"manifest_sha256":digest(m),"model":args.model,"runtime":args.runtime,"hardware":args.hardware,"artifacts":[file_hash(x) for x in args.artifact],"temperature":0,"reasoning_policy":args.reasoning_policy,"protocol":measurement.protocol(),"budgets":budgets,"modes":modes,"rows":[]}
+            save(out,run)
+            for mode in modes:
+                for b in budgets:
+                    for task in m["tasks"]:
+                        t={**task,"prompt":measurement.prompt_for(task,mode)}
+                        run["rows"].append({**request(args.url,args.model,t,b,m["seed"],args.timeout),"mode":mode})
+                        save(out,run)
+            print(json.dumps(measurement.score(run),indent=2))
+            return
         verify_manifest(m)
         if m["variants"]!=20:
             raise ValueError("Core requires 20 variants")
