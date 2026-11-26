@@ -1,0 +1,133 @@
+{
+  "id": "sqlite",
+  "title": "SQLite WAL and transaction isolation",
+  "source": "https://www.sqlite.org/isolation.html",
+  "concepts": [
+    {
+      "id": "wal-concurrency",
+      "source": "https://www.sqlite.org/wal.html",
+      "questions": [
+        {
+          "prompt": "In SQLite WAL mode, which concurrency pattern is supported under ordinary conditions?",
+          "correct": "Readers and one writer can proceed concurrently",
+          "wrong": [
+            "Only one reader can be connected",
+            "Each read blocks all writes until its connection closes",
+            "Multiple independent writers can commit at the same instant"
+          ]
+        },
+        {
+          "prompt": "In SQLite WAL mode, can two independent connections both hold the write lock at the same instant?",
+          "correct": "No; there is still only one writer at a time",
+          "wrong": [
+            "Yes; WAL permits an unlimited number of simultaneous writers",
+            "Yes; as long as they touch different rows",
+            "Yes; if every connection uses autocommit"
+          ]
+        },
+        {
+          "prompt": "In SQLite WAL mode, a long-running read transaction remains open while writers keep committing. What may happen to checkpoint progress?",
+          "correct": "The long reader can prevent a checkpoint from completing, allowing the WAL to grow",
+          "wrong": [
+            "All writers are forced to stop as soon as a reader starts",
+            "Checkpointing always deletes the active reader's snapshot",
+            "The reader must automatically change to the newest snapshot"
+          ]
+        },
+        {
+          "prompt": "A reader begins a transaction in WAL mode and sees value 10. Another connection commits value 20. The first reader queries again inside its original read transaction. What should it see?",
+          "correct": "10, from its original consistent snapshot",
+          "wrong": [
+            "20 immediately, because WAL has no read snapshots",
+            "An arbitrary mix of 10 and 20",
+            "No rows, because writers invalidate all readers"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "snapshot",
+      "source": "https://www.sqlite.org/isolation.html",
+      "questions": [
+        {
+          "prompt": "Which property does SQLite WAL mode provide to a read transaction?",
+          "correct": "A consistent database snapshot as of the transaction's read view",
+          "wrong": [
+            "A view of uncommitted writes from all other connections",
+            "Guaranteed simultaneous commits by many writers",
+            "Automatic refresh of every query to the newest committed version"
+          ]
+        },
+        {
+          "prompt": "Connection A starts reading a WAL database. Connection B then commits a change. Without ending A's read transaction, what view does A retain?",
+          "correct": "The snapshot from before B's commit",
+          "wrong": [
+            "It switches immediately to B's new committed version",
+            "It is forced to roll back whenever B commits",
+            "It sees B's uncommitted data first"
+          ]
+        },
+        {
+          "prompt": "In SQLite WAL mode, connection A begins a read transaction, connection B commits a change, and then A tries to upgrade that stale read transaction into a write transaction. What can SQLite return?",
+          "correct": "SQLITE_BUSY_SNAPSHOT",
+          "wrong": [
+            "SQLITE_OK with an automatic merge of both snapshots",
+            "SQLITE_NOTADB because any concurrent writer corrupts WAL",
+            "SQLITE_DONE meaning all writes were committed"
+          ]
+        },
+        {
+          "prompt": "After SQLITE_BUSY_SNAPSHOT on a stale WAL read-to-write upgrade, which approach obtains a fresh snapshot for a new write attempt?",
+          "correct": "Roll back the stale transaction and start a new transaction",
+          "wrong": [
+            "Keep retrying the same stale transaction without ending it",
+            "Disable foreign keys and use the old transaction",
+            "Rewrite the WAL file directly from the application"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "checkpoint",
+      "source": "https://www.sqlite.org/wal.html",
+      "questions": [
+        {
+          "prompt": "What is the main purpose of a SQLite WAL checkpoint?",
+          "correct": "Copy committed changes from the WAL into the main database file",
+          "wrong": [
+            "Convert every SQL query into a prepared statement",
+            "Replace all indexes with table scans",
+            "Encrypt the WAL using the server certificate"
+          ]
+        },
+        {
+          "prompt": "Does a successful SQLite WAL checkpoint necessarily make the WAL file disappear from the filesystem immediately?",
+          "correct": "No; checkpointing and removing or truncating the WAL file are distinct behaviors",
+          "wrong": [
+            "Yes; every checkpoint must delete the WAL file",
+            "Yes; otherwise no committed transaction remains durable",
+            "No; because checkpointing never touches the main database file"
+          ]
+        },
+        {
+          "prompt": "A passive WAL checkpoint encounters a reader that still needs old WAL frames. Which outcome is possible?",
+          "correct": "It checkpoints what it safely can without completing all frames",
+          "wrong": [
+            "It overwrites the reader's active snapshot in place",
+            "It always blocks until the reader exits",
+            "It irrevocably aborts all reader transactions"
+          ]
+        },
+        {
+          "prompt": "A SQLite application observes WAL growth during sustained long-lived reads. Which intervention targets the actual reason a checkpoint cannot fully reset the log?",
+          "correct": "End or shorten old read transactions so their WAL snapshots can be released",
+          "wrong": [
+            "Increase SQL column-name lengths",
+            "Issue more SELECTs inside the same long-lived read transaction",
+            "Set all HTTP requests to keep-alive"
+          ]
+        }
+      ]
+    }
+  ]
+}

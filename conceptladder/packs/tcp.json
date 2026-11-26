@@ -1,0 +1,131 @@
+{
+  "id": "tcp",
+  "title": "TCP state and sequencing",
+  "source": "https://www.rfc-editor.org/rfc/rfc9293.html",
+  "concepts": [
+    {
+      "id": "handshake",
+      "questions": [
+        {
+          "prompt": "In an ordinary TCP active open, what is the first control flag sent by the client?",
+          "correct": "SYN",
+          "wrong": [
+            "FIN",
+            "RST",
+            "PSH"
+          ]
+        },
+        {
+          "prompt": "A client sends a TCP SYN with sequence number 1000 and no payload. What ACK number should the server put in its SYN-ACK?",
+          "correct": "1001",
+          "wrong": [
+            "1000",
+            "1002",
+            "0"
+          ]
+        },
+        {
+          "prompt": "A server sends SYN-ACK but the client's final ACK is lost. In the ordinary TCP handshake, what may the server do while still in SYN-RECEIVED?",
+          "correct": "Retransmit SYN-ACK while awaiting an acceptable ACK",
+          "wrong": [
+            "Enter ESTABLISHED solely because SYN-ACK was sent",
+            "Immediately send FIN to close an established connection",
+            "Treat the missing ACK as proof the client never received SYN-ACK"
+          ]
+        },
+        {
+          "prompt": "Why does an old duplicated SYN not by itself establish a new TCP connection at the passive opener?",
+          "correct": "The passive opener still needs a valid acknowledgment of its own SYN",
+          "wrong": [
+            "Every TCP SYN contains an authenticated timestamp",
+            "TCP requires a TLS certificate to complete the handshake",
+            "A TCP connection becomes established after any single SYN"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "flow-control",
+      "source": "https://www.rfc-editor.org/rfc/rfc9293.html",
+      "questions": [
+        {
+          "prompt": "What does the TCP advertised receive window primarily indicate?",
+          "correct": "How much more sequence-space data the receiver is prepared to accept",
+          "wrong": [
+            "How much bandwidth is available in the internet core",
+            "The sender's measured RTT",
+            "The number of unacknowledged TLS records"
+          ]
+        },
+        {
+          "prompt": "A receiver advertises a zero TCP window. What is the sender normally expected to do with new application data?",
+          "correct": "Pause sending new window-limited data and use the persist/zero-window-probe mechanism",
+          "wrong": [
+            "Ignore the window because it is only advisory",
+            "Send data at the congestion window rate",
+            "Close the connection immediately"
+          ]
+        },
+        {
+          "prompt": "A TCP sender has a large congestion window, but the receiver advertises only 2 KB of usable window. What limits the amount of new in-flight data?",
+          "correct": "The smaller receiver-window limit applies despite spare congestion capacity",
+          "wrong": [
+            "The congestion window always overrides the receive window",
+            "The receiver's advertised window controls only ACK packets",
+            "TCP ignores both windows once the handshake ends"
+          ]
+        },
+        {
+          "prompt": "A sender sees ACKs arriving normally, but the receiver's advertised window shrinks to zero. Which diagnosis fits best?",
+          "correct": "Receive-side flow-control pressure can stop new data without implying network congestion",
+          "wrong": [
+            "A zero receive window necessarily means packet loss",
+            "The TCP handshake must have failed",
+            "The server's TLS certificate has expired"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "fin",
+      "questions": [
+        {
+          "prompt": "What does a TCP FIN normally signal?",
+          "correct": "The sender has no more data to send on its half of the connection",
+          "wrong": [
+            "The sender has forgotten the peer's sequence number",
+            "Both directions of data transfer must stop instantly",
+            "The receiver must discard all buffered data"
+          ]
+        },
+        {
+          "prompt": "For TCP sequence-number accounting, how much sequence space does a FIN consume?",
+          "correct": "One sequence number",
+          "wrong": [
+            "Zero sequence numbers",
+            "Two sequence numbers",
+            "One sequence number per previously sent packet"
+          ]
+        },
+        {
+          "prompt": "Host A sends FIN and host B acknowledges it, but B has not yet sent its FIN. What remains possible?",
+          "correct": "B can still send data to A on the not-yet-closed direction",
+          "wrong": [
+            "Both endpoints are required to discard all pending data",
+            "A may send unlimited new application data after FIN",
+            "The connection must already be TIME-WAIT at both endpoints"
+          ]
+        },
+        {
+          "prompt": "If both TCP peers initiate orderly close at nearly the same time, which statement is correct?",
+          "correct": "Each peer can send FIN and acknowledge the other's FIN as part of simultaneous close",
+          "wrong": [
+            "TCP forbids both peers sending FIN",
+            "Both FIN flags are converted into RST flags",
+            "Only the peer with the larger initial sequence number may close"
+          ]
+        }
+      ]
+    }
+  ]
+}
