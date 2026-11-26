@@ -1,0 +1,362 @@
+{
+  "version": "failure-corpus-v0.1",
+  "records": 3048,
+  "by_model": {
+    "qwen3-4b-q2k": 1524,
+    "granite42-3b-q2k": 508,
+    "smollm3-3b-q2k": 508,
+    "phi4mini-instruct-q2k": 508
+  },
+  "responses_sha256": "6bd6326778f9f2017da5c32a3862dec2b17772033fbc7ff82f06a2755ba4accd",
+  "sources": [
+    {
+      "campaign": 1,
+      "model": "qwen3-4b-q2k",
+      "artifact": {
+        "filename": "Qwen3-4B-Q2_K.gguf",
+        "bytes": 1669499392,
+        "sha256": "2434819d355563120f2231ef8c1b4e406885b3c0e5c0c81ac2475a8d0094a863"
+      },
+      "source_artifact": {
+        "filename": "Qwen3-4B-BF16.gguf",
+        "bytes": 8051284992,
+        "sha256": "57f1321f7273a5dac96ced83ae9994d0d235542d14874e1c866f61544540927d"
+      },
+      "sampling": {
+        "temperature": 0.7,
+        "top_p": 0.8,
+        "top_k": 20,
+        "min_p": 0.0
+      },
+      "runtime_commit": "5f4d222898ddb12cf581edf1b7e841d80e0b2e17",
+      "runtime_command": [
+        "llama-server",
+        "-m",
+        "Qwen3-4B-Q2_K.gguf",
+        "--alias",
+        "model",
+        "--host",
+        "127.0.0.1",
+        "--port",
+        "18379",
+        "-c",
+        "4096",
+        "-np",
+        "1",
+        "-ngl",
+        "999",
+        "-fitt",
+        "2048",
+        "-t",
+        "8",
+        "--seed",
+        "17",
+        "--jinja",
+        "--reasoning",
+        "off",
+        "--reasoning-format",
+        "deepseek",
+        "--no-webui"
+      ],
+      "template_policy": "native reasoning off; official non-thinking sampling",
+      "generator_commit": "414a5da2cd4947a0bb62cc852840c9cabeec138b",
+      "plan_sha256": "bec7f90befe92367f416d8ff42b0e6afc4eb03601b6bde977ce10ae2e90aa6cf",
+      "batches": [
+        {
+          "seed": 401,
+          "budget": 128,
+          "count": 254,
+          "raw_sha256": "a3d737b611a917e7891e36ecd46844dc7087ed4b6023cb268deca7869553650b"
+        },
+        {
+          "seed": 402,
+          "budget": 512,
+          "count": 254,
+          "raw_sha256": "62b31c1908d54a4a53684e207ee8003e94420aeade15e6e259e71bac0c684c83"
+        },
+        {
+          "seed": 403,
+          "budget": 128,
+          "count": 254,
+          "raw_sha256": "b5518d5964dba89951368a052cd8209dc010e0e4b913878b18f96d13dd645a5f"
+        },
+        {
+          "seed": 404,
+          "budget": 512,
+          "count": 254,
+          "raw_sha256": "8a6c0d9dda0095e376f8de9641abfbf645d3fbb1c9a1497df3c85540a444150a"
+        }
+      ]
+    },
+    {
+      "campaign": 2,
+      "model": "qwen3-4b-q2k",
+      "artifact": {
+        "filename": "Qwen3-4B-Q2_K.gguf",
+        "bytes": 1669499392,
+        "sha256": "2434819d355563120f2231ef8c1b4e406885b3c0e5c0c81ac2475a8d0094a863"
+      },
+      "source_artifact": {
+        "filename": "Qwen3-4B-BF16.gguf",
+        "bytes": 8051284992,
+        "sha256": "57f1321f7273a5dac96ced83ae9994d0d235542d14874e1c866f61544540927d"
+      },
+      "sampling": {
+        "temperature": 0.7,
+        "top_p": 0.8,
+        "top_k": 20,
+        "min_p": 0.0
+      },
+      "runtime_commit": "5f4d222898ddb12cf581edf1b7e841d80e0b2e17",
+      "runtime_command": [
+        "llama-server",
+        "-m",
+        "Qwen3-4B-Q2_K.gguf",
+        "--alias",
+        "model",
+        "--host",
+        "127.0.0.1",
+        "--port",
+        "18379",
+        "-c",
+        "4096",
+        "-np",
+        "1",
+        "-ngl",
+        "999",
+        "-fitt",
+        "2048",
+        "-t",
+        "8",
+        "--seed",
+        "17",
+        "--jinja",
+        "--reasoning",
+        "off",
+        "--reasoning-format",
+        "deepseek",
+        "--no-webui"
+      ],
+      "template_policy": "native reasoning off; official non-thinking sampling",
+      "generator_commit": "414a5da2cd4947a0bb62cc852840c9cabeec138b",
+      "plan_sha256": "b1e3fd023d3ad5f48336e669db711f649f92d50a15e0b618f23b62f830f2d9b1",
+      "batches": [
+        {
+          "seed": 501,
+          "budget": 256,
+          "count": 254,
+          "raw_sha256": "ab68a8abcc78035e68053c4c9e2799a79ce8cc42868c273896babf480dfe84c0"
+        },
+        {
+          "seed": 502,
+          "budget": 256,
+          "count": 254,
+          "raw_sha256": "1dc45354b44c7a201b2adcbd4b6c07d8c44c2af00f74020079f7cc515815585d"
+        }
+      ]
+    },
+    {
+      "campaign": 3,
+      "model": "granite42-3b-q2k",
+      "artifact": {
+        "filename": "Granite42-3B-Q2_K.gguf",
+        "bytes": 1455736288,
+        "sha256": "3985182ae62275e91ba2d76d5dc41fe7370f04f56256ac12a30160d1f1bc2318"
+      },
+      "source_artifact": {
+        "filename": "Granite42-bf16.gguf",
+        "bytes": 7323461088,
+        "sha256": "ce96c2c85db16ece43d5522a168497da89b14a2665fc2f2a5a2d109713438de7"
+      },
+      "sampling": {
+        "temperature": 1.0,
+        "top_p": 0.95,
+        "top_k": 0,
+        "min_p": 0.0,
+        "repeat_penalty": 1.0
+      },
+      "runtime_commit": "5f4d222898ddb12cf581edf1b7e841d80e0b2e17",
+      "runtime_command": [
+        "llama-server",
+        "-m",
+        "Granite42-3B-Q2_K.gguf",
+        "--alias",
+        "model",
+        "--host",
+        "127.0.0.1",
+        "--port",
+        "18379",
+        "-c",
+        "4096",
+        "-np",
+        "1",
+        "-ngl",
+        "999",
+        "-fitt",
+        "2048",
+        "-t",
+        "8",
+        "--seed",
+        "17",
+        "--jinja",
+        "--reasoning",
+        "off",
+        "--reasoning-format",
+        "deepseek",
+        "--no-webui"
+      ],
+      "template_policy": "native reasoning off; Granite model card temperature/top_p; top_k/min_p/repeat_penalty explicitly disabled for pure nucleus sampling",
+      "generator_commit": "414a5da2cd4947a0bb62cc852840c9cabeec138b",
+      "plan_sha256": "035040a448a78e8a1776353d53b4f7c9c78d5dfa03c8b6c53c5821eb8c51e179",
+      "batches": [
+        {
+          "seed": 501,
+          "budget": 256,
+          "count": 254,
+          "raw_sha256": "9b8976a35d56ecd1fd0a62420c5892259b82a98edb5f056f941e19021356a8c3"
+        },
+        {
+          "seed": 502,
+          "budget": 256,
+          "count": 254,
+          "raw_sha256": "440c1bd78f02f04138c7088bfb49ca1ac5b32d2d601a278ab36cb4bac6171019"
+        }
+      ]
+    },
+    {
+      "campaign": 4,
+      "model": "smollm3-3b-q2k",
+      "artifact": {
+        "filename": "SmolLM3-3B-Q2_K.gguf",
+        "bytes": 1253301792,
+        "sha256": "26977b1263e831256a30b4f4fe00ffb08fce73699d07544dd146f15c908d53e2"
+      },
+      "source_artifact": {
+        "filename": "SmolLM3-bf16.gguf",
+        "bytes": 6158339616,
+        "sha256": "68f119f4b246498b39c5290e2c69f7992528b01d835e0941958d3d10fc4c838b"
+      },
+      "sampling": {
+        "temperature": 0.6,
+        "top_p": 0.95,
+        "top_k": 0,
+        "min_p": 0.0,
+        "repeat_penalty": 1.0
+      },
+      "runtime_commit": "5f4d222898ddb12cf581edf1b7e841d80e0b2e17",
+      "runtime_command": [
+        "llama-server",
+        "-m",
+        "SmolLM3-3B-Q2_K.gguf",
+        "--alias",
+        "model",
+        "--host",
+        "127.0.0.1",
+        "--port",
+        "18379",
+        "-c",
+        "4096",
+        "-np",
+        "1",
+        "-ngl",
+        "999",
+        "-fitt",
+        "2048",
+        "-t",
+        "8",
+        "--seed",
+        "17",
+        "--jinja",
+        "--reasoning",
+        "off",
+        "--reasoning-format",
+        "deepseek",
+        "--no-webui"
+      ],
+      "template_policy": "native reasoning off; SmolLM3 model card temperature/top_p; top_k/min_p/repeat_penalty explicitly disabled for pure nucleus sampling",
+      "generator_commit": "414a5da2cd4947a0bb62cc852840c9cabeec138b",
+      "plan_sha256": "6c52d2876f7bf1a56827c163ba938281f471c74ecd480fde739476edc7b62e5a",
+      "batches": [
+        {
+          "seed": 501,
+          "budget": 256,
+          "count": 254,
+          "raw_sha256": "ad1f5268e75b417f58a86d66e1d4378f69ab2c498405d8a7d6341a08ae8999fb"
+        },
+        {
+          "seed": 502,
+          "budget": 256,
+          "count": 254,
+          "raw_sha256": "e636ac86090ae3b0b52d49d0785ca268d245b690c529fd992416e1fbc9962fe5"
+        }
+      ]
+    },
+    {
+      "campaign": 5,
+      "model": "phi4mini-instruct-q2k",
+      "artifact": {
+        "filename": "Phi4Mini-Q2_K.gguf",
+        "bytes": 1733753664,
+        "sha256": "8ad94697b42db1de724df8492776cf709883e1131e99b8329b685b3fe1855b39"
+      },
+      "source_artifact": {
+        "filename": "phi4-mini-bf16.gguf",
+        "bytes": 7680694080,
+        "sha256": "4a967298f4692c596f78c3e19d0f0e6f69f56e353e61389d738bb41b42d784a1"
+      },
+      "sampling": {
+        "temperature": 0.0,
+        "top_p": 1.0,
+        "top_k": 0,
+        "min_p": 0.0,
+        "repeat_penalty": 1.0
+      },
+      "runtime_commit": "5f4d222898ddb12cf581edf1b7e841d80e0b2e17",
+      "runtime_command": [
+        "llama-server",
+        "-m",
+        "Phi4Mini-Q2_K.gguf",
+        "--alias",
+        "model",
+        "--host",
+        "127.0.0.1",
+        "--port",
+        "18379",
+        "-c",
+        "4096",
+        "-np",
+        "1",
+        "-ngl",
+        "999",
+        "-fitt",
+        "2048",
+        "-t",
+        "8",
+        "--seed",
+        "17",
+        "--jinja",
+        "--no-webui",
+        "--reasoning-format",
+        "none"
+      ],
+      "template_policy": "native Phi template; no thinking switch; greedy decoding per official model card example",
+      "generator_commit": "414a5da2cd4947a0bb62cc852840c9cabeec138b",
+      "plan_sha256": "cb66730c8ad5408a8689609f262154d882483f20d1fe45991a7ffecf4d6de5bb",
+      "batches": [
+        {
+          "seed": 501,
+          "budget": 256,
+          "count": 254,
+          "raw_sha256": "48aedbd01d57a7b5cb93b408b67109f00edcd2e45a561de414eb6e52692768b7"
+        },
+        {
+          "seed": 502,
+          "budget": 256,
+          "count": 254,
+          "raw_sha256": "66c2d62385b44bd1f035e475c74fcfd8c9054526dbdad68e6adc713469b16dbe"
+        }
+      ]
+    }
+  ],
+  "scope": "Generated tasks and response text, not full HTTP logs. Original local logs retained. No host paths, user identifiers or credentials exported."
+}

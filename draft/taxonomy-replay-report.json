@@ -1,0 +1,1919 @@
+{
+  "version": "response-taxonomy-draft-v0.1",
+  "groups": {
+    "decision": [
+      "false_extraction",
+      "false_abstention",
+      "wrong_value",
+      "unresolved_decision"
+    ],
+    "format": [
+      "contract_violation",
+      "code_fence",
+      "markdown_emphasis",
+      "inline_code",
+      "noncanonical_abstention",
+      "json_abstention",
+      "abstention_case",
+      "markdown_wrapper",
+      "invalid_json",
+      "duplicate_json_keys",
+      "missing_keys",
+      "extra_keys",
+      "wrong_answer_type",
+      "wrong_quote_type",
+      "noncanonical_number",
+      "bare_numeric_answer",
+      "noncanonical_label",
+      "extra_text",
+      "representation_deviation",
+      "multiple_declarations",
+      "malformed_declaration",
+      "nonterminal_declaration"
+    ],
+    "evidence": [
+      "missing_quote",
+      "fabricated_quote",
+      "irrelevant_quote",
+      "quote_answer_mismatch",
+      "conflicting_declarations"
+    ],
+    "generation": [
+      "length_limit",
+      "empty_output",
+      "repetition_heuristic",
+      "finish_reason_missing",
+      "other_finish_reason",
+      "reported_tokens_over_cap"
+    ],
+    "evaluator": [
+      "reference_coverage_gap",
+      "semantic_recognition_gap"
+    ]
+  },
+  "extraction": {
+    "qwen3-4b-bf16": {
+      "raw_sha256": "ac2d0f4de2a2f68984080e328fc430cb7befbd608e8ef9989c6326ff668d1036",
+      "overall": {
+        "n": 32,
+        "attempted": 32,
+        "semantic_correct": 23,
+        "joint_success": 16,
+        "format_compliant": 25,
+        "buckets": {
+          "correct/compliant": 16,
+          "correct/noncompliant": 7,
+          "not_run": 0,
+          "wrong/compliant": 9
+        },
+        "flag_counts": {
+          "contract_violation": 7,
+          "false_extraction": 9,
+          "irrelevant_quote": 9,
+          "json_abstention": 7,
+          "noncanonical_abstention": 7,
+          "reference_coverage_gap": 2,
+          "semantic_recognition_gap": 7
+        },
+        "group_counts": {
+          "decision": 9,
+          "evaluator": 9,
+          "evidence": 9,
+          "format": 7
+        },
+        "score_changes": {
+          "joint_changed": 2,
+          "semantic_changed": 7
+        },
+        "cost_by_flag": {
+          "false_extraction": {
+            "attempts": 9,
+            "tokens": 254,
+            "time_s": 2.4843798433430493
+          },
+          "irrelevant_quote": {
+            "attempts": 9,
+            "tokens": 254,
+            "time_s": 2.4843798433430493
+          },
+          "joint_failure": {
+            "attempts": 16,
+            "tokens": 459,
+            "time_s": 4.4895136365666986
+          },
+          "reference_coverage_gap": {
+            "attempts": 2,
+            "tokens": 62,
+            "time_s": 0.6072310139425099
+          },
+          "contract_violation": {
+            "attempts": 7,
+            "tokens": 205,
+            "time_s": 2.0051337932236493
+          },
+          "json_abstention": {
+            "attempts": 7,
+            "tokens": 205,
+            "time_s": 2.0051337932236493
+          },
+          "noncanonical_abstention": {
+            "attempts": 7,
+            "tokens": 205,
+            "time_s": 2.0051337932236493
+          },
+          "semantic_recognition_gap": {
+            "attempts": 7,
+            "tokens": 205,
+            "time_s": 2.0051337932236493
+          }
+        }
+      },
+      "by_family": {
+        "commitment": {
+          "n": 4,
+          "attempted": 4,
+          "semantic_correct": 3,
+          "joint_success": 2,
+          "format_compliant": 3,
+          "buckets": {
+            "correct/compliant": 2,
+            "correct/noncompliant": 1,
+            "not_run": 0,
+            "wrong/compliant": 1
+          },
+          "flag_counts": {
+            "contract_violation": 1,
+            "false_extraction": 1,
+            "irrelevant_quote": 1,
+            "json_abstention": 1,
+            "noncanonical_abstention": 1,
+            "semantic_recognition_gap": 1
+          },
+          "group_counts": {
+            "decision": 1,
+            "evaluator": 1,
+            "evidence": 1,
+            "format": 1
+          },
+          "score_changes": {
+            "semantic_changed": 1
+          },
+          "cost_by_flag": {
+            "false_extraction": {
+              "attempts": 1,
+              "tokens": 34,
+              "time_s": 0.3301565698347986
+            },
+            "irrelevant_quote": {
+              "attempts": 1,
+              "tokens": 34,
+              "time_s": 0.3301565698347986
+            },
+            "joint_failure": {
+              "attempts": 2,
+              "tokens": 67,
+              "time_s": 0.6525766309350729
+            },
+            "contract_violation": {
+              "attempts": 1,
+              "tokens": 33,
+              "time_s": 0.3224200611002743
+            },
+            "json_abstention": {
+              "attempts": 1,
+              "tokens": 33,
+              "time_s": 0.3224200611002743
+            },
+            "noncanonical_abstention": {
+              "attempts": 1,
+              "tokens": 33,
+              "time_s": 0.3224200611002743
+            },
+            "semantic_recognition_gap": {
+              "attempts": 1,
+              "tokens": 33,
+              "time_s": 0.3224200611002743
+            }
+          }
+        },
+        "conditional": {
+          "n": 4,
+          "attempted": 4,
+          "semantic_correct": 3,
+          "joint_success": 2,
+          "format_compliant": 3,
+          "buckets": {
+            "correct/compliant": 2,
+            "correct/noncompliant": 1,
+            "not_run": 0,
+            "wrong/compliant": 1
+          },
+          "flag_counts": {
+            "contract_violation": 1,
+            "false_extraction": 1,
+            "irrelevant_quote": 1,
+            "json_abstention": 1,
+            "noncanonical_abstention": 1,
+            "semantic_recognition_gap": 1
+          },
+          "group_counts": {
+            "decision": 1,
+            "evaluator": 1,
+            "evidence": 1,
+            "format": 1
+          },
+          "score_changes": {
+            "semantic_changed": 1
+          },
+          "cost_by_flag": {
+            "false_extraction": {
+              "attempts": 1,
+              "tokens": 37,
+              "time_s": 0.3592937127687037
+            },
+            "irrelevant_quote": {
+              "attempts": 1,
+              "tokens": 37,
+              "time_s": 0.3592937127687037
+            },
+            "joint_failure": {
+              "attempts": 2,
+              "tokens": 72,
+              "time_s": 0.7023962708190084
+            },
+            "contract_violation": {
+              "attempts": 1,
+              "tokens": 35,
+              "time_s": 0.34310255805030465
+            },
+            "json_abstention": {
+              "attempts": 1,
+              "tokens": 35,
+              "time_s": 0.34310255805030465
+            },
+            "noncanonical_abstention": {
+              "attempts": 1,
+              "tokens": 35,
+              "time_s": 0.34310255805030465
+            },
+            "semantic_recognition_gap": {
+              "attempts": 1,
+              "tokens": 35,
+              "time_s": 0.34310255805030465
+            }
+          }
+        },
+        "conflict": {
+          "n": 4,
+          "attempted": 4,
+          "semantic_correct": 4,
+          "joint_success": 2,
+          "format_compliant": 2,
+          "buckets": {
+            "correct/compliant": 2,
+            "correct/noncompliant": 2,
+            "not_run": 0
+          },
+          "flag_counts": {
+            "contract_violation": 2,
+            "json_abstention": 2,
+            "noncanonical_abstention": 2,
+            "semantic_recognition_gap": 2
+          },
+          "group_counts": {
+            "evaluator": 2,
+            "format": 2
+          },
+          "score_changes": {
+            "semantic_changed": 2
+          },
+          "cost_by_flag": {
+            "contract_violation": {
+              "attempts": 2,
+              "tokens": 46,
+              "time_s": 0.45093582291156054
+            },
+            "json_abstention": {
+              "attempts": 2,
+              "tokens": 46,
+              "time_s": 0.45093582291156054
+            },
+            "noncanonical_abstention": {
+              "attempts": 2,
+              "tokens": 46,
+              "time_s": 0.45093582291156054
+            },
+            "semantic_recognition_gap": {
+              "attempts": 2,
+              "tokens": 46,
+              "time_s": 0.45093582291156054
+            },
+            "joint_failure": {
+              "attempts": 2,
+              "tokens": 46,
+              "time_s": 0.45093582291156054
+            }
+          }
+        },
+        "correction": {
+          "n": 4,
+          "attempted": 4,
+          "semantic_correct": 2,
+          "joint_success": 2,
+          "format_compliant": 4,
+          "buckets": {
+            "correct/compliant": 2,
+            "not_run": 0,
+            "wrong/compliant": 2
+          },
+          "flag_counts": {
+            "false_extraction": 2,
+            "irrelevant_quote": 2
+          },
+          "group_counts": {
+            "decision": 2,
+            "evidence": 2
+          },
+          "score_changes": {},
+          "cost_by_flag": {
+            "false_extraction": {
+              "attempts": 2,
+              "tokens": 48,
+              "time_s": 0.4733883743174374
+            },
+            "irrelevant_quote": {
+              "attempts": 2,
+              "tokens": 48,
+              "time_s": 0.4733883743174374
+            },
+            "joint_failure": {
+              "attempts": 2,
+              "tokens": 48,
+              "time_s": 0.4733883743174374
+            }
+          }
+        },
+        "embedded_instruction": {
+          "n": 4,
+          "attempted": 4,
+          "semantic_correct": 4,
+          "joint_success": 2,
+          "format_compliant": 2,
+          "buckets": {
+            "correct/compliant": 2,
+            "correct/noncompliant": 2,
+            "not_run": 0
+          },
+          "flag_counts": {
+            "contract_violation": 2,
+            "json_abstention": 2,
+            "noncanonical_abstention": 2,
+            "reference_coverage_gap": 2,
+            "semantic_recognition_gap": 2
+          },
+          "group_counts": {
+            "evaluator": 4,
+            "format": 2
+          },
+          "score_changes": {
+            "joint_changed": 2,
+            "semantic_changed": 2
+          },
+          "cost_by_flag": {
+            "reference_coverage_gap": {
+              "attempts": 2,
+              "tokens": 62,
+              "time_s": 0.6072310139425099
+            },
+            "contract_violation": {
+              "attempts": 2,
+              "tokens": 60,
+              "time_s": 0.5859603201970458
+            },
+            "json_abstention": {
+              "attempts": 2,
+              "tokens": 60,
+              "time_s": 0.5859603201970458
+            },
+            "noncanonical_abstention": {
+              "attempts": 2,
+              "tokens": 60,
+              "time_s": 0.5859603201970458
+            },
+            "semantic_recognition_gap": {
+              "attempts": 2,
+              "tokens": 60,
+              "time_s": 0.5859603201970458
+            },
+            "joint_failure": {
+              "attempts": 2,
+              "tokens": 60,
+              "time_s": 0.5859603201970458
+            }
+          }
+        },
+        "quoted_example": {
+          "n": 4,
+          "attempted": 4,
+          "semantic_correct": 2,
+          "joint_success": 2,
+          "format_compliant": 4,
+          "buckets": {
+            "correct/compliant": 2,
+            "not_run": 0,
+            "wrong/compliant": 2
+          },
+          "flag_counts": {
+            "false_extraction": 2,
+            "irrelevant_quote": 2
+          },
+          "group_counts": {
+            "decision": 2,
+            "evidence": 2
+          },
+          "score_changes": {},
+          "cost_by_flag": {
+            "false_extraction": {
+              "attempts": 2,
+              "tokens": 40,
+              "time_s": 0.39164968207478523
+            },
+            "irrelevant_quote": {
+              "attempts": 2,
+              "tokens": 40,
+              "time_s": 0.39164968207478523
+            },
+            "joint_failure": {
+              "attempts": 2,
+              "tokens": 40,
+              "time_s": 0.39164968207478523
+            }
+          }
+        },
+        "repeated_answer": {
+          "n": 4,
+          "attempted": 4,
+          "semantic_correct": 3,
+          "joint_success": 2,
+          "format_compliant": 3,
+          "buckets": {
+            "correct/compliant": 2,
+            "correct/noncompliant": 1,
+            "not_run": 0,
+            "wrong/compliant": 1
+          },
+          "flag_counts": {
+            "contract_violation": 1,
+            "false_extraction": 1,
+            "irrelevant_quote": 1,
+            "json_abstention": 1,
+            "noncanonical_abstention": 1,
+            "semantic_recognition_gap": 1
+          },
+          "group_counts": {
+            "decision": 1,
+            "evaluator": 1,
+            "evidence": 1,
+            "format": 1
+          },
+          "score_changes": {
+            "semantic_changed": 1
+          },
+          "cost_by_flag": {
+            "contract_violation": {
+              "attempts": 1,
+              "tokens": 31,
+              "time_s": 0.30271503096446395
+            },
+            "json_abstention": {
+              "attempts": 1,
+              "tokens": 31,
+              "time_s": 0.30271503096446395
+            },
+            "noncanonical_abstention": {
+              "attempts": 1,
+              "tokens": 31,
+              "time_s": 0.30271503096446395
+            },
+            "semantic_recognition_gap": {
+              "attempts": 1,
+              "tokens": 31,
+              "time_s": 0.30271503096446395
+            },
+            "joint_failure": {
+              "attempts": 2,
+              "tokens": 72,
+              "time_s": 0.6997992116957903
+            },
+            "false_extraction": {
+              "attempts": 1,
+              "tokens": 41,
+              "time_s": 0.39708418073132634
+            },
+            "irrelevant_quote": {
+              "attempts": 1,
+              "tokens": 41,
+              "time_s": 0.39708418073132634
+            }
+          }
+        },
+        "unfinished": {
+          "n": 4,
+          "attempted": 4,
+          "semantic_correct": 2,
+          "joint_success": 2,
+          "format_compliant": 4,
+          "buckets": {
+            "correct/compliant": 2,
+            "not_run": 0,
+            "wrong/compliant": 2
+          },
+          "flag_counts": {
+            "false_extraction": 2,
+            "irrelevant_quote": 2
+          },
+          "group_counts": {
+            "decision": 2,
+            "evidence": 2
+          },
+          "score_changes": {},
+          "cost_by_flag": {
+            "false_extraction": {
+              "attempts": 2,
+              "tokens": 54,
+              "time_s": 0.532807323615998
+            },
+            "irrelevant_quote": {
+              "attempts": 2,
+              "tokens": 54,
+              "time_s": 0.532807323615998
+            },
+            "joint_failure": {
+              "attempts": 2,
+              "tokens": 54,
+              "time_s": 0.532807323615998
+            }
+          }
+        }
+      },
+      "by_polarity": {
+        "answerable": {
+          "n": 16,
+          "attempted": 16,
+          "semantic_correct": 16,
+          "joint_success": 16,
+          "format_compliant": 16,
+          "buckets": {
+            "correct/compliant": 16,
+            "not_run": 0
+          },
+          "flag_counts": {
+            "reference_coverage_gap": 2
+          },
+          "group_counts": {
+            "evaluator": 2
+          },
+          "score_changes": {
+            "joint_changed": 2
+          },
+          "cost_by_flag": {
+            "reference_coverage_gap": {
+              "attempts": 2,
+              "tokens": 62,
+              "time_s": 0.6072310139425099
+            }
+          }
+        },
+        "unanswerable": {
+          "n": 16,
+          "attempted": 16,
+          "semantic_correct": 7,
+          "joint_success": 0,
+          "format_compliant": 9,
+          "buckets": {
+            "correct/noncompliant": 7,
+            "not_run": 0,
+            "wrong/compliant": 9
+          },
+          "flag_counts": {
+            "contract_violation": 7,
+            "false_extraction": 9,
+            "irrelevant_quote": 9,
+            "json_abstention": 7,
+            "noncanonical_abstention": 7,
+            "semantic_recognition_gap": 7
+          },
+          "group_counts": {
+            "decision": 9,
+            "evaluator": 7,
+            "evidence": 9,
+            "format": 7
+          },
+          "score_changes": {
+            "semantic_changed": 7
+          },
+          "cost_by_flag": {
+            "false_extraction": {
+              "attempts": 9,
+              "tokens": 254,
+              "time_s": 2.4843798433430493
+            },
+            "irrelevant_quote": {
+              "attempts": 9,
+              "tokens": 254,
+              "time_s": 2.4843798433430493
+            },
+            "joint_failure": {
+              "attempts": 16,
+              "tokens": 459,
+              "time_s": 4.4895136365666986
+            },
+            "contract_violation": {
+              "attempts": 7,
+              "tokens": 205,
+              "time_s": 2.0051337932236493
+            },
+            "json_abstention": {
+              "attempts": 7,
+              "tokens": 205,
+              "time_s": 2.0051337932236493
+            },
+            "noncanonical_abstention": {
+              "attempts": 7,
+              "tokens": 205,
+              "time_s": 2.0051337932236493
+            },
+            "semantic_recognition_gap": {
+              "attempts": 7,
+              "tokens": 205,
+              "time_s": 2.0051337932236493
+            }
+          }
+        }
+      }
+    },
+    "qwen38-27b-q4km": {
+      "raw_sha256": "6afed944422cbb38662537781f9262747ece1a0b16509a4c85de72733027d432",
+      "overall": {
+        "n": 32,
+        "attempted": 32,
+        "semantic_correct": 31,
+        "joint_success": 16,
+        "format_compliant": 17,
+        "buckets": {
+          "correct/compliant": 16,
+          "correct/noncompliant": 15,
+          "not_run": 0,
+          "wrong/compliant": 1
+        },
+        "flag_counts": {
+          "contract_violation": 15,
+          "false_extraction": 1,
+          "irrelevant_quote": 1,
+          "json_abstention": 15,
+          "noncanonical_abstention": 15,
+          "semantic_recognition_gap": 15
+        },
+        "group_counts": {
+          "decision": 1,
+          "evaluator": 15,
+          "evidence": 1,
+          "format": 15
+        },
+        "score_changes": {
+          "semantic_changed": 15
+        },
+        "cost_by_flag": {
+          "contract_violation": {
+            "attempts": 15,
+            "tokens": 385,
+            "time_s": 10.36527402466163
+          },
+          "json_abstention": {
+            "attempts": 15,
+            "tokens": 385,
+            "time_s": 10.36527402466163
+          },
+          "noncanonical_abstention": {
+            "attempts": 15,
+            "tokens": 385,
+            "time_s": 10.36527402466163
+          },
+          "semantic_recognition_gap": {
+            "attempts": 15,
+            "tokens": 385,
+            "time_s": 10.36527402466163
+          },
+          "joint_failure": {
+            "attempts": 16,
+            "tokens": 416,
+            "time_s": 11.164447771850973
+          },
+          "false_extraction": {
+            "attempts": 1,
+            "tokens": 31,
+            "time_s": 0.799173747189343
+          },
+          "irrelevant_quote": {
+            "attempts": 1,
+            "tokens": 31,
+            "time_s": 0.799173747189343
+          }
+        }
+      },
+      "by_family": {
+        "commitment": {
+          "n": 4,
+          "attempted": 4,
+          "semantic_correct": 3,
+          "joint_success": 2,
+          "format_compliant": 3,
+          "buckets": {
+            "correct/compliant": 2,
+            "correct/noncompliant": 1,
+            "not_run": 0,
+            "wrong/compliant": 1
+          },
+          "flag_counts": {
+            "contract_violation": 1,
+            "false_extraction": 1,
+            "irrelevant_quote": 1,
+            "json_abstention": 1,
+            "noncanonical_abstention": 1,
+            "semantic_recognition_gap": 1
+          },
+          "group_counts": {
+            "decision": 1,
+            "evaluator": 1,
+            "evidence": 1,
+            "format": 1
+          },
+          "score_changes": {
+            "semantic_changed": 1
+          },
+          "cost_by_flag": {
+            "false_extraction": {
+              "attempts": 1,
+              "tokens": 31,
+              "time_s": 0.799173747189343
+            },
+            "irrelevant_quote": {
+              "attempts": 1,
+              "tokens": 31,
+              "time_s": 0.799173747189343
+            },
+            "joint_failure": {
+              "attempts": 2,
+              "tokens": 67,
+              "time_s": 1.7082231943495572
+            },
+            "contract_violation": {
+              "attempts": 1,
+              "tokens": 36,
+              "time_s": 0.9090494471602142
+            },
+            "json_abstention": {
+              "attempts": 1,
+              "tokens": 36,
+              "time_s": 0.9090494471602142
+            },
+            "noncanonical_abstention": {
+              "attempts": 1,
+              "tokens": 36,
+              "time_s": 0.9090494471602142
+            },
+            "semantic_recognition_gap": {
+              "attempts": 1,
+              "tokens": 36,
+              "time_s": 0.9090494471602142
+            }
+          }
+        },
+        "conditional": {
+          "n": 4,
+          "attempted": 4,
+          "semantic_correct": 4,
+          "joint_success": 2,
+          "format_compliant": 2,
+          "buckets": {
+            "correct/compliant": 2,
+            "correct/noncompliant": 2,
+            "not_run": 0
+          },
+          "flag_counts": {
+            "contract_violation": 2,
+            "json_abstention": 2,
+            "noncanonical_abstention": 2,
+            "semantic_recognition_gap": 2
+          },
+          "group_counts": {
+            "evaluator": 2,
+            "format": 2
+          },
+          "score_changes": {
+            "semantic_changed": 2
+          },
+          "cost_by_flag": {
+            "contract_violation": {
+              "attempts": 2,
+              "tokens": 67,
+              "time_s": 1.7079808730632067
+            },
+            "json_abstention": {
+              "attempts": 2,
+              "tokens": 67,
+              "time_s": 1.7079808730632067
+            },
+            "noncanonical_abstention": {
+              "attempts": 2,
+              "tokens": 67,
+              "time_s": 1.7079808730632067
+            },
+            "semantic_recognition_gap": {
+              "attempts": 2,
+              "tokens": 67,
+              "time_s": 1.7079808730632067
+            },
+            "joint_failure": {
+              "attempts": 2,
+              "tokens": 67,
+              "time_s": 1.7079808730632067
+            }
+          }
+        },
+        "conflict": {
+          "n": 4,
+          "attempted": 4,
+          "semantic_correct": 4,
+          "joint_success": 2,
+          "format_compliant": 2,
+          "buckets": {
+            "correct/compliant": 2,
+            "correct/noncompliant": 2,
+            "not_run": 0
+          },
+          "flag_counts": {
+            "contract_violation": 2,
+            "json_abstention": 2,
+            "noncanonical_abstention": 2,
+            "semantic_recognition_gap": 2
+          },
+          "group_counts": {
+            "evaluator": 2,
+            "format": 2
+          },
+          "score_changes": {
+            "semantic_changed": 2
+          },
+          "cost_by_flag": {
+            "contract_violation": {
+              "attempts": 2,
+              "tokens": 40,
+              "time_s": 1.1477265707217157
+            },
+            "json_abstention": {
+              "attempts": 2,
+              "tokens": 40,
+              "time_s": 1.1477265707217157
+            },
+            "noncanonical_abstention": {
+              "attempts": 2,
+              "tokens": 40,
+              "time_s": 1.1477265707217157
+            },
+            "semantic_recognition_gap": {
+              "attempts": 2,
+              "tokens": 40,
+              "time_s": 1.1477265707217157
+            },
+            "joint_failure": {
+              "attempts": 2,
+              "tokens": 40,
+              "time_s": 1.1477265707217157
+            }
+          }
+        },
+        "correction": {
+          "n": 4,
+          "attempted": 4,
+          "semantic_correct": 4,
+          "joint_success": 2,
+          "format_compliant": 2,
+          "buckets": {
+            "correct/compliant": 2,
+            "correct/noncompliant": 2,
+            "not_run": 0
+          },
+          "flag_counts": {
+            "contract_violation": 2,
+            "json_abstention": 2,
+            "noncanonical_abstention": 2,
+            "semantic_recognition_gap": 2
+          },
+          "group_counts": {
+            "evaluator": 2,
+            "format": 2
+          },
+          "score_changes": {
+            "semantic_changed": 2
+          },
+          "cost_by_flag": {
+            "contract_violation": {
+              "attempts": 2,
+              "tokens": 48,
+              "time_s": 1.3101607491262257
+            },
+            "json_abstention": {
+              "attempts": 2,
+              "tokens": 48,
+              "time_s": 1.3101607491262257
+            },
+            "noncanonical_abstention": {
+              "attempts": 2,
+              "tokens": 48,
+              "time_s": 1.3101607491262257
+            },
+            "semantic_recognition_gap": {
+              "attempts": 2,
+              "tokens": 48,
+              "time_s": 1.3101607491262257
+            },
+            "joint_failure": {
+              "attempts": 2,
+              "tokens": 48,
+              "time_s": 1.3101607491262257
+            }
+          }
+        },
+        "embedded_instruction": {
+          "n": 4,
+          "attempted": 4,
+          "semantic_correct": 4,
+          "joint_success": 2,
+          "format_compliant": 2,
+          "buckets": {
+            "correct/compliant": 2,
+            "correct/noncompliant": 2,
+            "not_run": 0
+          },
+          "flag_counts": {
+            "contract_violation": 2,
+            "json_abstention": 2,
+            "noncanonical_abstention": 2,
+            "semantic_recognition_gap": 2
+          },
+          "group_counts": {
+            "evaluator": 2,
+            "format": 2
+          },
+          "score_changes": {
+            "semantic_changed": 2
+          },
+          "cost_by_flag": {
+            "contract_violation": {
+              "attempts": 2,
+              "tokens": 54,
+              "time_s": 1.4378395769745111
+            },
+            "json_abstention": {
+              "attempts": 2,
+              "tokens": 54,
+              "time_s": 1.4378395769745111
+            },
+            "noncanonical_abstention": {
+              "attempts": 2,
+              "tokens": 54,
+              "time_s": 1.4378395769745111
+            },
+            "semantic_recognition_gap": {
+              "attempts": 2,
+              "tokens": 54,
+              "time_s": 1.4378395769745111
+            },
+            "joint_failure": {
+              "attempts": 2,
+              "tokens": 54,
+              "time_s": 1.4378395769745111
+            }
+          }
+        },
+        "quoted_example": {
+          "n": 4,
+          "attempted": 4,
+          "semantic_correct": 4,
+          "joint_success": 2,
+          "format_compliant": 2,
+          "buckets": {
+            "correct/compliant": 2,
+            "correct/noncompliant": 2,
+            "not_run": 0
+          },
+          "flag_counts": {
+            "contract_violation": 2,
+            "json_abstention": 2,
+            "noncanonical_abstention": 2,
+            "semantic_recognition_gap": 2
+          },
+          "group_counts": {
+            "evaluator": 2,
+            "format": 2
+          },
+          "score_changes": {
+            "semantic_changed": 2
+          },
+          "cost_by_flag": {
+            "contract_violation": {
+              "attempts": 2,
+              "tokens": 52,
+              "time_s": 1.3965893420390785
+            },
+            "json_abstention": {
+              "attempts": 2,
+              "tokens": 52,
+              "time_s": 1.3965893420390785
+            },
+            "noncanonical_abstention": {
+              "attempts": 2,
+              "tokens": 52,
+              "time_s": 1.3965893420390785
+            },
+            "semantic_recognition_gap": {
+              "attempts": 2,
+              "tokens": 52,
+              "time_s": 1.3965893420390785
+            },
+            "joint_failure": {
+              "attempts": 2,
+              "tokens": 52,
+              "time_s": 1.3965893420390785
+            }
+          }
+        },
+        "repeated_answer": {
+          "n": 4,
+          "attempted": 4,
+          "semantic_correct": 4,
+          "joint_success": 2,
+          "format_compliant": 2,
+          "buckets": {
+            "correct/compliant": 2,
+            "correct/noncompliant": 2,
+            "not_run": 0
+          },
+          "flag_counts": {
+            "contract_violation": 2,
+            "json_abstention": 2,
+            "noncanonical_abstention": 2,
+            "semantic_recognition_gap": 2
+          },
+          "group_counts": {
+            "evaluator": 2,
+            "format": 2
+          },
+          "score_changes": {
+            "semantic_changed": 2
+          },
+          "cost_by_flag": {
+            "contract_violation": {
+              "attempts": 2,
+              "tokens": 36,
+              "time_s": 1.0591907845810056
+            },
+            "json_abstention": {
+              "attempts": 2,
+              "tokens": 36,
+              "time_s": 1.0591907845810056
+            },
+            "noncanonical_abstention": {
+              "attempts": 2,
+              "tokens": 36,
+              "time_s": 1.0591907845810056
+            },
+            "semantic_recognition_gap": {
+              "attempts": 2,
+              "tokens": 36,
+              "time_s": 1.0591907845810056
+            },
+            "joint_failure": {
+              "attempts": 2,
+              "tokens": 36,
+              "time_s": 1.0591907845810056
+            }
+          }
+        },
+        "unfinished": {
+          "n": 4,
+          "attempted": 4,
+          "semantic_correct": 4,
+          "joint_success": 2,
+          "format_compliant": 2,
+          "buckets": {
+            "correct/compliant": 2,
+            "correct/noncompliant": 2,
+            "not_run": 0
+          },
+          "flag_counts": {
+            "contract_violation": 2,
+            "json_abstention": 2,
+            "noncanonical_abstention": 2,
+            "semantic_recognition_gap": 2
+          },
+          "group_counts": {
+            "evaluator": 2,
+            "format": 2
+          },
+          "score_changes": {
+            "semantic_changed": 2
+          },
+          "cost_by_flag": {
+            "contract_violation": {
+              "attempts": 2,
+              "tokens": 52,
+              "time_s": 1.396736680995673
+            },
+            "json_abstention": {
+              "attempts": 2,
+              "tokens": 52,
+              "time_s": 1.396736680995673
+            },
+            "noncanonical_abstention": {
+              "attempts": 2,
+              "tokens": 52,
+              "time_s": 1.396736680995673
+            },
+            "semantic_recognition_gap": {
+              "attempts": 2,
+              "tokens": 52,
+              "time_s": 1.396736680995673
+            },
+            "joint_failure": {
+              "attempts": 2,
+              "tokens": 52,
+              "time_s": 1.396736680995673
+            }
+          }
+        }
+      },
+      "by_polarity": {
+        "answerable": {
+          "n": 16,
+          "attempted": 16,
+          "semantic_correct": 16,
+          "joint_success": 16,
+          "format_compliant": 16,
+          "buckets": {
+            "correct/compliant": 16,
+            "not_run": 0
+          },
+          "flag_counts": {},
+          "group_counts": {},
+          "score_changes": {},
+          "cost_by_flag": {}
+        },
+        "unanswerable": {
+          "n": 16,
+          "attempted": 16,
+          "semantic_correct": 15,
+          "joint_success": 0,
+          "format_compliant": 1,
+          "buckets": {
+            "correct/noncompliant": 15,
+            "not_run": 0,
+            "wrong/compliant": 1
+          },
+          "flag_counts": {
+            "contract_violation": 15,
+            "false_extraction": 1,
+            "irrelevant_quote": 1,
+            "json_abstention": 15,
+            "noncanonical_abstention": 15,
+            "semantic_recognition_gap": 15
+          },
+          "group_counts": {
+            "decision": 1,
+            "evaluator": 15,
+            "evidence": 1,
+            "format": 15
+          },
+          "score_changes": {
+            "semantic_changed": 15
+          },
+          "cost_by_flag": {
+            "contract_violation": {
+              "attempts": 15,
+              "tokens": 385,
+              "time_s": 10.36527402466163
+            },
+            "json_abstention": {
+              "attempts": 15,
+              "tokens": 385,
+              "time_s": 10.36527402466163
+            },
+            "noncanonical_abstention": {
+              "attempts": 15,
+              "tokens": 385,
+              "time_s": 10.36527402466163
+            },
+            "semantic_recognition_gap": {
+              "attempts": 15,
+              "tokens": 385,
+              "time_s": 10.36527402466163
+            },
+            "joint_failure": {
+              "attempts": 16,
+              "tokens": 416,
+              "time_s": 11.164447771850973
+            },
+            "false_extraction": {
+              "attempts": 1,
+              "tokens": 31,
+              "time_s": 0.799173747189343
+            },
+            "irrelevant_quote": {
+              "attempts": 1,
+              "tokens": 31,
+              "time_s": 0.799173747189343
+            }
+          }
+        }
+      }
+    }
+  },
+  "reasoning": {
+    "qwen3-4b-bf16": {
+      "raw_sha256": "7aef1fbb251b8f9f2e7135710d5f75990b791cbf58f8e29c30931f80ef30ec80",
+      "overall": {
+        "n": 40,
+        "attempted": 40,
+        "semantic_correct": 19,
+        "joint_success": 12,
+        "format_compliant": 20,
+        "buckets": {
+          "correct/compliant": 12,
+          "correct/noncompliant": 7,
+          "not_run": 0,
+          "unresolved/noncompliant": 6,
+          "wrong/compliant": 8,
+          "wrong/noncompliant": 7
+        },
+        "flag_counts": {
+          "code_fence": 3,
+          "contract_violation": 20,
+          "length_limit": 6,
+          "markdown_emphasis": 11,
+          "markdown_wrapper": 14,
+          "noncanonical_label": 20,
+          "repetition_heuristic": 1,
+          "unresolved_decision": 6,
+          "wrong_value": 15
+        },
+        "group_counts": {
+          "decision": 21,
+          "format": 20,
+          "generation": 6
+        },
+        "score_changes": {},
+        "cost_by_flag": {
+          "wrong_value": {
+            "attempts": 15,
+            "tokens": 16029,
+            "time_s": 155.22592854499817
+          },
+          "joint_failure": {
+            "attempts": 28,
+            "tokens": 34962,
+            "time_s": 338.9593530977145
+          },
+          "contract_violation": {
+            "attempts": 20,
+            "tokens": 27018,
+            "time_s": 261.91939262114465
+          },
+          "markdown_emphasis": {
+            "attempts": 11,
+            "tokens": 11056,
+            "time_s": 106.98331167455763
+          },
+          "markdown_wrapper": {
+            "attempts": 14,
+            "tokens": 14730,
+            "time_s": 142.5709859933704
+          },
+          "noncanonical_label": {
+            "attempts": 20,
+            "tokens": 27018,
+            "time_s": 261.91939262114465
+          },
+          "code_fence": {
+            "attempts": 3,
+            "tokens": 3674,
+            "time_s": 35.58767431881279
+          },
+          "length_limit": {
+            "attempts": 6,
+            "tokens": 12288,
+            "time_s": 119.34840662777424
+          },
+          "unresolved_decision": {
+            "attempts": 6,
+            "tokens": 12288,
+            "time_s": 119.34840662777424
+          },
+          "repetition_heuristic": {
+            "attempts": 1,
+            "tokens": 2048,
+            "time_s": 19.89877817686647
+          }
+        }
+      },
+      "by_family": {
+        "constraints": {
+          "n": 8,
+          "attempted": 8,
+          "semantic_correct": 0,
+          "joint_success": 0,
+          "format_compliant": 0,
+          "buckets": {
+            "not_run": 0,
+            "unresolved/noncompliant": 5,
+            "wrong/noncompliant": 3
+          },
+          "flag_counts": {
+            "code_fence": 1,
+            "contract_violation": 8,
+            "length_limit": 5,
+            "markdown_emphasis": 2,
+            "markdown_wrapper": 3,
+            "noncanonical_label": 8,
+            "repetition_heuristic": 1,
+            "unresolved_decision": 5,
+            "wrong_value": 3
+          },
+          "group_counts": {
+            "decision": 8,
+            "format": 8,
+            "generation": 5
+          },
+          "score_changes": {},
+          "cost_by_flag": {
+            "contract_violation": {
+              "attempts": 8,
+              "tokens": 14573,
+              "time_s": 141.29826526436955
+            },
+            "length_limit": {
+              "attempts": 5,
+              "tokens": 10240,
+              "time_s": 99.41480449074879
+            },
+            "noncanonical_label": {
+              "attempts": 8,
+              "tokens": 14573,
+              "time_s": 141.29826526436955
+            },
+            "unresolved_decision": {
+              "attempts": 5,
+              "tokens": 10240,
+              "time_s": 99.41480449074879
+            },
+            "joint_failure": {
+              "attempts": 8,
+              "tokens": 14573,
+              "time_s": 141.29826526436955
+            },
+            "code_fence": {
+              "attempts": 1,
+              "tokens": 1918,
+              "time_s": 18.5804455508478
+            },
+            "markdown_wrapper": {
+              "attempts": 3,
+              "tokens": 4333,
+              "time_s": 41.883460773620754
+            },
+            "wrong_value": {
+              "attempts": 3,
+              "tokens": 4333,
+              "time_s": 41.883460773620754
+            },
+            "markdown_emphasis": {
+              "attempts": 2,
+              "tokens": 2415,
+              "time_s": 23.303015222772956
+            },
+            "repetition_heuristic": {
+              "attempts": 1,
+              "tokens": 2048,
+              "time_s": 19.89877817686647
+            }
+          }
+        },
+        "ledger": {
+          "n": 8,
+          "attempted": 8,
+          "semantic_correct": 4,
+          "joint_success": 3,
+          "format_compliant": 6,
+          "buckets": {
+            "correct/compliant": 3,
+            "correct/noncompliant": 1,
+            "not_run": 0,
+            "wrong/compliant": 3,
+            "wrong/noncompliant": 1
+          },
+          "flag_counts": {
+            "contract_violation": 2,
+            "markdown_emphasis": 2,
+            "markdown_wrapper": 2,
+            "noncanonical_label": 2,
+            "wrong_value": 4
+          },
+          "group_counts": {
+            "decision": 4,
+            "format": 2
+          },
+          "score_changes": {},
+          "cost_by_flag": {
+            "wrong_value": {
+              "attempts": 4,
+              "tokens": 3615,
+              "time_s": 34.98424586094916
+            },
+            "joint_failure": {
+              "attempts": 5,
+              "tokens": 4223,
+              "time_s": 40.84378224005923
+            },
+            "contract_violation": {
+              "attempts": 2,
+              "tokens": 1293,
+              "time_s": 12.504897767677903
+            },
+            "markdown_emphasis": {
+              "attempts": 2,
+              "tokens": 1293,
+              "time_s": 12.504897767677903
+            },
+            "markdown_wrapper": {
+              "attempts": 2,
+              "tokens": 1293,
+              "time_s": 12.504897767677903
+            },
+            "noncanonical_label": {
+              "attempts": 2,
+              "tokens": 1293,
+              "time_s": 12.504897767677903
+            }
+          }
+        },
+        "relational": {
+          "n": 8,
+          "attempted": 8,
+          "semantic_correct": 6,
+          "joint_success": 5,
+          "format_compliant": 7,
+          "buckets": {
+            "correct/compliant": 5,
+            "correct/noncompliant": 1,
+            "not_run": 0,
+            "wrong/compliant": 2
+          },
+          "flag_counts": {
+            "code_fence": 1,
+            "contract_violation": 1,
+            "markdown_wrapper": 1,
+            "noncanonical_label": 1,
+            "wrong_value": 2
+          },
+          "group_counts": {
+            "decision": 2,
+            "format": 1
+          },
+          "score_changes": {},
+          "cost_by_flag": {
+            "wrong_value": {
+              "attempts": 2,
+              "tokens": 1177,
+              "time_s": 11.475443770177662
+            },
+            "joint_failure": {
+              "attempts": 3,
+              "tokens": 2370,
+              "time_s": 23.024422949180007
+            },
+            "code_fence": {
+              "attempts": 1,
+              "tokens": 1193,
+              "time_s": 11.548979179002345
+            },
+            "contract_violation": {
+              "attempts": 1,
+              "tokens": 1193,
+              "time_s": 11.548979179002345
+            },
+            "markdown_wrapper": {
+              "attempts": 1,
+              "tokens": 1193,
+              "time_s": 11.548979179002345
+            },
+            "noncanonical_label": {
+              "attempts": 1,
+              "tokens": 1193,
+              "time_s": 11.548979179002345
+            }
+          }
+        },
+        "routing": {
+          "n": 8,
+          "attempted": 8,
+          "semantic_correct": 6,
+          "joint_success": 3,
+          "format_compliant": 3,
+          "buckets": {
+            "correct/compliant": 3,
+            "correct/noncompliant": 3,
+            "not_run": 0,
+            "unresolved/noncompliant": 1,
+            "wrong/noncompliant": 1
+          },
+          "flag_counts": {
+            "code_fence": 1,
+            "contract_violation": 5,
+            "length_limit": 1,
+            "markdown_emphasis": 3,
+            "markdown_wrapper": 4,
+            "noncanonical_label": 5,
+            "unresolved_decision": 1,
+            "wrong_value": 1
+          },
+          "group_counts": {
+            "decision": 2,
+            "format": 5,
+            "generation": 1
+          },
+          "score_changes": {},
+          "cost_by_flag": {
+            "code_fence": {
+              "attempts": 1,
+              "tokens": 563,
+              "time_s": 5.458249588962644
+            },
+            "contract_violation": {
+              "attempts": 5,
+              "tokens": 5057,
+              "time_s": 49.15725686447695
+            },
+            "markdown_wrapper": {
+              "attempts": 4,
+              "tokens": 3009,
+              "time_s": 29.223654727451503
+            },
+            "noncanonical_label": {
+              "attempts": 5,
+              "tokens": 5057,
+              "time_s": 49.15725686447695
+            },
+            "wrong_value": {
+              "attempts": 1,
+              "tokens": 563,
+              "time_s": 5.458249588962644
+            },
+            "joint_failure": {
+              "attempts": 5,
+              "tokens": 5057,
+              "time_s": 49.15725686447695
+            },
+            "markdown_emphasis": {
+              "attempts": 3,
+              "tokens": 2446,
+              "time_s": 23.76540513848886
+            },
+            "length_limit": {
+              "attempts": 1,
+              "tokens": 2048,
+              "time_s": 19.933602137025446
+            },
+            "unresolved_decision": {
+              "attempts": 1,
+              "tokens": 2048,
+              "time_s": 19.933602137025446
+            }
+          }
+        },
+        "scheduling": {
+          "n": 8,
+          "attempted": 8,
+          "semantic_correct": 3,
+          "joint_success": 1,
+          "format_compliant": 4,
+          "buckets": {
+            "correct/compliant": 1,
+            "correct/noncompliant": 2,
+            "not_run": 0,
+            "wrong/compliant": 3,
+            "wrong/noncompliant": 2
+          },
+          "flag_counts": {
+            "contract_violation": 4,
+            "markdown_emphasis": 4,
+            "markdown_wrapper": 4,
+            "noncanonical_label": 4,
+            "wrong_value": 5
+          },
+          "group_counts": {
+            "decision": 5,
+            "format": 4
+          },
+          "score_changes": {},
+          "cost_by_flag": {
+            "wrong_value": {
+              "attempts": 5,
+              "tokens": 6341,
+              "time_s": 61.42452855128795
+            },
+            "joint_failure": {
+              "attempts": 7,
+              "tokens": 8739,
+              "time_s": 84.63562577962875
+            },
+            "contract_violation": {
+              "attempts": 4,
+              "tokens": 4902,
+              "time_s": 47.40999354561791
+            },
+            "markdown_emphasis": {
+              "attempts": 4,
+              "tokens": 4902,
+              "time_s": 47.40999354561791
+            },
+            "markdown_wrapper": {
+              "attempts": 4,
+              "tokens": 4902,
+              "time_s": 47.40999354561791
+            },
+            "noncanonical_label": {
+              "attempts": 4,
+              "tokens": 4902,
+              "time_s": 47.40999354561791
+            }
+          }
+        }
+      },
+      "by_polarity": {}
+    },
+    "qwen38-27b-q4km": {
+      "raw_sha256": "0ebd726b5e076198764bed634dc712baefd68b1b5d333120cce8c63ed484db9b",
+      "overall": {
+        "n": 40,
+        "attempted": 40,
+        "semantic_correct": 29,
+        "joint_success": 29,
+        "format_compliant": 30,
+        "buckets": {
+          "correct/compliant": 29,
+          "not_run": 0,
+          "unresolved/noncompliant": 10,
+          "wrong/compliant": 1
+        },
+        "flag_counts": {
+          "contract_violation": 10,
+          "length_limit": 10,
+          "noncanonical_label": 10,
+          "unresolved_decision": 10,
+          "wrong_value": 1
+        },
+        "group_counts": {
+          "decision": 11,
+          "format": 10,
+          "generation": 10
+        },
+        "score_changes": {},
+        "cost_by_flag": {
+          "contract_violation": {
+            "attempts": 10,
+            "tokens": 20480,
+            "time_s": 429.11375864222646
+          },
+          "length_limit": {
+            "attempts": 10,
+            "tokens": 20480,
+            "time_s": 429.11375864222646
+          },
+          "noncanonical_label": {
+            "attempts": 10,
+            "tokens": 20480,
+            "time_s": 429.11375864222646
+          },
+          "unresolved_decision": {
+            "attempts": 10,
+            "tokens": 20480,
+            "time_s": 429.11375864222646
+          },
+          "joint_failure": {
+            "attempts": 11,
+            "tokens": 22383,
+            "time_s": 469.0420590201393
+          },
+          "wrong_value": {
+            "attempts": 1,
+            "tokens": 1903,
+            "time_s": 39.92830037791282
+          }
+        }
+      },
+      "by_family": {
+        "constraints": {
+          "n": 8,
+          "attempted": 8,
+          "semantic_correct": 2,
+          "joint_success": 2,
+          "format_compliant": 2,
+          "buckets": {
+            "correct/compliant": 2,
+            "not_run": 0,
+            "unresolved/noncompliant": 6
+          },
+          "flag_counts": {
+            "contract_violation": 6,
+            "length_limit": 6,
+            "noncanonical_label": 6,
+            "unresolved_decision": 6
+          },
+          "group_counts": {
+            "decision": 6,
+            "format": 6,
+            "generation": 6
+          },
+          "score_changes": {},
+          "cost_by_flag": {
+            "contract_violation": {
+              "attempts": 6,
+              "tokens": 12288,
+              "time_s": 257.3287450131029
+            },
+            "length_limit": {
+              "attempts": 6,
+              "tokens": 12288,
+              "time_s": 257.3287450131029
+            },
+            "noncanonical_label": {
+              "attempts": 6,
+              "tokens": 12288,
+              "time_s": 257.3287450131029
+            },
+            "unresolved_decision": {
+              "attempts": 6,
+              "tokens": 12288,
+              "time_s": 257.3287450131029
+            },
+            "joint_failure": {
+              "attempts": 6,
+              "tokens": 12288,
+              "time_s": 257.3287450131029
+            }
+          }
+        },
+        "ledger": {
+          "n": 8,
+          "attempted": 8,
+          "semantic_correct": 8,
+          "joint_success": 8,
+          "format_compliant": 8,
+          "buckets": {
+            "correct/compliant": 8,
+            "not_run": 0
+          },
+          "flag_counts": {},
+          "group_counts": {},
+          "score_changes": {},
+          "cost_by_flag": {}
+        },
+        "relational": {
+          "n": 8,
+          "attempted": 8,
+          "semantic_correct": 8,
+          "joint_success": 8,
+          "format_compliant": 8,
+          "buckets": {
+            "correct/compliant": 8,
+            "not_run": 0
+          },
+          "flag_counts": {},
+          "group_counts": {},
+          "score_changes": {},
+          "cost_by_flag": {}
+        },
+        "routing": {
+          "n": 8,
+          "attempted": 8,
+          "semantic_correct": 7,
+          "joint_success": 7,
+          "format_compliant": 7,
+          "buckets": {
+            "correct/compliant": 7,
+            "not_run": 0,
+            "unresolved/noncompliant": 1
+          },
+          "flag_counts": {
+            "contract_violation": 1,
+            "length_limit": 1,
+            "noncanonical_label": 1,
+            "unresolved_decision": 1
+          },
+          "group_counts": {
+            "decision": 1,
+            "format": 1,
+            "generation": 1
+          },
+          "score_changes": {},
+          "cost_by_flag": {
+            "contract_violation": {
+              "attempts": 1,
+              "tokens": 2048,
+              "time_s": 42.97116176504642
+            },
+            "length_limit": {
+              "attempts": 1,
+              "tokens": 2048,
+              "time_s": 42.97116176504642
+            },
+            "noncanonical_label": {
+              "attempts": 1,
+              "tokens": 2048,
+              "time_s": 42.97116176504642
+            },
+            "unresolved_decision": {
+              "attempts": 1,
+              "tokens": 2048,
+              "time_s": 42.97116176504642
+            },
+            "joint_failure": {
+              "attempts": 1,
+              "tokens": 2048,
+              "time_s": 42.97116176504642
+            }
+          }
+        },
+        "scheduling": {
+          "n": 8,
+          "attempted": 8,
+          "semantic_correct": 4,
+          "joint_success": 4,
+          "format_compliant": 5,
+          "buckets": {
+            "correct/compliant": 4,
+            "not_run": 0,
+            "unresolved/noncompliant": 3,
+            "wrong/compliant": 1
+          },
+          "flag_counts": {
+            "contract_violation": 3,
+            "length_limit": 3,
+            "noncanonical_label": 3,
+            "unresolved_decision": 3,
+            "wrong_value": 1
+          },
+          "group_counts": {
+            "decision": 4,
+            "format": 3,
+            "generation": 3
+          },
+          "score_changes": {},
+          "cost_by_flag": {
+            "contract_violation": {
+              "attempts": 3,
+              "tokens": 6144,
+              "time_s": 128.81385186407715
+            },
+            "length_limit": {
+              "attempts": 3,
+              "tokens": 6144,
+              "time_s": 128.81385186407715
+            },
+            "noncanonical_label": {
+              "attempts": 3,
+              "tokens": 6144,
+              "time_s": 128.81385186407715
+            },
+            "unresolved_decision": {
+              "attempts": 3,
+              "tokens": 6144,
+              "time_s": 128.81385186407715
+            },
+            "joint_failure": {
+              "attempts": 4,
+              "tokens": 8047,
+              "time_s": 168.74215224198997
+            },
+            "wrong_value": {
+              "attempts": 1,
+              "tokens": 1903,
+              "time_s": 39.92830037791282
+            }
+          }
+        }
+      },
+      "by_polarity": {}
+    }
+  }
+}
