@@ -35,3 +35,5 @@ The audit uses 100 seeds x 2 variants x 5 families x 4 levels. One exact prompt 
 The candidate [reliability scorer and paired delivery controls](RELIABILITY.md) preserve the original protocol and expose specific observed failures. The 80-response replay is complete; the new 60-item delivery panel is CPU-validated only. Official IFEval remains separate.
 
 The standalone [Answer Extraction & Abstention module](EXTRACTION.md) includes 32 paired review items and independent evidence/abstention scoring. It is not part of the automatic Core/Ladder runner.
+
+The [nonstandard response taxonomy](TAXONOMY.md) unifies the two draft tracks in an offline diagnostic report, preserving original contracts and identifying evaluator coverage gaps separately.
