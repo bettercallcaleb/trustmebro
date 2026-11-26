@@ -1,4 +1,4 @@
-# Answer recovery v0.3
+# Answer recovery v0.4
 
 Recovery answers a different question from strict compliance: what did the model actually commit to?
 
@@ -108,3 +108,9 @@ The secondary parser handles explicit answer/quote fields, bounded JSON blocks a
 The frozen development corpus now has zero unclassified responses, but 987 length-limited and 69 other unresolved responses remain. This is classification coverage on known data, not a guarantee that all semantic judgments are correct or that future unseen responses can be recovered. See [non-truncated unresolved cases](../corpus/nontruncated-unresolved.jsonl) for the response fingerprints, blockers and excerpts. New unknown forms remain in the unclassified review queue.
 
 The first formal batch (seed 601, 912 requests across BF16/Q4_K_M/Q2_K) has 203 remaining unresolved responses: 201 truncated and two conflicting answer declarations, with zero unclassified. Original raw runs and original scores remain unchanged. The first formal batch was also used during development; it is not an independent validation set.
+
+## Second formal batch replay
+
+Recovery v0.4 adds bounded family-specific conclusion patterns, decimal and malformed identifier claims without correcting their values, explicitly written byte-equation and bitwise-expression results, and explicit withdrawal of a prior standalone answer. It does not calculate the answer or infer missing identifier prefixes. Conflicting commitments without an explicit withdrawal remain unresolved.
+
+Across the second formal batch (three Q4_K_M models, 912 requests), 28 previously unclassified replies and four other unresolved replies were recovered. Remaining unresolved: 230 truncated and two conflicting declarations. The 3,048-response development corpus retains exactly the same per-row semantic judgments as v0.3. Both formal batches contain zero unclassified replies after replay. These batches informed development and are not an independent holdout.

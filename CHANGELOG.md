@@ -1,5 +1,10 @@
 # Changelog
 
+## Unreleased
+
+- Recovery v0.4 adds explicit correction, family-specific conclusion, decimal, identifier and bounded equation-result parsing.
+- Preserve prior corpus judgments; add regression tests for the second formal batch and retain unresolved conflicts separately.
+
 ## v0.3.1
 
 - Connect response diagnosis to deterministic, reference-blind answer recovery across all 50 observed labels.

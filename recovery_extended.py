@@ -35,6 +35,10 @@ def payload(spec,s):
     z=z.strip()
     fmt=spec.get("format")
     if spec.get("kind")=="delivery" and spec.get("contract")!="json":fmt="integer"
+    if fmt=="integer" and re.fullmatch(r"[+-]?[0-9]{1,30}\.[0-9]{1,30}",z):
+        return z,"noninteger_decimal_claim"
+    if fmt=="identifier" and re.fullmatch(r"[A-Za-z0-9]+-[0-9]+",z):
+        return z,"identifier_missing_prefix"
     if fmt=="text2":
         quoted=re.fullmatch(r"(['\"])([ -~])\1\s+(?:and\s+)?(['\"])([ -~])\3",z)
         if quoted:return quoted[2]+quoted[4],"quoted_character_pair"
@@ -105,6 +109,9 @@ def payload(spec,s):
         if fmt=="identifier" and re.fullmatch(r"ID-[A-Za-z0-9-]+",z,re.I):
             return z,"identifier_wrong_shape"
         if fmt=="integer":
+            if spec.get("family")=="tcp-send-window":
+                m=re.fullmatch(r"[0-9B +*/()−-]+\s*=\s*("+INT+r")\s*(?:B|bytes?)",z,re.I)
+                if m:return str(int(m[1])),"explicit_byte_equation_rhs"
             units={"schedule":r"minutes?","dns-ttl-chain":r"seconds?","tcp-send-window":r"(?:additional new payload )?bytes?|B","ipv4-fragment-offset":r"fragments?","ipv4-cidr-boundaries":r"hosts?|usable host addresses","jwt-boundary-validation":r"tokens?","kubernetes-rbac-scope":r"(?:authorized )?requests?"}
             u=units.get(spec.get("family"))
             if u and re.fullmatch(INT+r"\s*(?:"+u+r")",z,re.I):
@@ -341,6 +348,22 @@ MORE_PATTERNS={
 "text2":[r"(?:the )?(?:requested |exact )?two (?:ASCII )?characters(?: in the(?: answer)?| that are read(?: from .+?)?)?\s*(?:are|is)\s*:?\s*(.+)",r"(?:the )?two[- ]character string in the (?:[\x60'\"]?answer[\x60'\"]? variable|answer|)\s*(?:is|are)\s*:?\s*(.+)"]
 }
 
+FAMILY_CONCLUSIONS={
+    "path":[r"minimum total cost(?: from [A-Z] to [A-Z])?\s*:\s*(.+)"],
+    "tcp-send-window":[
+        r"(?:the )?maximum new (?:data |payload )?bytes (?:sendable after processing (?:the )?cumulative ACK|that can be sent) (?:is|are) (.+)",
+        r"(?:the )?maximum new (?:data |payload )?bytes that can be sent is the minimum of [0-9]+B and [0-9]+B, which is (.+)",
+        r"(?:the )?(?:sender can send|calculation is) (.+)",
+    ],
+    "ipv4-cidr-boundaries":[r"(?:the )?usable host addresses (?:are|is) (.+)",r"(?:the )?last octet is (.+)"],
+    "ipv4-fragment-offset":[r"(?:the )?number of outgoing IPv4 fragments required is (.+)"],
+    "dns-ttl-chain":[r"([0-9]+ seconds) of TTL remain",r"(?:the )?binary representation of (?:the expiry status for the records in the original order|this result) is ([01]+)"],
+    "sqlite-left-join-null":[r"(?:the )?(?:query will return|result of the query is|integer returned by the query is) ([+-]?[0-9]+)(?: rows)?"],
+    "sqlite-window-frames":[r"(?:the )?integer returned by the query is ([+-]?[0-9]+)"],
+    "sqlite-wal-snapshots":[r"(?:connection )?[AB] reads the integer ([+-]?[0-9]+)"],
+    "posix-file-offsets":[r"(?:the )?(?:exact )?two ASCII characters in (?:the )?[\x60'\"]?answer[\x60'\"]? (?:are|is) (.+)"],
+}
+
 def conclusion_head(z):
     if HEAD.fullmatch(z):return True
     if re.fullmatch(r"(?i)(?:(?:so|thus|therefore|hence|following .+?),?\s*)?(?:the\s+)?(?:correct(?: and only)? answer(?: to return)?|final answer|final result(?: of the query)?|answer|result(?: returned by the query)?|verified solution|requested (?:value|information)|remainder when .+? is divided by [0-9]+|integer returned|permission bits|high 16-bit half|final node eligibility|(?:exact |requested )?[0-9]+ binary digits.*|requested value.*|the two ASCII characters.*|two ASCII characters.*|answer without any.*)\s*(?:is|are|is therefore)?\s*:",z):
@@ -432,7 +455,7 @@ def phrase_claim(spec,line):
         if m:
             v,rule=payload(spec,m[1])
             if v is not r.MISSING:return v,"conclusion_"+rule
-        for p in FORMAT_PATTERNS.get(fmt,[])+MORE_PATTERNS.get(fmt,[]):
+        for p in FAMILY_CONCLUSIONS.get(spec.get("family"),[])+FORMAT_PATTERNS.get(fmt,[])+MORE_PATTERNS.get(fmt,[]):
 
             m=re.fullmatch(p,x,re.I)
             if m:
@@ -532,6 +555,20 @@ def scalar_claims(spec,s,original):
         return finish_result(spec,[("NONE",s,"explicit_empty_sequence")],"explicit_empty_sequence")
     if spec.get("format")=="bitstring" and bare and bare[0][0]==0 and bare[0][3]=="explicit_status_sequence" and len(bare)==1 and re.search(r"(?i)\b(?:final result is determined to be accepted|output is a single binary digit representing acceptance)\b",s):
         return finish_result(spec,[(bare[0][1],bare[0][2],"explicit_single_status")],"explicit_status")
+    if spec.get("family")=="arithmetic" and len(nonempty)>=2:
+        v,rule=payload(spec,nonempty[-1][0])
+        previous=nonempty[-2][0]
+        m=re.fullmatch(r"(?i)(?:now add|add the (?:two )?results|total|sum)\s*:\s*([0-9 +*/()−-]+=[0-9 +*/()−-]+)",previous)
+        if m and v is not r.MISSING:
+            v2,_=payload(spec,m[1])
+            if v2 is not r.MISSING and key(spec,v)==key(spec,v2):
+                return finish_result(spec,[(v,nonempty[-1][0],"terminal_scalar_matches_explicit_sum")],"corroborated_terminal_scalar")
+    if spec.get("format")=="hex4" and spec.get("family")=="endian-signed-bitfields" and len(nonempty)>=2:
+        lhs,sep,rhs=nonempty[-1][0].rpartition("=")
+        if sep and re.fullmatch(r"[()X0-9A-F >^&ORND]+",lhs,re.I) and re.search(r"\b(?:XOR|AND)\b|[&^]",lhs,re.I) and re.fullmatch(r"[0-9A-F]+",rhs.strip(),re.I):
+            v,rule=payload(spec,rhs.strip())
+            if v is not r.MISSING:
+                return finish_result(spec,[(v,nonempty[-1][0],"terminal_bitwise_expression_rhs")],"explicit_bitwise_result")
     if NEGATIVE.search(nonempty[-1][0]):return r.result(r.MISSING,"uncertain_claim")
     if re.search(r"(?im)^no output\.?\s*$",s) and re.search(r"(?im)^return exactly(?: one line)?\s*:\s*(?:final:\s*)?[+-]?[0-9]+\.?\s*$",s):
         return r.result(r.MISSING,"conflicting_answer_directives")
@@ -594,6 +631,16 @@ def recover_extended(spec,reply,original):
             if v is not r.MISSING:
                 v2,rule2=payload(spec,m[2].removesuffix(" is selected."))
                 if v2 is not r.MISSING:return finish_result(spec,[(v,m[1],rule),(v2,m[2],rule2)],"route_tuple_claims")
+    correction=re.match(r"(?is)^([^\n]+)\n\s*(Wait,\s*(?:no\b[^\n]*|let me (?:compute|calculate|recalculate) correctly\.?))\n+(.+)$",s)
+    if correction and spec.get("mode")=="strict":
+        old,oldrule=payload(spec,correction[1])
+        if old is not r.MISSING:
+            suffix=correction[3].strip()
+            sub=r.recover_primary(spec,{"content":suffix,"finish_reason":"stop"})
+            if sub["status"]=="unresolved":
+                sub=scalar_claims(spec,suffix,sub)
+            if sub["status"]=="recovered":
+                return {**sub,"method":"explicit_self_correction","withdrawn_candidate":old,"withdrawal_text":correction[2],"steps":[*sub.get("steps",[]),"explicit_initial_answer_withdrawal"]}
     v,rule=payload(spec,s)
     if v is not r.MISSING:
         return finish_result(spec,[(v,s,rule)],"whole_answer_representation")

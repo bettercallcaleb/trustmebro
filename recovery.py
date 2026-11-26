@@ -5,7 +5,7 @@ import math
 import re
 from pathlib import Path
 
-VERSION="answer-recovery-v0.3"
+VERSION="answer-recovery-v0.4"
 MISSING=object()
 LABEL=re.compile(r"(?i)^(?:final(?: answer| result)?|answer|return|result|solution|corrected answer|output)\s*:\s*(.*)$")
 HEADING=re.compile(r"^#{1,6}\s+")
