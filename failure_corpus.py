@@ -164,6 +164,7 @@ def diagnose_run(run):
     measurement.score(run)
     sys.path.insert(0,str(Path(__file__).resolve().parent/"draft"))
     import response_taxonomy
+    import recovery
     tasks={t["id"]:t for t in run["manifest"]["tasks"]}
     output=[]
     for r in run["rows"]:
@@ -177,9 +178,9 @@ def diagnose_run(run):
         legacy=measurement.grade(t,reply.get("content"),r["mode"],reply["finish_reason"])
         provisional=response_taxonomy.reasoning_grade(t,reply.get("content"),r["mode"],reply["finish_reason"],reply["completion_tokens"],r["budget"])
         prior={"score":{k:legacy[k] for k in ("semantic_correct","format_compliant","joint_success")},"flags":provisional["flags"]}
-        output.append({**entry,**diagnose(t,reply,prior),"experimental_semantic_correct":provisional["semantic_correct"]})
+        output.append({**entry,**diagnose(t,reply,prior),"experimental_semantic_correct":provisional["semantic_correct"],"recovery":recovery.assess(t,reply,prior)})
     planned=len(tasks)*len(run["modes"])*len(run["budgets"])
-    return {"version":VERSION,"planned":planned,"attempted":len(output),"not_run":planned-len(output),"rows":output}
+    return {"version":VERSION,"recovery_version":recovery.VERSION,"planned":planned,"attempted":len(output),"not_run":planned-len(output),"recovery_summary":recovery.report([x["recovery"] for x in output if "recovery" in x]),"rows":output}
 
 def main():
     p=argparse.ArgumentParser(description="Offline response diagnostics; does not alter benchmark scores.")

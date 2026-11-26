@@ -1,8 +1,17 @@
-# TrustMeBro v0.3.0
+# TrustMeBro v0.3.1
 
 **Don't trust us. Reproduce us.**
 
 An independent open-weight model benchmark for people who actually run models locally. No paid placement. No LLM judge. No universal intelligence score.
+
+## New in v0.3.1: Answer recovery
+
+Diagnostics now recover the model's committed answer independently of contract compliance. Recovery uses the response and public answer-format specification, never the reference answer, original problem or supplied target value. Recovered correctness and unresolved reasons are reported separately from the original frozen score.
+
+    python3 recovery.py run run.json --out recovered.json
+    python3 recovery.py corpus corpus/responses.jsonl --out corpus-replay.json
+
+The existing diagnostic command also includes per-response recovery results and a recovery summary. See [recovery policy and validation](docs/RECOVERY.md). The official v0.2 scoring protocol is unchanged; recovery v0.1 is a separately versioned diagnostic measurement.
 
 ## New in v0.3.0: Failure Corpus
 

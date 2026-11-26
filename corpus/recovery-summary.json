@@ -1,0 +1,1292 @@
+{
+  "by_label": {
+    "alternative_label": {
+      "attempted": 4,
+      "legacy_unknown": 4,
+      "methods": {
+        "explicit_declaration": 4
+      },
+      "original_joint_success": 0,
+      "recovered_correct": 2,
+      "recovered_joint_success": 0,
+      "recovered_wrong": 2,
+      "remaining_unknown": 0,
+      "strategy": "explicit_declaration",
+      "transitions": {
+        "unknown->correct": 2,
+        "unknown->wrong": 2
+      }
+    },
+    "bit_delimiter": {
+      "attempted": 17,
+      "legacy_unknown": 17,
+      "methods": {
+        "bit_separators": 14,
+        "explicit_declaration": 3
+      },
+      "original_joint_success": 0,
+      "recovered_correct": 1,
+      "recovered_joint_success": 0,
+      "recovered_wrong": 16,
+      "remaining_unknown": 0,
+      "strategy": "normalize_bit_separators",
+      "transitions": {
+        "unknown->correct": 1,
+        "unknown->wrong": 16
+      }
+    },
+    "bit_width": {
+      "attempted": 34,
+      "legacy_unknown": 25,
+      "methods": {
+        "bitstring": 30,
+        "truncated_before_commitment": 4
+      },
+      "original_joint_success": 0,
+      "recovered_correct": 0,
+      "recovered_joint_success": 0,
+      "recovered_wrong": 30,
+      "remaining_unknown": 4,
+      "strategy": "retain_complete_wrong_width",
+      "transitions": {
+        "unknown->unknown": 4,
+        "unknown->wrong": 21,
+        "wrong->wrong": 9
+      }
+    },
+    "code_fence": {
+      "attempted": 145,
+      "legacy_unknown": 14,
+      "methods": {
+        "explicit_declaration": 16,
+        "json": 99,
+        "json_abstention": 4,
+        "malformed_or_conflicting_declaration": 2,
+        "no_complete_structured_claim": 1,
+        "no_unambiguous_final_answer": 5,
+        "representation": 1,
+        "scalar": 13,
+        "truncated_before_commitment": 4
+      },
+      "original_joint_success": 0,
+      "recovered_correct": 67,
+      "recovered_joint_success": 0,
+      "recovered_wrong": 66,
+      "remaining_unknown": 12,
+      "strategy": "unwrap_balanced_wrapper",
+      "transitions": {
+        "correct->correct": 65,
+        "unknown->correct": 2,
+        "unknown->unknown": 10,
+        "unknown->wrong": 2,
+        "wrong->unknown": 2,
+        "wrong->wrong": 64
+      }
+    },
+    "contract_violation": {
+      "attempted": 2207,
+      "legacy_unknown": 1741,
+      "methods": {
+        "bare_extracted_integer": 2,
+        "bit_separators": 18,
+        "bitstring": 33,
+        "byte_unit": 13,
+        "conflicting_declarations": 2,
+        "csv": 15,
+        "empty_output": 1,
+        "equation_rhs": 3,
+        "explicit_declaration": 177,
+        "explicit_host_count": 1,
+        "explicit_text_pair": 3,
+        "identical_scalar_lines": 2,
+        "invalid_bit_value": 10,
+        "json": 285,
+        "json_abstention": 13,
+        "literal_response": 51,
+        "malformed_or_conflicting_declaration": 65,
+        "matching_terminal_claim": 7,
+        "no_complete_literal_claim": 27,
+        "no_complete_structured_claim": 62,
+        "no_unambiguous_final_answer": 267,
+        "no_visible_answer": 2,
+        "nonterminal_declaration": 42,
+        "repeated_declaration": 17,
+        "representation": 49,
+        "scalar": 29,
+        "special_marker_inside_response": 5,
+        "split_answer_phrase": 3,
+        "terminal_answer_phrase": 15,
+        "terminal_entity_phrase": 2,
+        "truncated_before_commitment": 973,
+        "truncated_or_conflicting_declarations": 4,
+        "uncertain_claim": 7,
+        "wrong_entity": 2
+      },
+      "original_joint_success": 0,
+      "recovered_correct": 310,
+      "recovered_joint_success": 0,
+      "recovered_wrong": 440,
+      "remaining_unknown": 1457,
+      "strategy": "preserve_original_contract_score",
+      "transitions": {
+        "correct->correct": 263,
+        "unknown->correct": 47,
+        "unknown->unknown": 1452,
+        "unknown->wrong": 242,
+        "wrong->unknown": 5,
+        "wrong->wrong": 198
+      }
+    },
+    "csv_length_mismatch": {
+      "attempted": 36,
+      "legacy_unknown": 2,
+      "methods": {
+        "csv": 24,
+        "explicit_declaration": 3,
+        "repeated_declaration": 4,
+        "special_marker_inside_response": 1,
+        "truncated_before_commitment": 4
+      },
+      "original_joint_success": 0,
+      "recovered_correct": 1,
+      "recovered_joint_success": 0,
+      "recovered_wrong": 30,
+      "remaining_unknown": 5,
+      "strategy": "retain_complete_sequence",
+      "transitions": {
+        "unknown->correct": 1,
+        "unknown->unknown": 1,
+        "wrong->unknown": 4,
+        "wrong->wrong": 30
+      }
+    },
+    "csv_space": {
+      "attempted": 20,
+      "legacy_unknown": 0,
+      "methods": {
+        "csv": 15,
+        "explicit_declaration": 4,
+        "truncated_before_commitment": 1
+      },
+      "original_joint_success": 0,
+      "recovered_correct": 1,
+      "recovered_joint_success": 0,
+      "recovered_wrong": 18,
+      "remaining_unknown": 1,
+      "strategy": "normalize_csv_separators",
+      "transitions": {
+        "correct->correct": 1,
+        "wrong->unknown": 1,
+        "wrong->wrong": 18
+      }
+    },
+    "duplicate_json_keys": {
+      "attempted": 4,
+      "legacy_unknown": 4,
+      "methods": {
+        "malformed_or_conflicting_declaration": 1,
+        "truncated_before_commitment": 3
+      },
+      "original_joint_success": 0,
+      "recovered_correct": 0,
+      "recovered_joint_success": 0,
+      "recovered_wrong": 0,
+      "remaining_unknown": 4,
+      "strategy": "collapse_identical_keys_only",
+      "transitions": {
+        "unknown->unknown": 4
+      }
+    },
+    "empty_final_label": {
+      "attempted": 10,
+      "legacy_unknown": 10,
+      "methods": {
+        "malformed_or_conflicting_declaration": 10
+      },
+      "original_joint_success": 0,
+      "recovered_correct": 0,
+      "recovered_joint_success": 0,
+      "recovered_wrong": 0,
+      "remaining_unknown": 10,
+      "strategy": "inspect_adjacent_value_or_abstain",
+      "transitions": {
+        "unknown->unknown": 10
+      }
+    },
+    "empty_output": {
+      "attempted": 1,
+      "legacy_unknown": 1,
+      "methods": {
+        "empty_output": 1
+      },
+      "original_joint_success": 0,
+      "recovered_correct": 0,
+      "recovered_joint_success": 0,
+      "recovered_wrong": 0,
+      "remaining_unknown": 1,
+      "strategy": "abstain_no_answer",
+      "transitions": {
+        "unknown->unknown": 1
+      }
+    },
+    "error_code_width": {
+      "attempted": 2,
+      "legacy_unknown": 0,
+      "methods": {
+        "representation": 2
+      },
+      "original_joint_success": 0,
+      "recovered_correct": 0,
+      "recovered_joint_success": 0,
+      "recovered_wrong": 2,
+      "remaining_unknown": 0,
+      "strategy": "retain_complete_wrong_width",
+      "transitions": {
+        "wrong->wrong": 2
+      }
+    },
+    "extra_outer_whitespace": {
+      "attempted": 18,
+      "legacy_unknown": 18,
+      "methods": {
+        "literal_response": 18
+      },
+      "original_joint_success": 0,
+      "recovered_correct": 0,
+      "recovered_joint_success": 0,
+      "recovered_wrong": 18,
+      "remaining_unknown": 0,
+      "strategy": "preserve_literal_contract",
+      "transitions": {
+        "unknown->wrong": 18
+      }
+    },
+    "extra_text": {
+      "attempted": 34,
+      "legacy_unknown": 0,
+      "methods": {
+        "explicit_declaration": 10,
+        "json": 7,
+        "representation": 1,
+        "scalar": 13,
+        "terminal_answer_phrase": 3
+      },
+      "original_joint_success": 0,
+      "recovered_correct": 9,
+      "recovered_joint_success": 0,
+      "recovered_wrong": 25,
+      "remaining_unknown": 0,
+      "strategy": "terminal_explicit_commitment_only",
+      "transitions": {
+        "correct->correct": 9,
+        "wrong->wrong": 25
+      }
+    },
+    "false_extraction": {
+      "attempted": 95,
+      "legacy_unknown": 0,
+      "methods": {
+        "json": 95
+      },
+      "original_joint_success": 0,
+      "recovered_correct": 0,
+      "recovered_joint_success": 0,
+      "recovered_wrong": 95,
+      "remaining_unknown": 0,
+      "strategy": "retain_extracted_claim",
+      "transitions": {
+        "wrong->wrong": 95
+      }
+    },
+    "hex_width": {
+      "attempted": 10,
+      "legacy_unknown": 8,
+      "methods": {
+        "representation": 7,
+        "truncated_before_commitment": 3
+      },
+      "original_joint_success": 0,
+      "recovered_correct": 0,
+      "recovered_joint_success": 0,
+      "recovered_wrong": 7,
+      "remaining_unknown": 3,
+      "strategy": "retain_complete_wrong_width",
+      "transitions": {
+        "unknown->unknown": 3,
+        "unknown->wrong": 5,
+        "wrong->wrong": 2
+      }
+    },
+    "inline_code": {
+      "attempted": 2,
+      "legacy_unknown": 1,
+      "methods": {
+        "malformed_or_conflicting_declaration": 1,
+        "representation": 1
+      },
+      "original_joint_success": 0,
+      "recovered_correct": 0,
+      "recovered_joint_success": 0,
+      "recovered_wrong": 1,
+      "remaining_unknown": 1,
+      "strategy": "unwrap_balanced_wrapper",
+      "transitions": {
+        "unknown->unknown": 1,
+        "wrong->wrong": 1
+      }
+    },
+    "invalid_json": {
+      "attempted": 76,
+      "legacy_unknown": 28,
+      "methods": {
+        "explicit_declaration": 16,
+        "json": 35,
+        "malformed_or_conflicting_declaration": 3,
+        "no_complete_structured_claim": 16,
+        "truncated_before_commitment": 6
+      },
+      "original_joint_success": 13,
+      "recovered_correct": 48,
+      "recovered_joint_success": 13,
+      "recovered_wrong": 3,
+      "remaining_unknown": 25,
+      "strategy": "parse_complete_json_or_abstain",
+      "transitions": {
+        "correct->correct": 45,
+        "unknown->correct": 3,
+        "unknown->unknown": 25,
+        "wrong->wrong": 3
+      }
+    },
+    "irrelevant_quote": {
+      "attempted": 70,
+      "legacy_unknown": 0,
+      "methods": {
+        "json": 70
+      },
+      "original_joint_success": 0,
+      "recovered_correct": 10,
+      "recovered_joint_success": 0,
+      "recovered_wrong": 60,
+      "remaining_unknown": 0,
+      "strategy": "retain_claim_evaluate_evidence_separately",
+      "transitions": {
+        "correct->correct": 10,
+        "wrong->wrong": 60
+      }
+    },
+    "json_abstention": {
+      "attempted": 11,
+      "legacy_unknown": 0,
+      "methods": {
+        "json_abstention": 11
+      },
+      "original_joint_success": 0,
+      "recovered_correct": 11,
+      "recovered_joint_success": 0,
+      "recovered_wrong": 0,
+      "remaining_unknown": 0,
+      "strategy": "explicit_abstention",
+      "transitions": {
+        "correct->correct": 11
+      }
+    },
+    "json_array_length_mismatch": {
+      "attempted": 4,
+      "legacy_unknown": 0,
+      "methods": {
+        "json": 4
+      },
+      "original_joint_success": 0,
+      "recovered_correct": 0,
+      "recovered_joint_success": 0,
+      "recovered_wrong": 4,
+      "remaining_unknown": 0,
+      "strategy": "retain_complete_json",
+      "transitions": {
+        "wrong->wrong": 4
+      }
+    },
+    "json_key_set_mismatch": {
+      "attempted": 6,
+      "legacy_unknown": 1,
+      "methods": {
+        "json": 5,
+        "no_complete_structured_claim": 1
+      },
+      "original_joint_success": 0,
+      "recovered_correct": 0,
+      "recovered_joint_success": 0,
+      "recovered_wrong": 5,
+      "remaining_unknown": 1,
+      "strategy": "retain_complete_json",
+      "transitions": {
+        "unknown->unknown": 1,
+        "wrong->wrong": 5
+      }
+    },
+    "json_type_mismatch": {
+      "attempted": 5,
+      "legacy_unknown": 0,
+      "methods": {
+        "json": 5
+      },
+      "original_joint_success": 0,
+      "recovered_correct": 0,
+      "recovered_joint_success": 0,
+      "recovered_wrong": 5,
+      "remaining_unknown": 0,
+      "strategy": "retain_typed_json",
+      "transitions": {
+        "wrong->wrong": 5
+      }
+    },
+    "leading_role_marker": {
+      "attempted": 33,
+      "legacy_unknown": 29,
+      "methods": {
+        "explicit_declaration": 4,
+        "malformed_or_conflicting_declaration": 1,
+        "no_complete_structured_claim": 1,
+        "no_unambiguous_final_answer": 1,
+        "no_visible_answer": 1,
+        "repeated_declaration": 1,
+        "special_marker_inside_response": 3,
+        "truncated_before_commitment": 21
+      },
+      "original_joint_success": 0,
+      "recovered_correct": 1,
+      "recovered_joint_success": 0,
+      "recovered_wrong": 4,
+      "remaining_unknown": 28,
+      "strategy": "strip_assistant_prefix_only",
+      "transitions": {
+        "correct->correct": 1,
+        "unknown->unknown": 28,
+        "unknown->wrong": 1,
+        "wrong->wrong": 3
+      }
+    },
+    "length_limit": {
+      "attempted": 991,
+      "legacy_unknown": 983,
+      "methods": {
+        "explicit_declaration": 2,
+        "no_visible_answer": 1,
+        "nonterminal_declaration": 3,
+        "repeated_declaration": 2,
+        "special_marker_inside_response": 3,
+        "truncated_before_commitment": 976,
+        "truncated_or_conflicting_declarations": 4
+      },
+      "original_joint_success": 0,
+      "recovered_correct": 2,
+      "recovered_joint_success": 0,
+      "recovered_wrong": 2,
+      "remaining_unknown": 987,
+      "strategy": "abstain_unless_repeated_complete_declarations",
+      "transitions": {
+        "correct->correct": 1,
+        "unknown->correct": 1,
+        "unknown->unknown": 981,
+        "unknown->wrong": 1,
+        "wrong->unknown": 6,
+        "wrong->wrong": 1
+      }
+    },
+    "literal_mismatch": {
+      "attempted": 86,
+      "legacy_unknown": 86,
+      "methods": {
+        "literal_response": 51,
+        "no_complete_literal_claim": 27,
+        "truncated_before_commitment": 8
+      },
+      "original_joint_success": 0,
+      "recovered_correct": 0,
+      "recovered_joint_success": 0,
+      "recovered_wrong": 51,
+      "remaining_unknown": 35,
+      "strategy": "retain_literal",
+      "transitions": {
+        "unknown->unknown": 35,
+        "unknown->wrong": 51
+      }
+    },
+    "malformed_declaration": {
+      "attempted": 103,
+      "legacy_unknown": 103,
+      "methods": {
+        "explicit_declaration": 40,
+        "malformed_or_conflicting_declaration": 37,
+        "nonterminal_declaration": 3,
+        "repeated_declaration": 3,
+        "special_marker_inside_response": 1,
+        "truncated_before_commitment": 17,
+        "truncated_or_conflicting_declarations": 2
+      },
+      "original_joint_success": 0,
+      "recovered_correct": 10,
+      "recovered_joint_success": 0,
+      "recovered_wrong": 33,
+      "remaining_unknown": 60,
+      "strategy": "bounded_declaration_parser",
+      "transitions": {
+        "unknown->correct": 10,
+        "unknown->unknown": 60,
+        "unknown->wrong": 33
+      }
+    },
+    "markdown_emphasis": {
+      "attempted": 87,
+      "legacy_unknown": 36,
+      "methods": {
+        "explicit_declaration": 72,
+        "malformed_or_conflicting_declaration": 7,
+        "nonterminal_declaration": 1,
+        "repeated_declaration": 4,
+        "truncated_before_commitment": 3
+      },
+      "original_joint_success": 0,
+      "recovered_correct": 27,
+      "recovered_joint_success": 0,
+      "recovered_wrong": 49,
+      "remaining_unknown": 11,
+      "strategy": "unwrap_balanced_wrapper",
+      "transitions": {
+        "correct->correct": 25,
+        "unknown->correct": 2,
+        "unknown->unknown": 10,
+        "unknown->wrong": 24,
+        "wrong->unknown": 1,
+        "wrong->wrong": 25
+      }
+    },
+    "markdown_wrapper": {
+      "attempted": 308,
+      "legacy_unknown": 52,
+      "methods": {
+        "explicit_declaration": 100,
+        "json": 161,
+        "json_abstention": 4,
+        "malformed_or_conflicting_declaration": 10,
+        "no_complete_structured_claim": 1,
+        "no_unambiguous_final_answer": 5,
+        "nonterminal_declaration": 1,
+        "repeated_declaration": 4,
+        "representation": 2,
+        "scalar": 13,
+        "truncated_before_commitment": 7
+      },
+      "original_joint_success": 0,
+      "recovered_correct": 168,
+      "recovered_joint_success": 0,
+      "recovered_wrong": 116,
+      "remaining_unknown": 24,
+      "strategy": "unwrap_balanced_wrapper",
+      "transitions": {
+        "correct->correct": 163,
+        "unknown->correct": 5,
+        "unknown->unknown": 21,
+        "unknown->wrong": 26,
+        "wrong->unknown": 3,
+        "wrong->wrong": 90
+      }
+    },
+    "missing_keys": {
+      "attempted": 12,
+      "legacy_unknown": 0,
+      "methods": {
+        "json": 1,
+        "json_abstention": 11
+      },
+      "original_joint_success": 0,
+      "recovered_correct": 11,
+      "recovered_joint_success": 0,
+      "recovered_wrong": 1,
+      "remaining_unknown": 0,
+      "strategy": "retain_claim_if_present",
+      "transitions": {
+        "correct->correct": 11,
+        "wrong->wrong": 1
+      }
+    },
+    "missing_quote": {
+      "attempted": 1,
+      "legacy_unknown": 0,
+      "methods": {
+        "json": 1
+      },
+      "original_joint_success": 0,
+      "recovered_correct": 0,
+      "recovered_joint_success": 0,
+      "recovered_wrong": 1,
+      "remaining_unknown": 0,
+      "strategy": "retain_claim_evaluate_evidence_separately",
+      "transitions": {
+        "wrong->wrong": 1
+      }
+    },
+    "multiple_declarations": {
+      "attempted": 32,
+      "legacy_unknown": 23,
+      "methods": {
+        "explicit_declaration": 6,
+        "malformed_or_conflicting_declaration": 6,
+        "nonterminal_declaration": 3,
+        "repeated_declaration": 10,
+        "special_marker_inside_response": 1,
+        "truncated_before_commitment": 4,
+        "truncated_or_conflicting_declarations": 2
+      },
+      "original_joint_success": 0,
+      "recovered_correct": 6,
+      "recovered_joint_success": 0,
+      "recovered_wrong": 10,
+      "remaining_unknown": 16,
+      "strategy": "require_consistent_commitments",
+      "transitions": {
+        "correct->correct": 2,
+        "unknown->correct": 4,
+        "unknown->unknown": 15,
+        "unknown->wrong": 4,
+        "wrong->unknown": 1,
+        "wrong->wrong": 6
+      }
+    },
+    "noncanonical_abstention": {
+      "attempted": 11,
+      "legacy_unknown": 0,
+      "methods": {
+        "json_abstention": 11
+      },
+      "original_joint_success": 0,
+      "recovered_correct": 11,
+      "recovered_joint_success": 0,
+      "recovered_wrong": 0,
+      "remaining_unknown": 0,
+      "strategy": "explicit_abstention",
+      "transitions": {
+        "correct->correct": 11
+      }
+    },
+    "noncanonical_label": {
+      "attempted": 875,
+      "legacy_unknown": 788,
+      "methods": {
+        "bit_separators": 3,
+        "bitstring": 1,
+        "conflicting_declarations": 2,
+        "explicit_declaration": 123,
+        "json": 2,
+        "malformed_or_conflicting_declaration": 31,
+        "matching_terminal_claim": 1,
+        "no_complete_structured_claim": 4,
+        "no_unambiguous_final_answer": 17,
+        "no_visible_answer": 1,
+        "nonterminal_declaration": 11,
+        "repeated_declaration": 11,
+        "special_marker_inside_response": 3,
+        "terminal_answer_phrase": 1,
+        "truncated_before_commitment": 661,
+        "truncated_or_conflicting_declarations": 3
+      },
+      "original_joint_success": 0,
+      "recovered_correct": 58,
+      "recovered_joint_success": 0,
+      "recovered_wrong": 84,
+      "remaining_unknown": 733,
+      "strategy": "explicit_declaration",
+      "transitions": {
+        "correct->correct": 44,
+        "unknown->correct": 14,
+        "unknown->unknown": 730,
+        "unknown->wrong": 44,
+        "wrong->unknown": 3,
+        "wrong->wrong": 40
+      }
+    },
+    "nonterminal_declaration": {
+      "attempted": 17,
+      "legacy_unknown": 17,
+      "methods": {
+        "no_unambiguous_final_answer": 2,
+        "nonterminal_declaration": 6,
+        "truncated_before_commitment": 9
+      },
+      "original_joint_success": 0,
+      "recovered_correct": 0,
+      "recovered_joint_success": 0,
+      "recovered_wrong": 0,
+      "remaining_unknown": 17,
+      "strategy": "abstain_if_subsequent_text",
+      "transitions": {
+        "unknown->unknown": 17
+      }
+    },
+    "octal_width": {
+      "attempted": 18,
+      "legacy_unknown": 0,
+      "methods": {
+        "explicit_declaration": 1,
+        "representation": 17
+      },
+      "original_joint_success": 0,
+      "recovered_correct": 1,
+      "recovered_joint_success": 0,
+      "recovered_wrong": 17,
+      "remaining_unknown": 0,
+      "strategy": "retain_complete_wrong_width",
+      "transitions": {
+        "correct->correct": 1,
+        "wrong->wrong": 17
+      }
+    },
+    "periodic_numeric_output": {
+      "attempted": 16,
+      "legacy_unknown": 13,
+      "methods": {
+        "truncated_before_commitment": 16
+      },
+      "original_joint_success": 0,
+      "recovered_correct": 0,
+      "recovered_joint_success": 0,
+      "recovered_wrong": 0,
+      "remaining_unknown": 16,
+      "strategy": "retain_complete_sequence_or_abstain_if_truncated",
+      "transitions": {
+        "unknown->unknown": 13,
+        "wrong->unknown": 3
+      }
+    },
+    "quote_not_in_source": {
+      "attempted": 58,
+      "legacy_unknown": 0,
+      "methods": {
+        "json": 58
+      },
+      "original_joint_success": 0,
+      "recovered_correct": 23,
+      "recovered_joint_success": 0,
+      "recovered_wrong": 35,
+      "remaining_unknown": 0,
+      "strategy": "retain_claim_evaluate_evidence_separately",
+      "transitions": {
+        "correct->correct": 23,
+        "wrong->wrong": 35
+      }
+    },
+    "repeated_answer_declaration": {
+      "attempted": 15,
+      "legacy_unknown": 8,
+      "methods": {
+        "nonterminal_declaration": 3,
+        "repeated_declaration": 9,
+        "special_marker_inside_response": 1,
+        "truncated_before_commitment": 2
+      },
+      "original_joint_success": 0,
+      "recovered_correct": 3,
+      "recovered_joint_success": 0,
+      "recovered_wrong": 6,
+      "remaining_unknown": 6,
+      "strategy": "collapse_identical_complete_declarations",
+      "transitions": {
+        "correct->correct": 2,
+        "unknown->correct": 1,
+        "unknown->unknown": 6,
+        "unknown->wrong": 1,
+        "wrong->wrong": 5
+      }
+    },
+    "repeated_thinking_marker": {
+      "attempted": 2,
+      "legacy_unknown": 2,
+      "methods": {
+        "no_visible_answer": 1,
+        "special_marker_inside_response": 1
+      },
+      "original_joint_success": 0,
+      "recovered_correct": 0,
+      "recovered_joint_success": 0,
+      "recovered_wrong": 0,
+      "remaining_unknown": 2,
+      "strategy": "strip_orphan_closing_prefix_only",
+      "transitions": {
+        "unknown->unknown": 2
+      }
+    },
+    "representation_deviation": {
+      "attempted": 70,
+      "legacy_unknown": 0,
+      "methods": {
+        "bitstring": 9,
+        "csv": 15,
+        "json": 9,
+        "representation": 23,
+        "scalar": 13,
+        "truncated_before_commitment": 1
+      },
+      "original_joint_success": 0,
+      "recovered_correct": 7,
+      "recovered_joint_success": 0,
+      "recovered_wrong": 62,
+      "remaining_unknown": 1,
+      "strategy": "normalize_representation_without_guessing",
+      "transitions": {
+        "correct->correct": 7,
+        "wrong->unknown": 1,
+        "wrong->wrong": 62
+      }
+    },
+    "tab_to_comma_substitution": {
+      "attempted": 17,
+      "legacy_unknown": 17,
+      "methods": {
+        "literal_response": 14,
+        "no_complete_literal_claim": 2,
+        "truncated_before_commitment": 1
+      },
+      "original_joint_success": 0,
+      "recovered_correct": 0,
+      "recovered_joint_success": 0,
+      "recovered_wrong": 14,
+      "remaining_unknown": 3,
+      "strategy": "retain_wrong_literal",
+      "transitions": {
+        "unknown->unknown": 3,
+        "unknown->wrong": 14
+      }
+    },
+    "tag_error": {
+      "attempted": 5,
+      "legacy_unknown": 1,
+      "methods": {
+        "json": 4,
+        "no_complete_structured_claim": 1
+      },
+      "original_joint_success": 0,
+      "recovered_correct": 4,
+      "recovered_joint_success": 0,
+      "recovered_wrong": 0,
+      "remaining_unknown": 1,
+      "strategy": "retain_claim_preserve_contract",
+      "transitions": {
+        "correct->correct": 4,
+        "unknown->unknown": 1
+      }
+    },
+    "thinking_marker_in_visible_output": {
+      "attempted": 141,
+      "legacy_unknown": 134,
+      "methods": {
+        "bare_extracted_integer": 2,
+        "bit_separators": 4,
+        "bitstring": 3,
+        "byte_unit": 1,
+        "conflicting_declarations": 1,
+        "explicit_declaration": 17,
+        "json": 19,
+        "json_abstention": 2,
+        "malformed_or_conflicting_declaration": 3,
+        "matching_terminal_claim": 1,
+        "no_complete_structured_claim": 7,
+        "no_unambiguous_final_answer": 6,
+        "no_visible_answer": 1,
+        "nonterminal_declaration": 2,
+        "repeated_declaration": 1,
+        "representation": 2,
+        "scalar": 14,
+        "special_marker_inside_response": 5,
+        "terminal_answer_phrase": 2,
+        "truncated_before_commitment": 48
+      },
+      "original_joint_success": 1,
+      "recovered_correct": 21,
+      "recovered_joint_success": 1,
+      "recovered_wrong": 47,
+      "remaining_unknown": 73,
+      "strategy": "strip_thought_boundary_only",
+      "transitions": {
+        "correct->correct": 2,
+        "unknown->correct": 19,
+        "unknown->unknown": 73,
+        "unknown->wrong": 42,
+        "wrong->wrong": 5
+      }
+    },
+    "tool_marker_in_visible_output": {
+      "attempted": 1,
+      "legacy_unknown": 1,
+      "methods": {
+        "special_marker_inside_response": 1
+      },
+      "original_joint_success": 0,
+      "recovered_correct": 0,
+      "recovered_joint_success": 0,
+      "recovered_wrong": 0,
+      "remaining_unknown": 1,
+      "strategy": "abstain_tool_content",
+      "transitions": {
+        "unknown->unknown": 1
+      }
+    },
+    "truncated_declaration_prefix": {
+      "attempted": 1,
+      "legacy_unknown": 1,
+      "methods": {
+        "repeated_declaration": 1
+      },
+      "original_joint_success": 0,
+      "recovered_correct": 1,
+      "recovered_joint_success": 0,
+      "recovered_wrong": 0,
+      "remaining_unknown": 0,
+      "strategy": "require_repeated_identical_complete_declarations",
+      "transitions": {
+        "unknown->correct": 1
+      }
+    },
+    "unresolved_decision": {
+      "attempted": 1741,
+      "legacy_unknown": 1741,
+      "methods": {
+        "bare_extracted_integer": 2,
+        "bit_separators": 18,
+        "bitstring": 24,
+        "byte_unit": 13,
+        "conflicting_declarations": 2,
+        "empty_output": 1,
+        "equation_rhs": 3,
+        "explicit_declaration": 69,
+        "explicit_host_count": 1,
+        "explicit_text_pair": 3,
+        "identical_scalar_lines": 2,
+        "invalid_bit_value": 10,
+        "json": 19,
+        "json_abstention": 2,
+        "literal_response": 51,
+        "malformed_or_conflicting_declaration": 64,
+        "matching_terminal_claim": 7,
+        "no_complete_literal_claim": 27,
+        "no_complete_structured_claim": 62,
+        "no_unambiguous_final_answer": 266,
+        "no_visible_answer": 2,
+        "nonterminal_declaration": 42,
+        "repeated_declaration": 6,
+        "representation": 26,
+        "scalar": 14,
+        "special_marker_inside_response": 5,
+        "split_answer_phrase": 3,
+        "terminal_answer_phrase": 12,
+        "terminal_entity_phrase": 2,
+        "truncated_before_commitment": 970,
+        "truncated_or_conflicting_declarations": 4,
+        "uncertain_claim": 7,
+        "wrong_entity": 2
+      },
+      "original_joint_success": 0,
+      "recovered_correct": 47,
+      "recovered_joint_success": 0,
+      "recovered_wrong": 242,
+      "remaining_unknown": 1452,
+      "strategy": "conservative_recovery_or_abstain",
+      "transitions": {
+        "unknown->correct": 47,
+        "unknown->unknown": 1452,
+        "unknown->wrong": 242
+      }
+    },
+    "value_used_as_key": {
+      "attempted": 5,
+      "legacy_unknown": 0,
+      "methods": {
+        "json": 5
+      },
+      "original_joint_success": 0,
+      "recovered_correct": 0,
+      "recovered_joint_success": 0,
+      "recovered_wrong": 5,
+      "remaining_unknown": 0,
+      "strategy": "retain_wrong_structure",
+      "transitions": {
+        "wrong->wrong": 5
+      }
+    },
+    "wrong_answer_type": {
+      "attempted": 80,
+      "legacy_unknown": 1,
+      "methods": {
+        "json": 79,
+        "no_complete_structured_claim": 1
+      },
+      "original_joint_success": 0,
+      "recovered_correct": 33,
+      "recovered_joint_success": 0,
+      "recovered_wrong": 46,
+      "remaining_unknown": 1,
+      "strategy": "safe_integer_field_conversion_only",
+      "transitions": {
+        "correct->correct": 33,
+        "unknown->unknown": 1,
+        "wrong->wrong": 46
+      }
+    },
+    "wrong_output_entity_cidr": {
+      "attempted": 3,
+      "legacy_unknown": 3,
+      "methods": {
+        "truncated_before_commitment": 1,
+        "wrong_entity": 2
+      },
+      "original_joint_success": 0,
+      "recovered_correct": 0,
+      "recovered_joint_success": 0,
+      "recovered_wrong": 2,
+      "remaining_unknown": 1,
+      "strategy": "retain_wrong_entity",
+      "transitions": {
+        "unknown->unknown": 1,
+        "unknown->wrong": 2
+      }
+    },
+    "wrong_value": {
+      "attempted": 515,
+      "legacy_unknown": 0,
+      "methods": {
+        "bitstring": 24,
+        "csv": 43,
+        "explicit_declaration": 89,
+        "json": 36,
+        "malformed_or_conflicting_declaration": 1,
+        "no_unambiguous_final_answer": 1,
+        "repeated_declaration": 11,
+        "representation": 49,
+        "scalar": 253,
+        "terminal_answer_phrase": 2,
+        "truncated_before_commitment": 6
+      },
+      "original_joint_success": 0,
+      "recovered_correct": 0,
+      "recovered_joint_success": 0,
+      "recovered_wrong": 507,
+      "remaining_unknown": 8,
+      "strategy": "retain_claim",
+      "transitions": {
+        "wrong->unknown": 8,
+        "wrong->wrong": 507
+      }
+    }
+  },
+  "by_model": {
+    "granite42-3b-q2k": {
+      "attempted": 508,
+      "legacy_unknown": 420,
+      "methods": {
+        "bit_separators": 1,
+        "csv": 2,
+        "explicit_declaration": 1,
+        "json": 33,
+        "literal_response": 6,
+        "malformed_or_conflicting_declaration": 12,
+        "no_complete_literal_claim": 14,
+        "no_complete_structured_claim": 13,
+        "no_unambiguous_final_answer": 54,
+        "nonterminal_declaration": 4,
+        "repeated_declaration": 1,
+        "representation": 12,
+        "scalar": 38,
+        "special_marker_inside_response": 1,
+        "truncated_before_commitment": 311,
+        "truncated_or_conflicting_declarations": 3,
+        "wrong_entity": 2
+      },
+      "original_joint_success": 29,
+      "recovered_correct": 33,
+      "recovered_joint_success": 29,
+      "recovered_wrong": 63,
+      "remaining_unknown": 412,
+      "transitions": {
+        "correct->correct": 33,
+        "unknown->unknown": 412,
+        "unknown->wrong": 8,
+        "wrong->wrong": 55
+      }
+    },
+    "phi4mini-instruct-q2k": {
+      "attempted": 508,
+      "legacy_unknown": 247,
+      "methods": {
+        "bit_separators": 8,
+        "bitstring": 5,
+        "byte_unit": 8,
+        "csv": 3,
+        "equation_rhs": 1,
+        "explicit_declaration": 55,
+        "identical_scalar_lines": 1,
+        "json": 67,
+        "literal_response": 25,
+        "malformed_or_conflicting_declaration": 11,
+        "no_complete_literal_claim": 3,
+        "no_complete_structured_claim": 13,
+        "no_unambiguous_final_answer": 22,
+        "nonterminal_declaration": 32,
+        "repeated_declaration": 6,
+        "representation": 32,
+        "scalar": 91,
+        "truncated_before_commitment": 124,
+        "truncated_or_conflicting_declarations": 1
+      },
+      "original_joint_success": 104,
+      "recovered_correct": 156,
+      "recovered_joint_success": 104,
+      "recovered_wrong": 146,
+      "remaining_unknown": 206,
+      "transitions": {
+        "correct->correct": 153,
+        "unknown->correct": 3,
+        "unknown->unknown": 205,
+        "unknown->wrong": 39,
+        "wrong->unknown": 1,
+        "wrong->wrong": 107
+      }
+    },
+    "qwen3-4b-q2k": {
+      "attempted": 1524,
+      "legacy_unknown": 759,
+      "methods": {
+        "bare_extracted_integer": 2,
+        "bit_separators": 9,
+        "bitstring": 43,
+        "byte_unit": 5,
+        "conflicting_declarations": 2,
+        "csv": 32,
+        "empty_output": 1,
+        "equation_rhs": 2,
+        "explicit_declaration": 218,
+        "explicit_host_count": 1,
+        "explicit_text_pair": 3,
+        "identical_scalar_lines": 1,
+        "invalid_bit_value": 10,
+        "json": 286,
+        "json_abstention": 13,
+        "literal_response": 82,
+        "malformed_or_conflicting_declaration": 38,
+        "matching_terminal_claim": 7,
+        "no_complete_literal_claim": 2,
+        "no_complete_structured_claim": 30,
+        "no_unambiguous_final_answer": 119,
+        "no_visible_answer": 2,
+        "nonterminal_declaration": 6,
+        "repeated_declaration": 16,
+        "representation": 59,
+        "scalar": 165,
+        "special_marker_inside_response": 4,
+        "split_answer_phrase": 3,
+        "terminal_answer_phrase": 8,
+        "terminal_entity_phrase": 1,
+        "truncated_before_commitment": 352,
+        "uncertain_claim": 2
+      },
+      "original_joint_success": 256,
+      "recovered_correct": 425,
+      "recovered_joint_success": 256,
+      "recovered_wrong": 541,
+      "remaining_unknown": 558,
+      "transitions": {
+        "correct->correct": 387,
+        "unknown->correct": 38,
+        "unknown->unknown": 551,
+        "unknown->wrong": 170,
+        "wrong->unknown": 7,
+        "wrong->wrong": 371
+      }
+    },
+    "smollm3-3b-q2k": {
+      "attempted": 508,
+      "legacy_unknown": 315,
+      "methods": {
+        "csv": 10,
+        "explicit_declaration": 53,
+        "json": 107,
+        "literal_response": 20,
+        "malformed_or_conflicting_declaration": 4,
+        "no_complete_literal_claim": 8,
+        "no_complete_structured_claim": 6,
+        "no_unambiguous_final_answer": 72,
+        "representation": 10,
+        "scalar": 16,
+        "terminal_answer_phrase": 7,
+        "terminal_entity_phrase": 1,
+        "truncated_before_commitment": 189,
+        "uncertain_claim": 5
+      },
+      "original_joint_success": 37,
+      "recovered_correct": 130,
+      "recovered_joint_success": 37,
+      "recovered_wrong": 94,
+      "remaining_unknown": 284,
+      "transitions": {
+        "correct->correct": 124,
+        "unknown->correct": 6,
+        "unknown->unknown": 284,
+        "unknown->wrong": 25,
+        "wrong->wrong": 69
+      }
+    }
+  },
+  "overall": {
+    "attempted": 3048,
+    "legacy_unknown": 1741,
+    "methods": {
+      "bare_extracted_integer": 2,
+      "bit_separators": 18,
+      "bitstring": 48,
+      "byte_unit": 13,
+      "conflicting_declarations": 2,
+      "csv": 47,
+      "empty_output": 1,
+      "equation_rhs": 3,
+      "explicit_declaration": 327,
+      "explicit_host_count": 1,
+      "explicit_text_pair": 3,
+      "identical_scalar_lines": 2,
+      "invalid_bit_value": 10,
+      "json": 493,
+      "json_abstention": 13,
+      "literal_response": 133,
+      "malformed_or_conflicting_declaration": 65,
+      "matching_terminal_claim": 7,
+      "no_complete_literal_claim": 27,
+      "no_complete_structured_claim": 62,
+      "no_unambiguous_final_answer": 267,
+      "no_visible_answer": 2,
+      "nonterminal_declaration": 42,
+      "repeated_declaration": 23,
+      "representation": 113,
+      "scalar": 310,
+      "special_marker_inside_response": 5,
+      "split_answer_phrase": 3,
+      "terminal_answer_phrase": 15,
+      "terminal_entity_phrase": 2,
+      "truncated_before_commitment": 976,
+      "truncated_or_conflicting_declarations": 4,
+      "uncertain_claim": 7,
+      "wrong_entity": 2
+    },
+    "original_joint_success": 426,
+    "recovered_correct": 744,
+    "recovered_joint_success": 426,
+    "recovered_wrong": 844,
+    "remaining_unknown": 1460,
+    "transitions": {
+      "correct->correct": 697,
+      "unknown->correct": 47,
+      "unknown->unknown": 1452,
+      "unknown->wrong": 242,
+      "wrong->unknown": 8,
+      "wrong->wrong": 602
+    }
+  },
+  "version": "answer-recovery-v0.1"
+}

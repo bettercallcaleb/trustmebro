@@ -46,5 +46,8 @@ class CLITests(unittest.TestCase):
                 self.assertEqual(diagnostics["planned"],len(manifest["tasks"])*2)
                 self.assertEqual(diagnostics["not_run"],0)
                 self.assertTrue(all(r["score_unchanged"]["joint_success"] for r in diagnostics["rows"]))
+                self.assertEqual(diagnostics["recovery_summary"]["remaining_unknown"],0)
+                self.assertEqual(diagnostics["recovery_summary"]["recovered_correct"],len(manifest["tasks"])*2)
+                self.assertTrue(all(r["recovery"]["semantic_correct"] for r in diagnostics["rows"]))
             finally:server.shutdown();thread.join()
 if __name__=="__main__":unittest.main()
