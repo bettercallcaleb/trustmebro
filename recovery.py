@@ -5,7 +5,7 @@ import math
 import re
 from pathlib import Path
 
-VERSION="answer-recovery-v0.2"
+VERSION="answer-recovery-v0.3"
 MISSING=object()
 LABEL=re.compile(r"(?i)^(?:final(?: answer| result)?|answer|return|result|solution|corrected answer|output)\s*:\s*(.*)$")
 HEADING=re.compile(r"^#{1,6}\s+")
@@ -185,7 +185,7 @@ def declarations(s):
         out.append((i,end,body,heading and not m[1].strip()))
     return lines,out
 
-def recover(spec,reply):
+def recover_primary(spec,reply):
     spec=public_spec(spec)
     raw=reply.get("content")
     if not isinstance(raw,str) or not raw.strip():return result(MISSING,"empty_output")
@@ -313,6 +313,13 @@ def recover(spec,reply):
         if val is not MISSING:return result(val,"terminal_punctuation",steps+[method])
     return result(MISSING,"no_unambiguous_final_answer",steps)
 
+def recover(spec,reply):
+    from recovery_extended import recover_extended
+    spec=public_spec(spec)
+    first=recover_primary(spec,reply)
+    return recover_extended(spec,reply,first)
+
+
 def compare(task,rec):
     if rec["status"]!="recovered":return None,None
     c=rec["candidate"];gold=task.get("answer")
@@ -348,10 +355,29 @@ UNKNOWN_METHODS={
     "no_complete_structured_claim":"structured_claim_unresolved",
     "no_complete_literal_claim":"literal_claim_unresolved",
     "unsupported_literal_family":"unsupported_format",
+    "conflicting_evidence_fields":"conflicting_evidence_fields",
+    "missing_answer_field":"missing_answer_field",
+    "malformed_structured_payload":"malformed_structured_payload",
+    "literal_payload_unidentified":"literal_payload_unidentified",
+    "ambiguous_malformed_declaration":"ambiguous_malformed_declaration",
+    "explicit_no_answer":"explicit_no_answer",
+    "descriptive_answer_not_encoded":"descriptive_answer_not_encoded",
+    "instruction_echo_without_claim":"instruction_echo_without_claim",
+    "invalid_answer_representation":"invalid_answer_representation",
+    "wrong_structured_answer_type":"wrong_structured_answer_type",
+    "repeated_question_without_answer":"repeated_question_without_answer",
+    "source_echo_without_claim":"source_echo_without_claim",
+    "tautological_answer":"tautological_answer",
+    "answer_or_intermediate_ambiguous":"answer_or_intermediate_ambiguous",
+    "multiple_or_malformed_literal_records":"multiple_or_malformed_literal_records",
+    "unsupported_answer_unit":"unsupported_answer_unit",
+    "placeholder_without_answer":"placeholder_without_answer",
+    "unfinished_reasoning":"unfinished_reasoning",
+    "conflicting_answer_directives":"conflicting_answer_directives",
     "no_explicit_claim":"unclassified_response",
     "no_unambiguous_final_answer":"unclassified_response",
 }
-UNKNOWN_REVIEW={"malformed_declaration","structured_claim_unresolved","literal_claim_unresolved","unclassified_response","unsupported_format","unsupported_finish","nonterminal_declaration","special_marker_blocked"}
+UNKNOWN_REVIEW={"answer_or_intermediate_ambiguous","multiple_or_malformed_literal_records","unsupported_answer_unit","literal_payload_unidentified","ambiguous_malformed_declaration","malformed_structured_payload","invalid_answer_representation","malformed_declaration","structured_claim_unresolved","literal_claim_unresolved","unclassified_response","unsupported_format","unsupported_finish","nonterminal_declaration","special_marker_blocked"}
 
 def classify_unknown(rec,reply,correct):
     finish=reply.get("finish_reason")
@@ -365,7 +391,13 @@ def classify_unknown(rec,reply,correct):
 def assess(task,reply,prior=None):
     from failure_corpus import diagnose
     prior=prior or {};d=diagnose(task,reply,prior)
-    rec=recover(public_spec(task),reply);correct,evidence=compare(task,rec)
+    rec=recover(public_spec(task),reply)
+    if rec["status"]=="unresolved" and task.get("kind")=="extraction" and isinstance(reply.get("content"),str):
+        source=task.get("response","").strip()
+        visible=reply["content"].strip()
+        if source and (visible==source or visible==source+"\n\n"+source):
+            rec={**rec,"method":"source_echo_without_claim"}
+    correct,evidence=compare(task,rec)
     legacy=prior.get("score",{});old=legacy.get("semantic_correct")
     compliant=legacy.get("format_compliant")
     joint=correct is True and compliant is True and (task.get("kind")!="extraction" or rec["candidate"]["decision"]=="abstain" or evidence is True)

@@ -7,6 +7,7 @@
 - Preserve incorrect claims, evidence failures, conflicts and unresolved/truncated responses; never solve the underlying task or substitute a reference value.
 - Report original and recovered semantic outcomes side by side, with per-label strategies and explicit unresolved reasons.
 - Partition unresolved replies by observed blocker and termination, with separate residual review counts.
+- Extend reference-blind recovery to structured fields, ordered status vectors, route tuples, character pairs and explicit conclusions; audit the remaining non-truncated unresolved cases.
 - Add recovery regression tests and frozen-corpus replay. Original scoring and raw outputs remain unchanged.
 
 ## v0.3.0

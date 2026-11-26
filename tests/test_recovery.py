@@ -107,7 +107,7 @@ class RecoveryTests(unittest.TestCase):
             ("FINAL:","stop","empty_declaration"),
             ("FINAL: 42\nFINAL: 43","stop","conflicting_declarations"),
             ("FINAL: xyz","stop","malformed_declaration"),
-            ("FINAL: 42\nNot sure.","stop","nonterminal_declaration"),
+            ("FINAL: 42\nNot sure.","stop","uncertain_claim"),
             ("The answer might be 42.","stop","uncertain_claim"),
             ("<tool_call>42</tool_call>","stop","special_marker_blocked"),
             ("Something else","stop","unclassified_response"),
@@ -133,7 +133,7 @@ class RecoveryTests(unittest.TestCase):
 
     def test_structured_unknown_reasons(self):
         task={"format":"json","answer":{"x":1}}
-        for text,expected in [('{"x":1,"x":2}',"conflicting_json_keys"),('{"x":',"structured_claim_unresolved")]:
+        for text,expected in [('{"x":1,"x":2}',"conflicting_json_keys"),('{"x":',"malformed_structured_payload")]:
             d=r.assess(task,{"content":text,"finish_reason":"stop"})
             self.assertEqual(d["unknown_reason"],expected)
 

@@ -45,3 +45,5 @@ The repository's MIT license covers the benchmark software and original benchmar
     python3 recovery.py run run.json --out recovered.json
 
 [Recovery summary](recovery-summary.json) reports original-to-recovered transitions and the outcome for each observed label. [Recovery policy](../docs/RECOVERY.md) describes the rules and limitations. Anomaly flags are not erased by answer recovery.
+
+The [non-truncated unresolved audit](nontruncated-unresolved.jsonl) records each remaining normally stopped unresolved response with its specific recovery blocker and source fingerprint. Zero unclassified replies in this development corpus does not establish independent annotation accuracy.
