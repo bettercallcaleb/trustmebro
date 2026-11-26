@@ -11,7 +11,7 @@ Diagnostics now recover the model's committed answer independently of contract c
     python3 recovery.py run run.json --out recovered.json
     python3 recovery.py corpus corpus/responses.jsonl --out corpus-replay.json
 
-The existing diagnostic command also includes per-response recovery results and a recovery summary. See [recovery policy and validation](docs/RECOVERY.md). The official v0.2 scoring protocol is unchanged; recovery v0.3 is a separately versioned diagnostic measurement. Unknowns are partitioned into confirmed truncation, specific observed blockers and unclassified replies; termination remains independent of correctness.
+The existing diagnostic command also includes per-response recovery results and a recovery summary. See [recovery policy and validation](docs/RECOVERY.md). The official v0.2 scoring protocol is unchanged; recovery v0.4 is a separately versioned diagnostic measurement. Unknowns are partitioned into confirmed truncation, specific observed blockers and unclassified replies; termination remains independent of correctness.
 
 ## New in v0.3.0: Failure Corpus
 
