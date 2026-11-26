@@ -1,0 +1,3962 @@
+{
+  "by_label": {
+    "alternative_label": {
+      "attempted": 4,
+      "legacy_unknown": 4,
+      "methods": {
+        "explicit_declaration": 4
+      },
+      "original_joint_success": 0,
+      "recovered_correct": 2,
+      "recovered_joint_success": 0,
+      "recovered_wrong": 2,
+      "remaining_unknown": 0,
+      "strategy": "explicit_declaration",
+      "termination_by_semantic_outcome": {
+        "length": {
+          "correct": 0,
+          "unknown": 0,
+          "wrong": 0
+        },
+        "missing": {
+          "correct": 0,
+          "unknown": 0,
+          "wrong": 0
+        },
+        "other": {
+          "correct": 0,
+          "unknown": 0,
+          "wrong": 0
+        },
+        "stop": {
+          "correct": 2,
+          "unknown": 0,
+          "wrong": 2
+        }
+      },
+      "transitions": {
+        "unknown->correct": 2,
+        "unknown->wrong": 2
+      },
+      "unknown_breakdown": {},
+      "unknown_by_termination": {
+        "length": {},
+        "missing": {},
+        "other": {},
+        "stop": {}
+      },
+      "unknown_details": {},
+      "unknown_finish_missing": 0,
+      "unknown_nontruncated": 0,
+      "unknown_nontruncated_classified": 0,
+      "unknown_review_required": 0,
+      "unknown_truncated": 0,
+      "unknown_unclassified": 0
+    },
+    "bit_delimiter": {
+      "attempted": 17,
+      "legacy_unknown": 17,
+      "methods": {
+        "bit_separators": 14,
+        "explicit_declaration": 3
+      },
+      "original_joint_success": 0,
+      "recovered_correct": 1,
+      "recovered_joint_success": 0,
+      "recovered_wrong": 16,
+      "remaining_unknown": 0,
+      "strategy": "normalize_bit_separators",
+      "termination_by_semantic_outcome": {
+        "length": {
+          "correct": 0,
+          "unknown": 0,
+          "wrong": 0
+        },
+        "missing": {
+          "correct": 0,
+          "unknown": 0,
+          "wrong": 0
+        },
+        "other": {
+          "correct": 0,
+          "unknown": 0,
+          "wrong": 0
+        },
+        "stop": {
+          "correct": 1,
+          "unknown": 0,
+          "wrong": 16
+        }
+      },
+      "transitions": {
+        "unknown->correct": 1,
+        "unknown->wrong": 16
+      },
+      "unknown_breakdown": {},
+      "unknown_by_termination": {
+        "length": {},
+        "missing": {},
+        "other": {},
+        "stop": {}
+      },
+      "unknown_details": {},
+      "unknown_finish_missing": 0,
+      "unknown_nontruncated": 0,
+      "unknown_nontruncated_classified": 0,
+      "unknown_review_required": 0,
+      "unknown_truncated": 0,
+      "unknown_unclassified": 0
+    },
+    "bit_width": {
+      "attempted": 34,
+      "legacy_unknown": 25,
+      "methods": {
+        "bitstring": 30,
+        "truncated_before_commitment": 4
+      },
+      "original_joint_success": 0,
+      "recovered_correct": 0,
+      "recovered_joint_success": 0,
+      "recovered_wrong": 30,
+      "remaining_unknown": 4,
+      "strategy": "retain_complete_wrong_width",
+      "termination_by_semantic_outcome": {
+        "length": {
+          "correct": 0,
+          "unknown": 4,
+          "wrong": 0
+        },
+        "missing": {
+          "correct": 0,
+          "unknown": 0,
+          "wrong": 0
+        },
+        "other": {
+          "correct": 0,
+          "unknown": 0,
+          "wrong": 0
+        },
+        "stop": {
+          "correct": 0,
+          "unknown": 0,
+          "wrong": 30
+        }
+      },
+      "transitions": {
+        "unknown->unknown": 4,
+        "unknown->wrong": 21,
+        "wrong->wrong": 9
+      },
+      "unknown_breakdown": {
+        "truncated": 4
+      },
+      "unknown_by_termination": {
+        "length": {
+          "truncated": 4
+        },
+        "missing": {},
+        "other": {},
+        "stop": {}
+      },
+      "unknown_details": {
+        "truncated_before_commitment": 4
+      },
+      "unknown_finish_missing": 0,
+      "unknown_nontruncated": 0,
+      "unknown_nontruncated_classified": 0,
+      "unknown_review_required": 0,
+      "unknown_truncated": 4,
+      "unknown_unclassified": 0
+    },
+    "code_fence": {
+      "attempted": 145,
+      "legacy_unknown": 14,
+      "methods": {
+        "conflicting_declarations": 1,
+        "explicit_claim_recovery": 6,
+        "explicit_declaration": 16,
+        "json": 99,
+        "json_abstention": 4,
+        "representation": 1,
+        "scalar": 13,
+        "structured_claim": 1,
+        "truncated_before_commitment": 4
+      },
+      "original_joint_success": 0,
+      "recovered_correct": 69,
+      "recovered_joint_success": 0,
+      "recovered_wrong": 71,
+      "remaining_unknown": 5,
+      "strategy": "unwrap_balanced_wrapper",
+      "termination_by_semantic_outcome": {
+        "length": {
+          "correct": 1,
+          "unknown": 4,
+          "wrong": 0
+        },
+        "missing": {
+          "correct": 0,
+          "unknown": 0,
+          "wrong": 0
+        },
+        "other": {
+          "correct": 0,
+          "unknown": 0,
+          "wrong": 0
+        },
+        "stop": {
+          "correct": 68,
+          "unknown": 1,
+          "wrong": 71
+        }
+      },
+      "transitions": {
+        "correct->correct": 65,
+        "unknown->correct": 4,
+        "unknown->unknown": 5,
+        "unknown->wrong": 5,
+        "wrong->wrong": 66
+      },
+      "unknown_breakdown": {
+        "conflicting_declarations": 1,
+        "truncated": 4
+      },
+      "unknown_by_termination": {
+        "length": {
+          "truncated": 4
+        },
+        "missing": {},
+        "other": {},
+        "stop": {
+          "conflicting_declarations": 1
+        }
+      },
+      "unknown_details": {
+        "conflicting_declarations": 1,
+        "truncated_before_commitment": 4
+      },
+      "unknown_finish_missing": 0,
+      "unknown_nontruncated": 1,
+      "unknown_nontruncated_classified": 1,
+      "unknown_review_required": 0,
+      "unknown_truncated": 4,
+      "unknown_unclassified": 0
+    },
+    "contract_violation": {
+      "attempted": 2207,
+      "legacy_unknown": 1741,
+      "methods": {
+        "answer_or_intermediate_ambiguous": 1,
+        "answer_with_explanation": 20,
+        "bare_extracted_integer": 2,
+        "bit_separators": 18,
+        "bitstring": 33,
+        "byte_unit": 13,
+        "conflicting_answer_directives": 1,
+        "conflicting_declarations": 18,
+        "conflicting_json_keys": 1,
+        "csv": 15,
+        "empty_declaration": 10,
+        "empty_output": 1,
+        "equation_rhs": 3,
+        "explicit_claim_recovery": 217,
+        "explicit_count": 1,
+        "explicit_declaration": 177,
+        "explicit_empty_sequence": 1,
+        "explicit_equation_result": 1,
+        "explicit_host_count": 1,
+        "explicit_no_answer": 9,
+        "explicit_status": 1,
+        "explicit_text_pair": 3,
+        "identical_scalar_lines": 2,
+        "instruction_echo_without_claim": 6,
+        "invalid_bit_value": 10,
+        "json": 285,
+        "json_abstention": 13,
+        "literal_claim": 7,
+        "literal_delivered": 13,
+        "literal_response": 51,
+        "malformed_structured_payload": 2,
+        "matching_terminal_claim": 7,
+        "missing_answer_field": 5,
+        "multiple_or_malformed_literal_records": 2,
+        "no_visible_answer": 2,
+        "nonterminal_declaration": 3,
+        "ordered_bit_sequence": 1,
+        "placeholder_without_answer": 1,
+        "repeated_declaration": 17,
+        "repeated_question_without_answer": 1,
+        "repeated_terminal_value": 1,
+        "representation": 49,
+        "route_tuple_claims": 1,
+        "scalar": 29,
+        "source_echo_without_claim": 1,
+        "special_marker_inside_response": 3,
+        "split_answer_phrase": 3,
+        "structured_claim": 92,
+        "tautological_answer": 1,
+        "terminal_answer_phrase": 15,
+        "terminal_entity_phrase": 2,
+        "truncated_before_commitment": 973,
+        "truncated_or_conflicting_declarations": 4,
+        "unsupported_answer_unit": 6,
+        "whole_answer_representation": 48,
+        "wrong_entity": 2,
+        "wrong_structured_answer_type": 2
+      },
+      "original_joint_success": 0,
+      "recovered_correct": 445,
+      "recovered_joint_success": 0,
+      "recovered_wrong": 709,
+      "remaining_unknown": 1053,
+      "strategy": "preserve_original_contract_score",
+      "termination_by_semantic_outcome": {
+        "length": {
+          "correct": 2,
+          "unknown": 984,
+          "wrong": 2
+        },
+        "missing": {
+          "correct": 0,
+          "unknown": 0,
+          "wrong": 0
+        },
+        "other": {
+          "correct": 0,
+          "unknown": 0,
+          "wrong": 0
+        },
+        "stop": {
+          "correct": 443,
+          "unknown": 69,
+          "wrong": 707
+        }
+      },
+      "transitions": {
+        "correct->correct": 263,
+        "unknown->correct": 182,
+        "unknown->unknown": 1050,
+        "unknown->wrong": 509,
+        "wrong->unknown": 3,
+        "wrong->wrong": 200
+      },
+      "unknown_breakdown": {
+        "answer_or_intermediate_ambiguous": 1,
+        "conflicting_answer_directives": 1,
+        "conflicting_declarations": 18,
+        "conflicting_json_keys": 1,
+        "empty_declaration": 10,
+        "empty_output": 1,
+        "explicit_no_answer": 9,
+        "instruction_echo_without_claim": 6,
+        "malformed_structured_payload": 2,
+        "missing_answer_field": 5,
+        "multiple_or_malformed_literal_records": 2,
+        "no_visible_answer": 1,
+        "placeholder_without_answer": 1,
+        "repeated_question_without_answer": 1,
+        "source_echo_without_claim": 1,
+        "tautological_answer": 1,
+        "truncated": 984,
+        "unsupported_answer_unit": 6,
+        "wrong_structured_answer_type": 2
+      },
+      "unknown_by_termination": {
+        "length": {
+          "truncated": 984
+        },
+        "missing": {},
+        "other": {},
+        "stop": {
+          "answer_or_intermediate_ambiguous": 1,
+          "conflicting_answer_directives": 1,
+          "conflicting_declarations": 18,
+          "conflicting_json_keys": 1,
+          "empty_declaration": 10,
+          "empty_output": 1,
+          "explicit_no_answer": 9,
+          "instruction_echo_without_claim": 6,
+          "malformed_structured_payload": 2,
+          "missing_answer_field": 5,
+          "multiple_or_malformed_literal_records": 2,
+          "no_visible_answer": 1,
+          "placeholder_without_answer": 1,
+          "repeated_question_without_answer": 1,
+          "source_echo_without_claim": 1,
+          "tautological_answer": 1,
+          "unsupported_answer_unit": 6,
+          "wrong_structured_answer_type": 2
+        }
+      },
+      "unknown_details": {
+        "answer_or_intermediate_ambiguous": 1,
+        "conflicting_answer_directives": 1,
+        "conflicting_declarations": 18,
+        "conflicting_json_keys": 1,
+        "empty_declaration": 10,
+        "empty_output": 1,
+        "explicit_no_answer": 9,
+        "instruction_echo_without_claim": 6,
+        "malformed_structured_payload": 2,
+        "missing_answer_field": 5,
+        "multiple_or_malformed_literal_records": 2,
+        "no_visible_answer": 2,
+        "nonterminal_declaration": 3,
+        "placeholder_without_answer": 1,
+        "repeated_question_without_answer": 1,
+        "source_echo_without_claim": 1,
+        "special_marker_inside_response": 3,
+        "tautological_answer": 1,
+        "truncated_before_commitment": 973,
+        "truncated_or_conflicting_declarations": 4,
+        "unsupported_answer_unit": 6,
+        "wrong_structured_answer_type": 2
+      },
+      "unknown_finish_missing": 0,
+      "unknown_nontruncated": 69,
+      "unknown_nontruncated_classified": 69,
+      "unknown_review_required": 11,
+      "unknown_truncated": 984,
+      "unknown_unclassified": 0
+    },
+    "csv_length_mismatch": {
+      "attempted": 36,
+      "legacy_unknown": 2,
+      "methods": {
+        "csv": 24,
+        "explicit_claim_recovery": 1,
+        "explicit_declaration": 3,
+        "repeated_declaration": 4,
+        "truncated_before_commitment": 4
+      },
+      "original_joint_success": 0,
+      "recovered_correct": 1,
+      "recovered_joint_success": 0,
+      "recovered_wrong": 31,
+      "remaining_unknown": 4,
+      "strategy": "retain_complete_sequence",
+      "termination_by_semantic_outcome": {
+        "length": {
+          "correct": 1,
+          "unknown": 4,
+          "wrong": 0
+        },
+        "missing": {
+          "correct": 0,
+          "unknown": 0,
+          "wrong": 0
+        },
+        "other": {
+          "correct": 0,
+          "unknown": 0,
+          "wrong": 0
+        },
+        "stop": {
+          "correct": 0,
+          "unknown": 0,
+          "wrong": 31
+        }
+      },
+      "transitions": {
+        "unknown->correct": 1,
+        "unknown->wrong": 1,
+        "wrong->unknown": 4,
+        "wrong->wrong": 30
+      },
+      "unknown_breakdown": {
+        "truncated": 4
+      },
+      "unknown_by_termination": {
+        "length": {
+          "truncated": 4
+        },
+        "missing": {},
+        "other": {},
+        "stop": {}
+      },
+      "unknown_details": {
+        "truncated_before_commitment": 4
+      },
+      "unknown_finish_missing": 0,
+      "unknown_nontruncated": 0,
+      "unknown_nontruncated_classified": 0,
+      "unknown_review_required": 0,
+      "unknown_truncated": 4,
+      "unknown_unclassified": 0
+    },
+    "csv_space": {
+      "attempted": 20,
+      "legacy_unknown": 0,
+      "methods": {
+        "csv": 15,
+        "explicit_declaration": 4,
+        "truncated_before_commitment": 1
+      },
+      "original_joint_success": 0,
+      "recovered_correct": 1,
+      "recovered_joint_success": 0,
+      "recovered_wrong": 18,
+      "remaining_unknown": 1,
+      "strategy": "normalize_csv_separators",
+      "termination_by_semantic_outcome": {
+        "length": {
+          "correct": 0,
+          "unknown": 1,
+          "wrong": 0
+        },
+        "missing": {
+          "correct": 0,
+          "unknown": 0,
+          "wrong": 0
+        },
+        "other": {
+          "correct": 0,
+          "unknown": 0,
+          "wrong": 0
+        },
+        "stop": {
+          "correct": 1,
+          "unknown": 0,
+          "wrong": 18
+        }
+      },
+      "transitions": {
+        "correct->correct": 1,
+        "wrong->unknown": 1,
+        "wrong->wrong": 18
+      },
+      "unknown_breakdown": {
+        "truncated": 1
+      },
+      "unknown_by_termination": {
+        "length": {
+          "truncated": 1
+        },
+        "missing": {},
+        "other": {},
+        "stop": {}
+      },
+      "unknown_details": {
+        "truncated_before_commitment": 1
+      },
+      "unknown_finish_missing": 0,
+      "unknown_nontruncated": 0,
+      "unknown_nontruncated_classified": 0,
+      "unknown_review_required": 0,
+      "unknown_truncated": 1,
+      "unknown_unclassified": 0
+    },
+    "duplicate_json_keys": {
+      "attempted": 4,
+      "legacy_unknown": 4,
+      "methods": {
+        "structured_claim": 1,
+        "truncated_before_commitment": 3
+      },
+      "original_joint_success": 0,
+      "recovered_correct": 0,
+      "recovered_joint_success": 0,
+      "recovered_wrong": 1,
+      "remaining_unknown": 3,
+      "strategy": "collapse_identical_keys_only",
+      "termination_by_semantic_outcome": {
+        "length": {
+          "correct": 0,
+          "unknown": 3,
+          "wrong": 0
+        },
+        "missing": {
+          "correct": 0,
+          "unknown": 0,
+          "wrong": 0
+        },
+        "other": {
+          "correct": 0,
+          "unknown": 0,
+          "wrong": 0
+        },
+        "stop": {
+          "correct": 0,
+          "unknown": 0,
+          "wrong": 1
+        }
+      },
+      "transitions": {
+        "unknown->unknown": 3,
+        "unknown->wrong": 1
+      },
+      "unknown_breakdown": {
+        "truncated": 3
+      },
+      "unknown_by_termination": {
+        "length": {
+          "truncated": 3
+        },
+        "missing": {},
+        "other": {},
+        "stop": {}
+      },
+      "unknown_details": {
+        "truncated_before_commitment": 3
+      },
+      "unknown_finish_missing": 0,
+      "unknown_nontruncated": 0,
+      "unknown_nontruncated_classified": 0,
+      "unknown_review_required": 0,
+      "unknown_truncated": 3,
+      "unknown_unclassified": 0
+    },
+    "empty_final_label": {
+      "attempted": 10,
+      "legacy_unknown": 10,
+      "methods": {
+        "empty_declaration": 10
+      },
+      "original_joint_success": 0,
+      "recovered_correct": 0,
+      "recovered_joint_success": 0,
+      "recovered_wrong": 0,
+      "remaining_unknown": 10,
+      "strategy": "inspect_adjacent_value_or_abstain",
+      "termination_by_semantic_outcome": {
+        "length": {
+          "correct": 0,
+          "unknown": 0,
+          "wrong": 0
+        },
+        "missing": {
+          "correct": 0,
+          "unknown": 0,
+          "wrong": 0
+        },
+        "other": {
+          "correct": 0,
+          "unknown": 0,
+          "wrong": 0
+        },
+        "stop": {
+          "correct": 0,
+          "unknown": 10,
+          "wrong": 0
+        }
+      },
+      "transitions": {
+        "unknown->unknown": 10
+      },
+      "unknown_breakdown": {
+        "empty_declaration": 10
+      },
+      "unknown_by_termination": {
+        "length": {},
+        "missing": {},
+        "other": {},
+        "stop": {
+          "empty_declaration": 10
+        }
+      },
+      "unknown_details": {
+        "empty_declaration": 10
+      },
+      "unknown_finish_missing": 0,
+      "unknown_nontruncated": 10,
+      "unknown_nontruncated_classified": 10,
+      "unknown_review_required": 0,
+      "unknown_truncated": 0,
+      "unknown_unclassified": 0
+    },
+    "empty_output": {
+      "attempted": 1,
+      "legacy_unknown": 1,
+      "methods": {
+        "empty_output": 1
+      },
+      "original_joint_success": 0,
+      "recovered_correct": 0,
+      "recovered_joint_success": 0,
+      "recovered_wrong": 0,
+      "remaining_unknown": 1,
+      "strategy": "abstain_no_answer",
+      "termination_by_semantic_outcome": {
+        "length": {
+          "correct": 0,
+          "unknown": 0,
+          "wrong": 0
+        },
+        "missing": {
+          "correct": 0,
+          "unknown": 0,
+          "wrong": 0
+        },
+        "other": {
+          "correct": 0,
+          "unknown": 0,
+          "wrong": 0
+        },
+        "stop": {
+          "correct": 0,
+          "unknown": 1,
+          "wrong": 0
+        }
+      },
+      "transitions": {
+        "unknown->unknown": 1
+      },
+      "unknown_breakdown": {
+        "empty_output": 1
+      },
+      "unknown_by_termination": {
+        "length": {},
+        "missing": {},
+        "other": {},
+        "stop": {
+          "empty_output": 1
+        }
+      },
+      "unknown_details": {
+        "empty_output": 1
+      },
+      "unknown_finish_missing": 0,
+      "unknown_nontruncated": 1,
+      "unknown_nontruncated_classified": 1,
+      "unknown_review_required": 0,
+      "unknown_truncated": 0,
+      "unknown_unclassified": 0
+    },
+    "error_code_width": {
+      "attempted": 2,
+      "legacy_unknown": 0,
+      "methods": {
+        "representation": 2
+      },
+      "original_joint_success": 0,
+      "recovered_correct": 0,
+      "recovered_joint_success": 0,
+      "recovered_wrong": 2,
+      "remaining_unknown": 0,
+      "strategy": "retain_complete_wrong_width",
+      "termination_by_semantic_outcome": {
+        "length": {
+          "correct": 0,
+          "unknown": 0,
+          "wrong": 0
+        },
+        "missing": {
+          "correct": 0,
+          "unknown": 0,
+          "wrong": 0
+        },
+        "other": {
+          "correct": 0,
+          "unknown": 0,
+          "wrong": 0
+        },
+        "stop": {
+          "correct": 0,
+          "unknown": 0,
+          "wrong": 2
+        }
+      },
+      "transitions": {
+        "wrong->wrong": 2
+      },
+      "unknown_breakdown": {},
+      "unknown_by_termination": {
+        "length": {},
+        "missing": {},
+        "other": {},
+        "stop": {}
+      },
+      "unknown_details": {},
+      "unknown_finish_missing": 0,
+      "unknown_nontruncated": 0,
+      "unknown_nontruncated_classified": 0,
+      "unknown_review_required": 0,
+      "unknown_truncated": 0,
+      "unknown_unclassified": 0
+    },
+    "extra_outer_whitespace": {
+      "attempted": 18,
+      "legacy_unknown": 18,
+      "methods": {
+        "literal_response": 18
+      },
+      "original_joint_success": 0,
+      "recovered_correct": 0,
+      "recovered_joint_success": 0,
+      "recovered_wrong": 18,
+      "remaining_unknown": 0,
+      "strategy": "preserve_literal_contract",
+      "termination_by_semantic_outcome": {
+        "length": {
+          "correct": 0,
+          "unknown": 0,
+          "wrong": 0
+        },
+        "missing": {
+          "correct": 0,
+          "unknown": 0,
+          "wrong": 0
+        },
+        "other": {
+          "correct": 0,
+          "unknown": 0,
+          "wrong": 0
+        },
+        "stop": {
+          "correct": 0,
+          "unknown": 0,
+          "wrong": 18
+        }
+      },
+      "transitions": {
+        "unknown->wrong": 18
+      },
+      "unknown_breakdown": {},
+      "unknown_by_termination": {
+        "length": {},
+        "missing": {},
+        "other": {},
+        "stop": {}
+      },
+      "unknown_details": {},
+      "unknown_finish_missing": 0,
+      "unknown_nontruncated": 0,
+      "unknown_nontruncated_classified": 0,
+      "unknown_review_required": 0,
+      "unknown_truncated": 0,
+      "unknown_unclassified": 0
+    },
+    "extra_text": {
+      "attempted": 34,
+      "legacy_unknown": 0,
+      "methods": {
+        "explicit_declaration": 10,
+        "json": 7,
+        "representation": 1,
+        "scalar": 13,
+        "terminal_answer_phrase": 3
+      },
+      "original_joint_success": 0,
+      "recovered_correct": 9,
+      "recovered_joint_success": 0,
+      "recovered_wrong": 25,
+      "remaining_unknown": 0,
+      "strategy": "terminal_explicit_commitment_only",
+      "termination_by_semantic_outcome": {
+        "length": {
+          "correct": 0,
+          "unknown": 0,
+          "wrong": 0
+        },
+        "missing": {
+          "correct": 0,
+          "unknown": 0,
+          "wrong": 0
+        },
+        "other": {
+          "correct": 0,
+          "unknown": 0,
+          "wrong": 0
+        },
+        "stop": {
+          "correct": 9,
+          "unknown": 0,
+          "wrong": 25
+        }
+      },
+      "transitions": {
+        "correct->correct": 9,
+        "wrong->wrong": 25
+      },
+      "unknown_breakdown": {},
+      "unknown_by_termination": {
+        "length": {},
+        "missing": {},
+        "other": {},
+        "stop": {}
+      },
+      "unknown_details": {},
+      "unknown_finish_missing": 0,
+      "unknown_nontruncated": 0,
+      "unknown_nontruncated_classified": 0,
+      "unknown_review_required": 0,
+      "unknown_truncated": 0,
+      "unknown_unclassified": 0
+    },
+    "false_extraction": {
+      "attempted": 95,
+      "legacy_unknown": 0,
+      "methods": {
+        "json": 95
+      },
+      "original_joint_success": 0,
+      "recovered_correct": 0,
+      "recovered_joint_success": 0,
+      "recovered_wrong": 95,
+      "remaining_unknown": 0,
+      "strategy": "retain_extracted_claim",
+      "termination_by_semantic_outcome": {
+        "length": {
+          "correct": 0,
+          "unknown": 0,
+          "wrong": 0
+        },
+        "missing": {
+          "correct": 0,
+          "unknown": 0,
+          "wrong": 0
+        },
+        "other": {
+          "correct": 0,
+          "unknown": 0,
+          "wrong": 0
+        },
+        "stop": {
+          "correct": 0,
+          "unknown": 0,
+          "wrong": 95
+        }
+      },
+      "transitions": {
+        "wrong->wrong": 95
+      },
+      "unknown_breakdown": {},
+      "unknown_by_termination": {
+        "length": {},
+        "missing": {},
+        "other": {},
+        "stop": {}
+      },
+      "unknown_details": {},
+      "unknown_finish_missing": 0,
+      "unknown_nontruncated": 0,
+      "unknown_nontruncated_classified": 0,
+      "unknown_review_required": 0,
+      "unknown_truncated": 0,
+      "unknown_unclassified": 0
+    },
+    "hex_width": {
+      "attempted": 10,
+      "legacy_unknown": 8,
+      "methods": {
+        "representation": 7,
+        "truncated_before_commitment": 3
+      },
+      "original_joint_success": 0,
+      "recovered_correct": 0,
+      "recovered_joint_success": 0,
+      "recovered_wrong": 7,
+      "remaining_unknown": 3,
+      "strategy": "retain_complete_wrong_width",
+      "termination_by_semantic_outcome": {
+        "length": {
+          "correct": 0,
+          "unknown": 3,
+          "wrong": 0
+        },
+        "missing": {
+          "correct": 0,
+          "unknown": 0,
+          "wrong": 0
+        },
+        "other": {
+          "correct": 0,
+          "unknown": 0,
+          "wrong": 0
+        },
+        "stop": {
+          "correct": 0,
+          "unknown": 0,
+          "wrong": 7
+        }
+      },
+      "transitions": {
+        "unknown->unknown": 3,
+        "unknown->wrong": 5,
+        "wrong->wrong": 2
+      },
+      "unknown_breakdown": {
+        "truncated": 3
+      },
+      "unknown_by_termination": {
+        "length": {
+          "truncated": 3
+        },
+        "missing": {},
+        "other": {},
+        "stop": {}
+      },
+      "unknown_details": {
+        "truncated_before_commitment": 3
+      },
+      "unknown_finish_missing": 0,
+      "unknown_nontruncated": 0,
+      "unknown_nontruncated_classified": 0,
+      "unknown_review_required": 0,
+      "unknown_truncated": 3,
+      "unknown_unclassified": 0
+    },
+    "inline_code": {
+      "attempted": 2,
+      "legacy_unknown": 1,
+      "methods": {
+        "explicit_claim_recovery": 1,
+        "representation": 1
+      },
+      "original_joint_success": 0,
+      "recovered_correct": 0,
+      "recovered_joint_success": 0,
+      "recovered_wrong": 2,
+      "remaining_unknown": 0,
+      "strategy": "unwrap_balanced_wrapper",
+      "termination_by_semantic_outcome": {
+        "length": {
+          "correct": 0,
+          "unknown": 0,
+          "wrong": 0
+        },
+        "missing": {
+          "correct": 0,
+          "unknown": 0,
+          "wrong": 0
+        },
+        "other": {
+          "correct": 0,
+          "unknown": 0,
+          "wrong": 0
+        },
+        "stop": {
+          "correct": 0,
+          "unknown": 0,
+          "wrong": 2
+        }
+      },
+      "transitions": {
+        "unknown->wrong": 1,
+        "wrong->wrong": 1
+      },
+      "unknown_breakdown": {},
+      "unknown_by_termination": {
+        "length": {},
+        "missing": {},
+        "other": {},
+        "stop": {}
+      },
+      "unknown_details": {},
+      "unknown_finish_missing": 0,
+      "unknown_nontruncated": 0,
+      "unknown_nontruncated_classified": 0,
+      "unknown_review_required": 0,
+      "unknown_truncated": 0,
+      "unknown_unclassified": 0
+    },
+    "invalid_json": {
+      "attempted": 76,
+      "legacy_unknown": 28,
+      "methods": {
+        "conflicting_json_keys": 1,
+        "explicit_declaration": 16,
+        "json": 35,
+        "malformed_structured_payload": 1,
+        "structured_claim": 17,
+        "truncated_before_commitment": 6
+      },
+      "original_joint_success": 13,
+      "recovered_correct": 59,
+      "recovered_joint_success": 13,
+      "recovered_wrong": 9,
+      "remaining_unknown": 8,
+      "strategy": "parse_complete_json_or_abstain",
+      "termination_by_semantic_outcome": {
+        "length": {
+          "correct": 0,
+          "unknown": 6,
+          "wrong": 0
+        },
+        "missing": {
+          "correct": 0,
+          "unknown": 0,
+          "wrong": 0
+        },
+        "other": {
+          "correct": 0,
+          "unknown": 0,
+          "wrong": 0
+        },
+        "stop": {
+          "correct": 59,
+          "unknown": 2,
+          "wrong": 9
+        }
+      },
+      "transitions": {
+        "correct->correct": 45,
+        "unknown->correct": 14,
+        "unknown->unknown": 8,
+        "unknown->wrong": 6,
+        "wrong->wrong": 3
+      },
+      "unknown_breakdown": {
+        "conflicting_json_keys": 1,
+        "malformed_structured_payload": 1,
+        "truncated": 6
+      },
+      "unknown_by_termination": {
+        "length": {
+          "truncated": 6
+        },
+        "missing": {},
+        "other": {},
+        "stop": {
+          "conflicting_json_keys": 1,
+          "malformed_structured_payload": 1
+        }
+      },
+      "unknown_details": {
+        "conflicting_json_keys": 1,
+        "malformed_structured_payload": 1,
+        "truncated_before_commitment": 6
+      },
+      "unknown_finish_missing": 0,
+      "unknown_nontruncated": 2,
+      "unknown_nontruncated_classified": 2,
+      "unknown_review_required": 1,
+      "unknown_truncated": 6,
+      "unknown_unclassified": 0
+    },
+    "irrelevant_quote": {
+      "attempted": 70,
+      "legacy_unknown": 0,
+      "methods": {
+        "json": 70
+      },
+      "original_joint_success": 0,
+      "recovered_correct": 10,
+      "recovered_joint_success": 0,
+      "recovered_wrong": 60,
+      "remaining_unknown": 0,
+      "strategy": "retain_claim_evaluate_evidence_separately",
+      "termination_by_semantic_outcome": {
+        "length": {
+          "correct": 0,
+          "unknown": 0,
+          "wrong": 0
+        },
+        "missing": {
+          "correct": 0,
+          "unknown": 0,
+          "wrong": 0
+        },
+        "other": {
+          "correct": 0,
+          "unknown": 0,
+          "wrong": 0
+        },
+        "stop": {
+          "correct": 10,
+          "unknown": 0,
+          "wrong": 60
+        }
+      },
+      "transitions": {
+        "correct->correct": 10,
+        "wrong->wrong": 60
+      },
+      "unknown_breakdown": {},
+      "unknown_by_termination": {
+        "length": {},
+        "missing": {},
+        "other": {},
+        "stop": {}
+      },
+      "unknown_details": {},
+      "unknown_finish_missing": 0,
+      "unknown_nontruncated": 0,
+      "unknown_nontruncated_classified": 0,
+      "unknown_review_required": 0,
+      "unknown_truncated": 0,
+      "unknown_unclassified": 0
+    },
+    "json_abstention": {
+      "attempted": 11,
+      "legacy_unknown": 0,
+      "methods": {
+        "json_abstention": 11
+      },
+      "original_joint_success": 0,
+      "recovered_correct": 11,
+      "recovered_joint_success": 0,
+      "recovered_wrong": 0,
+      "remaining_unknown": 0,
+      "strategy": "explicit_abstention",
+      "termination_by_semantic_outcome": {
+        "length": {
+          "correct": 0,
+          "unknown": 0,
+          "wrong": 0
+        },
+        "missing": {
+          "correct": 0,
+          "unknown": 0,
+          "wrong": 0
+        },
+        "other": {
+          "correct": 0,
+          "unknown": 0,
+          "wrong": 0
+        },
+        "stop": {
+          "correct": 11,
+          "unknown": 0,
+          "wrong": 0
+        }
+      },
+      "transitions": {
+        "correct->correct": 11
+      },
+      "unknown_breakdown": {},
+      "unknown_by_termination": {
+        "length": {},
+        "missing": {},
+        "other": {},
+        "stop": {}
+      },
+      "unknown_details": {},
+      "unknown_finish_missing": 0,
+      "unknown_nontruncated": 0,
+      "unknown_nontruncated_classified": 0,
+      "unknown_review_required": 0,
+      "unknown_truncated": 0,
+      "unknown_unclassified": 0
+    },
+    "json_array_length_mismatch": {
+      "attempted": 4,
+      "legacy_unknown": 0,
+      "methods": {
+        "json": 4
+      },
+      "original_joint_success": 0,
+      "recovered_correct": 0,
+      "recovered_joint_success": 0,
+      "recovered_wrong": 4,
+      "remaining_unknown": 0,
+      "strategy": "retain_complete_json",
+      "termination_by_semantic_outcome": {
+        "length": {
+          "correct": 0,
+          "unknown": 0,
+          "wrong": 0
+        },
+        "missing": {
+          "correct": 0,
+          "unknown": 0,
+          "wrong": 0
+        },
+        "other": {
+          "correct": 0,
+          "unknown": 0,
+          "wrong": 0
+        },
+        "stop": {
+          "correct": 0,
+          "unknown": 0,
+          "wrong": 4
+        }
+      },
+      "transitions": {
+        "wrong->wrong": 4
+      },
+      "unknown_breakdown": {},
+      "unknown_by_termination": {
+        "length": {},
+        "missing": {},
+        "other": {},
+        "stop": {}
+      },
+      "unknown_details": {},
+      "unknown_finish_missing": 0,
+      "unknown_nontruncated": 0,
+      "unknown_nontruncated_classified": 0,
+      "unknown_review_required": 0,
+      "unknown_truncated": 0,
+      "unknown_unclassified": 0
+    },
+    "json_key_set_mismatch": {
+      "attempted": 6,
+      "legacy_unknown": 1,
+      "methods": {
+        "json": 5,
+        "missing_answer_field": 1
+      },
+      "original_joint_success": 0,
+      "recovered_correct": 0,
+      "recovered_joint_success": 0,
+      "recovered_wrong": 5,
+      "remaining_unknown": 1,
+      "strategy": "retain_complete_json",
+      "termination_by_semantic_outcome": {
+        "length": {
+          "correct": 0,
+          "unknown": 0,
+          "wrong": 0
+        },
+        "missing": {
+          "correct": 0,
+          "unknown": 0,
+          "wrong": 0
+        },
+        "other": {
+          "correct": 0,
+          "unknown": 0,
+          "wrong": 0
+        },
+        "stop": {
+          "correct": 0,
+          "unknown": 1,
+          "wrong": 5
+        }
+      },
+      "transitions": {
+        "unknown->unknown": 1,
+        "wrong->wrong": 5
+      },
+      "unknown_breakdown": {
+        "missing_answer_field": 1
+      },
+      "unknown_by_termination": {
+        "length": {},
+        "missing": {},
+        "other": {},
+        "stop": {
+          "missing_answer_field": 1
+        }
+      },
+      "unknown_details": {
+        "missing_answer_field": 1
+      },
+      "unknown_finish_missing": 0,
+      "unknown_nontruncated": 1,
+      "unknown_nontruncated_classified": 1,
+      "unknown_review_required": 0,
+      "unknown_truncated": 0,
+      "unknown_unclassified": 0
+    },
+    "json_type_mismatch": {
+      "attempted": 5,
+      "legacy_unknown": 0,
+      "methods": {
+        "json": 5
+      },
+      "original_joint_success": 0,
+      "recovered_correct": 0,
+      "recovered_joint_success": 0,
+      "recovered_wrong": 5,
+      "remaining_unknown": 0,
+      "strategy": "retain_typed_json",
+      "termination_by_semantic_outcome": {
+        "length": {
+          "correct": 0,
+          "unknown": 0,
+          "wrong": 0
+        },
+        "missing": {
+          "correct": 0,
+          "unknown": 0,
+          "wrong": 0
+        },
+        "other": {
+          "correct": 0,
+          "unknown": 0,
+          "wrong": 0
+        },
+        "stop": {
+          "correct": 0,
+          "unknown": 0,
+          "wrong": 5
+        }
+      },
+      "transitions": {
+        "wrong->wrong": 5
+      },
+      "unknown_breakdown": {},
+      "unknown_by_termination": {
+        "length": {},
+        "missing": {},
+        "other": {},
+        "stop": {}
+      },
+      "unknown_details": {},
+      "unknown_finish_missing": 0,
+      "unknown_nontruncated": 0,
+      "unknown_nontruncated_classified": 0,
+      "unknown_review_required": 0,
+      "unknown_truncated": 0,
+      "unknown_unclassified": 0
+    },
+    "leading_role_marker": {
+      "attempted": 33,
+      "legacy_unknown": 29,
+      "methods": {
+        "explicit_claim_recovery": 3,
+        "explicit_declaration": 4,
+        "no_visible_answer": 1,
+        "repeated_declaration": 1,
+        "special_marker_inside_response": 2,
+        "structured_claim": 1,
+        "truncated_before_commitment": 21
+      },
+      "original_joint_success": 0,
+      "recovered_correct": 2,
+      "recovered_joint_success": 0,
+      "recovered_wrong": 7,
+      "remaining_unknown": 24,
+      "strategy": "strip_assistant_prefix_only",
+      "termination_by_semantic_outcome": {
+        "length": {
+          "correct": 0,
+          "unknown": 23,
+          "wrong": 0
+        },
+        "missing": {
+          "correct": 0,
+          "unknown": 0,
+          "wrong": 0
+        },
+        "other": {
+          "correct": 0,
+          "unknown": 0,
+          "wrong": 0
+        },
+        "stop": {
+          "correct": 2,
+          "unknown": 1,
+          "wrong": 7
+        }
+      },
+      "transitions": {
+        "correct->correct": 1,
+        "unknown->correct": 1,
+        "unknown->unknown": 24,
+        "unknown->wrong": 4,
+        "wrong->wrong": 3
+      },
+      "unknown_breakdown": {
+        "no_visible_answer": 1,
+        "truncated": 23
+      },
+      "unknown_by_termination": {
+        "length": {
+          "truncated": 23
+        },
+        "missing": {},
+        "other": {},
+        "stop": {
+          "no_visible_answer": 1
+        }
+      },
+      "unknown_details": {
+        "no_visible_answer": 1,
+        "special_marker_inside_response": 2,
+        "truncated_before_commitment": 21
+      },
+      "unknown_finish_missing": 0,
+      "unknown_nontruncated": 1,
+      "unknown_nontruncated_classified": 1,
+      "unknown_review_required": 0,
+      "unknown_truncated": 23,
+      "unknown_unclassified": 0
+    },
+    "length_limit": {
+      "attempted": 991,
+      "legacy_unknown": 983,
+      "methods": {
+        "explicit_declaration": 2,
+        "no_visible_answer": 1,
+        "nonterminal_declaration": 3,
+        "repeated_declaration": 2,
+        "special_marker_inside_response": 3,
+        "truncated_before_commitment": 976,
+        "truncated_or_conflicting_declarations": 4
+      },
+      "original_joint_success": 0,
+      "recovered_correct": 2,
+      "recovered_joint_success": 0,
+      "recovered_wrong": 2,
+      "remaining_unknown": 987,
+      "strategy": "abstain_unless_repeated_complete_declarations",
+      "termination_by_semantic_outcome": {
+        "length": {
+          "correct": 2,
+          "unknown": 987,
+          "wrong": 2
+        },
+        "missing": {
+          "correct": 0,
+          "unknown": 0,
+          "wrong": 0
+        },
+        "other": {
+          "correct": 0,
+          "unknown": 0,
+          "wrong": 0
+        },
+        "stop": {
+          "correct": 0,
+          "unknown": 0,
+          "wrong": 0
+        }
+      },
+      "transitions": {
+        "correct->correct": 1,
+        "unknown->correct": 1,
+        "unknown->unknown": 981,
+        "unknown->wrong": 1,
+        "wrong->unknown": 6,
+        "wrong->wrong": 1
+      },
+      "unknown_breakdown": {
+        "truncated": 987
+      },
+      "unknown_by_termination": {
+        "length": {
+          "truncated": 987
+        },
+        "missing": {},
+        "other": {},
+        "stop": {}
+      },
+      "unknown_details": {
+        "no_visible_answer": 1,
+        "nonterminal_declaration": 3,
+        "special_marker_inside_response": 3,
+        "truncated_before_commitment": 976,
+        "truncated_or_conflicting_declarations": 4
+      },
+      "unknown_finish_missing": 0,
+      "unknown_nontruncated": 0,
+      "unknown_nontruncated_classified": 0,
+      "unknown_review_required": 0,
+      "unknown_truncated": 987,
+      "unknown_unclassified": 0
+    },
+    "literal_mismatch": {
+      "attempted": 86,
+      "legacy_unknown": 86,
+      "methods": {
+        "conflicting_declarations": 1,
+        "explicit_no_answer": 2,
+        "instruction_echo_without_claim": 2,
+        "literal_claim": 7,
+        "literal_delivered": 13,
+        "literal_response": 51,
+        "multiple_or_malformed_literal_records": 2,
+        "truncated_before_commitment": 8
+      },
+      "original_joint_success": 0,
+      "recovered_correct": 1,
+      "recovered_joint_success": 0,
+      "recovered_wrong": 70,
+      "remaining_unknown": 15,
+      "strategy": "retain_literal",
+      "termination_by_semantic_outcome": {
+        "length": {
+          "correct": 0,
+          "unknown": 8,
+          "wrong": 0
+        },
+        "missing": {
+          "correct": 0,
+          "unknown": 0,
+          "wrong": 0
+        },
+        "other": {
+          "correct": 0,
+          "unknown": 0,
+          "wrong": 0
+        },
+        "stop": {
+          "correct": 1,
+          "unknown": 7,
+          "wrong": 70
+        }
+      },
+      "transitions": {
+        "unknown->correct": 1,
+        "unknown->unknown": 15,
+        "unknown->wrong": 70
+      },
+      "unknown_breakdown": {
+        "conflicting_declarations": 1,
+        "explicit_no_answer": 2,
+        "instruction_echo_without_claim": 2,
+        "multiple_or_malformed_literal_records": 2,
+        "truncated": 8
+      },
+      "unknown_by_termination": {
+        "length": {
+          "truncated": 8
+        },
+        "missing": {},
+        "other": {},
+        "stop": {
+          "conflicting_declarations": 1,
+          "explicit_no_answer": 2,
+          "instruction_echo_without_claim": 2,
+          "multiple_or_malformed_literal_records": 2
+        }
+      },
+      "unknown_details": {
+        "conflicting_declarations": 1,
+        "explicit_no_answer": 2,
+        "instruction_echo_without_claim": 2,
+        "multiple_or_malformed_literal_records": 2,
+        "truncated_before_commitment": 8
+      },
+      "unknown_finish_missing": 0,
+      "unknown_nontruncated": 7,
+      "unknown_nontruncated_classified": 7,
+      "unknown_review_required": 2,
+      "unknown_truncated": 8,
+      "unknown_unclassified": 0
+    },
+    "malformed_declaration": {
+      "attempted": 103,
+      "legacy_unknown": 103,
+      "methods": {
+        "conflicting_declarations": 3,
+        "explicit_claim_recovery": 28,
+        "explicit_declaration": 40,
+        "explicit_no_answer": 1,
+        "repeated_declaration": 3,
+        "route_tuple_claims": 1,
+        "structured_claim": 7,
+        "tautological_answer": 1,
+        "truncated_before_commitment": 17,
+        "truncated_or_conflicting_declarations": 2
+      },
+      "original_joint_success": 0,
+      "recovered_correct": 24,
+      "recovered_joint_success": 0,
+      "recovered_wrong": 55,
+      "remaining_unknown": 24,
+      "strategy": "bounded_declaration_parser",
+      "termination_by_semantic_outcome": {
+        "length": {
+          "correct": 0,
+          "unknown": 19,
+          "wrong": 0
+        },
+        "missing": {
+          "correct": 0,
+          "unknown": 0,
+          "wrong": 0
+        },
+        "other": {
+          "correct": 0,
+          "unknown": 0,
+          "wrong": 0
+        },
+        "stop": {
+          "correct": 24,
+          "unknown": 5,
+          "wrong": 55
+        }
+      },
+      "transitions": {
+        "unknown->correct": 24,
+        "unknown->unknown": 24,
+        "unknown->wrong": 55
+      },
+      "unknown_breakdown": {
+        "conflicting_declarations": 3,
+        "explicit_no_answer": 1,
+        "tautological_answer": 1,
+        "truncated": 19
+      },
+      "unknown_by_termination": {
+        "length": {
+          "truncated": 19
+        },
+        "missing": {},
+        "other": {},
+        "stop": {
+          "conflicting_declarations": 3,
+          "explicit_no_answer": 1,
+          "tautological_answer": 1
+        }
+      },
+      "unknown_details": {
+        "conflicting_declarations": 3,
+        "explicit_no_answer": 1,
+        "tautological_answer": 1,
+        "truncated_before_commitment": 17,
+        "truncated_or_conflicting_declarations": 2
+      },
+      "unknown_finish_missing": 0,
+      "unknown_nontruncated": 5,
+      "unknown_nontruncated_classified": 5,
+      "unknown_review_required": 0,
+      "unknown_truncated": 19,
+      "unknown_unclassified": 0
+    },
+    "markdown_emphasis": {
+      "attempted": 87,
+      "legacy_unknown": 36,
+      "methods": {
+        "conflicting_declarations": 1,
+        "explicit_claim_recovery": 7,
+        "explicit_declaration": 72,
+        "repeated_declaration": 4,
+        "truncated_before_commitment": 3
+      },
+      "original_joint_success": 0,
+      "recovered_correct": 31,
+      "recovered_joint_success": 0,
+      "recovered_wrong": 52,
+      "remaining_unknown": 4,
+      "strategy": "unwrap_balanced_wrapper",
+      "termination_by_semantic_outcome": {
+        "length": {
+          "correct": 0,
+          "unknown": 3,
+          "wrong": 0
+        },
+        "missing": {
+          "correct": 0,
+          "unknown": 0,
+          "wrong": 0
+        },
+        "other": {
+          "correct": 0,
+          "unknown": 0,
+          "wrong": 0
+        },
+        "stop": {
+          "correct": 31,
+          "unknown": 1,
+          "wrong": 52
+        }
+      },
+      "transitions": {
+        "correct->correct": 25,
+        "unknown->correct": 6,
+        "unknown->unknown": 3,
+        "unknown->wrong": 27,
+        "wrong->unknown": 1,
+        "wrong->wrong": 25
+      },
+      "unknown_breakdown": {
+        "conflicting_declarations": 1,
+        "truncated": 3
+      },
+      "unknown_by_termination": {
+        "length": {
+          "truncated": 3
+        },
+        "missing": {},
+        "other": {},
+        "stop": {
+          "conflicting_declarations": 1
+        }
+      },
+      "unknown_details": {
+        "conflicting_declarations": 1,
+        "truncated_before_commitment": 3
+      },
+      "unknown_finish_missing": 0,
+      "unknown_nontruncated": 1,
+      "unknown_nontruncated_classified": 1,
+      "unknown_review_required": 0,
+      "unknown_truncated": 3,
+      "unknown_unclassified": 0
+    },
+    "markdown_wrapper": {
+      "attempted": 308,
+      "legacy_unknown": 52,
+      "methods": {
+        "conflicting_declarations": 2,
+        "explicit_claim_recovery": 14,
+        "explicit_declaration": 100,
+        "json": 161,
+        "json_abstention": 4,
+        "repeated_declaration": 4,
+        "representation": 2,
+        "scalar": 13,
+        "structured_claim": 1,
+        "truncated_before_commitment": 7
+      },
+      "original_joint_success": 0,
+      "recovered_correct": 174,
+      "recovered_joint_success": 0,
+      "recovered_wrong": 125,
+      "remaining_unknown": 9,
+      "strategy": "unwrap_balanced_wrapper",
+      "termination_by_semantic_outcome": {
+        "length": {
+          "correct": 1,
+          "unknown": 7,
+          "wrong": 0
+        },
+        "missing": {
+          "correct": 0,
+          "unknown": 0,
+          "wrong": 0
+        },
+        "other": {
+          "correct": 0,
+          "unknown": 0,
+          "wrong": 0
+        },
+        "stop": {
+          "correct": 173,
+          "unknown": 2,
+          "wrong": 125
+        }
+      },
+      "transitions": {
+        "correct->correct": 163,
+        "unknown->correct": 11,
+        "unknown->unknown": 8,
+        "unknown->wrong": 33,
+        "wrong->unknown": 1,
+        "wrong->wrong": 92
+      },
+      "unknown_breakdown": {
+        "conflicting_declarations": 2,
+        "truncated": 7
+      },
+      "unknown_by_termination": {
+        "length": {
+          "truncated": 7
+        },
+        "missing": {},
+        "other": {},
+        "stop": {
+          "conflicting_declarations": 2
+        }
+      },
+      "unknown_details": {
+        "conflicting_declarations": 2,
+        "truncated_before_commitment": 7
+      },
+      "unknown_finish_missing": 0,
+      "unknown_nontruncated": 2,
+      "unknown_nontruncated_classified": 2,
+      "unknown_review_required": 0,
+      "unknown_truncated": 7,
+      "unknown_unclassified": 0
+    },
+    "missing_keys": {
+      "attempted": 12,
+      "legacy_unknown": 0,
+      "methods": {
+        "json": 1,
+        "json_abstention": 11
+      },
+      "original_joint_success": 0,
+      "recovered_correct": 11,
+      "recovered_joint_success": 0,
+      "recovered_wrong": 1,
+      "remaining_unknown": 0,
+      "strategy": "retain_claim_if_present",
+      "termination_by_semantic_outcome": {
+        "length": {
+          "correct": 0,
+          "unknown": 0,
+          "wrong": 0
+        },
+        "missing": {
+          "correct": 0,
+          "unknown": 0,
+          "wrong": 0
+        },
+        "other": {
+          "correct": 0,
+          "unknown": 0,
+          "wrong": 0
+        },
+        "stop": {
+          "correct": 11,
+          "unknown": 0,
+          "wrong": 1
+        }
+      },
+      "transitions": {
+        "correct->correct": 11,
+        "wrong->wrong": 1
+      },
+      "unknown_breakdown": {},
+      "unknown_by_termination": {
+        "length": {},
+        "missing": {},
+        "other": {},
+        "stop": {}
+      },
+      "unknown_details": {},
+      "unknown_finish_missing": 0,
+      "unknown_nontruncated": 0,
+      "unknown_nontruncated_classified": 0,
+      "unknown_review_required": 0,
+      "unknown_truncated": 0,
+      "unknown_unclassified": 0
+    },
+    "missing_quote": {
+      "attempted": 1,
+      "legacy_unknown": 0,
+      "methods": {
+        "json": 1
+      },
+      "original_joint_success": 0,
+      "recovered_correct": 0,
+      "recovered_joint_success": 0,
+      "recovered_wrong": 1,
+      "remaining_unknown": 0,
+      "strategy": "retain_claim_evaluate_evidence_separately",
+      "termination_by_semantic_outcome": {
+        "length": {
+          "correct": 0,
+          "unknown": 0,
+          "wrong": 0
+        },
+        "missing": {
+          "correct": 0,
+          "unknown": 0,
+          "wrong": 0
+        },
+        "other": {
+          "correct": 0,
+          "unknown": 0,
+          "wrong": 0
+        },
+        "stop": {
+          "correct": 0,
+          "unknown": 0,
+          "wrong": 1
+        }
+      },
+      "transitions": {
+        "wrong->wrong": 1
+      },
+      "unknown_breakdown": {},
+      "unknown_by_termination": {
+        "length": {},
+        "missing": {},
+        "other": {},
+        "stop": {}
+      },
+      "unknown_details": {},
+      "unknown_finish_missing": 0,
+      "unknown_nontruncated": 0,
+      "unknown_nontruncated_classified": 0,
+      "unknown_review_required": 0,
+      "unknown_truncated": 0,
+      "unknown_unclassified": 0
+    },
+    "multiple_declarations": {
+      "attempted": 32,
+      "legacy_unknown": 23,
+      "methods": {
+        "conflicting_declarations": 1,
+        "explicit_claim_recovery": 7,
+        "explicit_declaration": 6,
+        "nonterminal_declaration": 2,
+        "repeated_declaration": 10,
+        "truncated_before_commitment": 4,
+        "truncated_or_conflicting_declarations": 2
+      },
+      "original_joint_success": 0,
+      "recovered_correct": 10,
+      "recovered_joint_success": 0,
+      "recovered_wrong": 13,
+      "remaining_unknown": 9,
+      "strategy": "require_consistent_commitments",
+      "termination_by_semantic_outcome": {
+        "length": {
+          "correct": 1,
+          "unknown": 8,
+          "wrong": 0
+        },
+        "missing": {
+          "correct": 0,
+          "unknown": 0,
+          "wrong": 0
+        },
+        "other": {
+          "correct": 0,
+          "unknown": 0,
+          "wrong": 0
+        },
+        "stop": {
+          "correct": 9,
+          "unknown": 1,
+          "wrong": 13
+        }
+      },
+      "transitions": {
+        "correct->correct": 2,
+        "unknown->correct": 8,
+        "unknown->unknown": 8,
+        "unknown->wrong": 7,
+        "wrong->unknown": 1,
+        "wrong->wrong": 6
+      },
+      "unknown_breakdown": {
+        "conflicting_declarations": 1,
+        "truncated": 8
+      },
+      "unknown_by_termination": {
+        "length": {
+          "truncated": 8
+        },
+        "missing": {},
+        "other": {},
+        "stop": {
+          "conflicting_declarations": 1
+        }
+      },
+      "unknown_details": {
+        "conflicting_declarations": 1,
+        "nonterminal_declaration": 2,
+        "truncated_before_commitment": 4,
+        "truncated_or_conflicting_declarations": 2
+      },
+      "unknown_finish_missing": 0,
+      "unknown_nontruncated": 1,
+      "unknown_nontruncated_classified": 1,
+      "unknown_review_required": 0,
+      "unknown_truncated": 8,
+      "unknown_unclassified": 0
+    },
+    "noncanonical_abstention": {
+      "attempted": 11,
+      "legacy_unknown": 0,
+      "methods": {
+        "json_abstention": 11
+      },
+      "original_joint_success": 0,
+      "recovered_correct": 11,
+      "recovered_joint_success": 0,
+      "recovered_wrong": 0,
+      "remaining_unknown": 0,
+      "strategy": "explicit_abstention",
+      "termination_by_semantic_outcome": {
+        "length": {
+          "correct": 0,
+          "unknown": 0,
+          "wrong": 0
+        },
+        "missing": {
+          "correct": 0,
+          "unknown": 0,
+          "wrong": 0
+        },
+        "other": {
+          "correct": 0,
+          "unknown": 0,
+          "wrong": 0
+        },
+        "stop": {
+          "correct": 11,
+          "unknown": 0,
+          "wrong": 0
+        }
+      },
+      "transitions": {
+        "correct->correct": 11
+      },
+      "unknown_breakdown": {},
+      "unknown_by_termination": {
+        "length": {},
+        "missing": {},
+        "other": {},
+        "stop": {}
+      },
+      "unknown_details": {},
+      "unknown_finish_missing": 0,
+      "unknown_nontruncated": 0,
+      "unknown_nontruncated_classified": 0,
+      "unknown_review_required": 0,
+      "unknown_truncated": 0,
+      "unknown_unclassified": 0
+    },
+    "noncanonical_label": {
+      "attempted": 875,
+      "legacy_unknown": 788,
+      "methods": {
+        "bit_separators": 3,
+        "bitstring": 1,
+        "conflicting_declarations": 4,
+        "explicit_claim_recovery": 46,
+        "explicit_declaration": 123,
+        "explicit_no_answer": 1,
+        "instruction_echo_without_claim": 1,
+        "json": 2,
+        "matching_terminal_claim": 1,
+        "no_visible_answer": 1,
+        "nonterminal_declaration": 2,
+        "repeated_declaration": 11,
+        "special_marker_inside_response": 2,
+        "structured_claim": 11,
+        "tautological_answer": 1,
+        "terminal_answer_phrase": 1,
+        "truncated_before_commitment": 661,
+        "truncated_or_conflicting_declarations": 3
+      },
+      "original_joint_success": 0,
+      "recovered_correct": 88,
+      "recovered_joint_success": 0,
+      "recovered_wrong": 111,
+      "remaining_unknown": 676,
+      "strategy": "explicit_declaration",
+      "termination_by_semantic_outcome": {
+        "length": {
+          "correct": 2,
+          "unknown": 668,
+          "wrong": 1
+        },
+        "missing": {
+          "correct": 0,
+          "unknown": 0,
+          "wrong": 0
+        },
+        "other": {
+          "correct": 0,
+          "unknown": 0,
+          "wrong": 0
+        },
+        "stop": {
+          "correct": 86,
+          "unknown": 8,
+          "wrong": 110
+        }
+      },
+      "transitions": {
+        "correct->correct": 44,
+        "unknown->correct": 44,
+        "unknown->unknown": 675,
+        "unknown->wrong": 69,
+        "wrong->unknown": 1,
+        "wrong->wrong": 42
+      },
+      "unknown_breakdown": {
+        "conflicting_declarations": 4,
+        "explicit_no_answer": 1,
+        "instruction_echo_without_claim": 1,
+        "no_visible_answer": 1,
+        "tautological_answer": 1,
+        "truncated": 668
+      },
+      "unknown_by_termination": {
+        "length": {
+          "truncated": 668
+        },
+        "missing": {},
+        "other": {},
+        "stop": {
+          "conflicting_declarations": 4,
+          "explicit_no_answer": 1,
+          "instruction_echo_without_claim": 1,
+          "no_visible_answer": 1,
+          "tautological_answer": 1
+        }
+      },
+      "unknown_details": {
+        "conflicting_declarations": 4,
+        "explicit_no_answer": 1,
+        "instruction_echo_without_claim": 1,
+        "no_visible_answer": 1,
+        "nonterminal_declaration": 2,
+        "special_marker_inside_response": 2,
+        "tautological_answer": 1,
+        "truncated_before_commitment": 661,
+        "truncated_or_conflicting_declarations": 3
+      },
+      "unknown_finish_missing": 0,
+      "unknown_nontruncated": 8,
+      "unknown_nontruncated_classified": 8,
+      "unknown_review_required": 0,
+      "unknown_truncated": 668,
+      "unknown_unclassified": 0
+    },
+    "nonterminal_declaration": {
+      "attempted": 17,
+      "legacy_unknown": 17,
+      "methods": {
+        "conflicting_declarations": 1,
+        "explicit_claim_recovery": 5,
+        "nonterminal_declaration": 2,
+        "truncated_before_commitment": 9
+      },
+      "original_joint_success": 0,
+      "recovered_correct": 3,
+      "recovered_joint_success": 0,
+      "recovered_wrong": 2,
+      "remaining_unknown": 12,
+      "strategy": "abstain_if_subsequent_text",
+      "termination_by_semantic_outcome": {
+        "length": {
+          "correct": 0,
+          "unknown": 11,
+          "wrong": 0
+        },
+        "missing": {
+          "correct": 0,
+          "unknown": 0,
+          "wrong": 0
+        },
+        "other": {
+          "correct": 0,
+          "unknown": 0,
+          "wrong": 0
+        },
+        "stop": {
+          "correct": 3,
+          "unknown": 1,
+          "wrong": 2
+        }
+      },
+      "transitions": {
+        "unknown->correct": 3,
+        "unknown->unknown": 12,
+        "unknown->wrong": 2
+      },
+      "unknown_breakdown": {
+        "conflicting_declarations": 1,
+        "truncated": 11
+      },
+      "unknown_by_termination": {
+        "length": {
+          "truncated": 11
+        },
+        "missing": {},
+        "other": {},
+        "stop": {
+          "conflicting_declarations": 1
+        }
+      },
+      "unknown_details": {
+        "conflicting_declarations": 1,
+        "nonterminal_declaration": 2,
+        "truncated_before_commitment": 9
+      },
+      "unknown_finish_missing": 0,
+      "unknown_nontruncated": 1,
+      "unknown_nontruncated_classified": 1,
+      "unknown_review_required": 0,
+      "unknown_truncated": 11,
+      "unknown_unclassified": 0
+    },
+    "octal_width": {
+      "attempted": 18,
+      "legacy_unknown": 0,
+      "methods": {
+        "explicit_declaration": 1,
+        "representation": 17
+      },
+      "original_joint_success": 0,
+      "recovered_correct": 1,
+      "recovered_joint_success": 0,
+      "recovered_wrong": 17,
+      "remaining_unknown": 0,
+      "strategy": "retain_complete_wrong_width",
+      "termination_by_semantic_outcome": {
+        "length": {
+          "correct": 0,
+          "unknown": 0,
+          "wrong": 0
+        },
+        "missing": {
+          "correct": 0,
+          "unknown": 0,
+          "wrong": 0
+        },
+        "other": {
+          "correct": 0,
+          "unknown": 0,
+          "wrong": 0
+        },
+        "stop": {
+          "correct": 1,
+          "unknown": 0,
+          "wrong": 17
+        }
+      },
+      "transitions": {
+        "correct->correct": 1,
+        "wrong->wrong": 17
+      },
+      "unknown_breakdown": {},
+      "unknown_by_termination": {
+        "length": {},
+        "missing": {},
+        "other": {},
+        "stop": {}
+      },
+      "unknown_details": {},
+      "unknown_finish_missing": 0,
+      "unknown_nontruncated": 0,
+      "unknown_nontruncated_classified": 0,
+      "unknown_review_required": 0,
+      "unknown_truncated": 0,
+      "unknown_unclassified": 0
+    },
+    "periodic_numeric_output": {
+      "attempted": 16,
+      "legacy_unknown": 13,
+      "methods": {
+        "truncated_before_commitment": 16
+      },
+      "original_joint_success": 0,
+      "recovered_correct": 0,
+      "recovered_joint_success": 0,
+      "recovered_wrong": 0,
+      "remaining_unknown": 16,
+      "strategy": "retain_complete_sequence_or_abstain_if_truncated",
+      "termination_by_semantic_outcome": {
+        "length": {
+          "correct": 0,
+          "unknown": 16,
+          "wrong": 0
+        },
+        "missing": {
+          "correct": 0,
+          "unknown": 0,
+          "wrong": 0
+        },
+        "other": {
+          "correct": 0,
+          "unknown": 0,
+          "wrong": 0
+        },
+        "stop": {
+          "correct": 0,
+          "unknown": 0,
+          "wrong": 0
+        }
+      },
+      "transitions": {
+        "unknown->unknown": 13,
+        "wrong->unknown": 3
+      },
+      "unknown_breakdown": {
+        "truncated": 16
+      },
+      "unknown_by_termination": {
+        "length": {
+          "truncated": 16
+        },
+        "missing": {},
+        "other": {},
+        "stop": {}
+      },
+      "unknown_details": {
+        "truncated_before_commitment": 16
+      },
+      "unknown_finish_missing": 0,
+      "unknown_nontruncated": 0,
+      "unknown_nontruncated_classified": 0,
+      "unknown_review_required": 0,
+      "unknown_truncated": 16,
+      "unknown_unclassified": 0
+    },
+    "quote_not_in_source": {
+      "attempted": 58,
+      "legacy_unknown": 0,
+      "methods": {
+        "json": 58
+      },
+      "original_joint_success": 0,
+      "recovered_correct": 23,
+      "recovered_joint_success": 0,
+      "recovered_wrong": 35,
+      "remaining_unknown": 0,
+      "strategy": "retain_claim_evaluate_evidence_separately",
+      "termination_by_semantic_outcome": {
+        "length": {
+          "correct": 0,
+          "unknown": 0,
+          "wrong": 0
+        },
+        "missing": {
+          "correct": 0,
+          "unknown": 0,
+          "wrong": 0
+        },
+        "other": {
+          "correct": 0,
+          "unknown": 0,
+          "wrong": 0
+        },
+        "stop": {
+          "correct": 23,
+          "unknown": 0,
+          "wrong": 35
+        }
+      },
+      "transitions": {
+        "correct->correct": 23,
+        "wrong->wrong": 35
+      },
+      "unknown_breakdown": {},
+      "unknown_by_termination": {
+        "length": {},
+        "missing": {},
+        "other": {},
+        "stop": {}
+      },
+      "unknown_details": {},
+      "unknown_finish_missing": 0,
+      "unknown_nontruncated": 0,
+      "unknown_nontruncated_classified": 0,
+      "unknown_review_required": 0,
+      "unknown_truncated": 0,
+      "unknown_unclassified": 0
+    },
+    "repeated_answer_declaration": {
+      "attempted": 15,
+      "legacy_unknown": 8,
+      "methods": {
+        "explicit_claim_recovery": 1,
+        "nonterminal_declaration": 3,
+        "repeated_declaration": 9,
+        "truncated_before_commitment": 2
+      },
+      "original_joint_success": 0,
+      "recovered_correct": 3,
+      "recovered_joint_success": 0,
+      "recovered_wrong": 7,
+      "remaining_unknown": 5,
+      "strategy": "collapse_identical_complete_declarations",
+      "termination_by_semantic_outcome": {
+        "length": {
+          "correct": 1,
+          "unknown": 5,
+          "wrong": 1
+        },
+        "missing": {
+          "correct": 0,
+          "unknown": 0,
+          "wrong": 0
+        },
+        "other": {
+          "correct": 0,
+          "unknown": 0,
+          "wrong": 0
+        },
+        "stop": {
+          "correct": 2,
+          "unknown": 0,
+          "wrong": 6
+        }
+      },
+      "transitions": {
+        "correct->correct": 2,
+        "unknown->correct": 1,
+        "unknown->unknown": 5,
+        "unknown->wrong": 2,
+        "wrong->wrong": 5
+      },
+      "unknown_breakdown": {
+        "truncated": 5
+      },
+      "unknown_by_termination": {
+        "length": {
+          "truncated": 5
+        },
+        "missing": {},
+        "other": {},
+        "stop": {}
+      },
+      "unknown_details": {
+        "nonterminal_declaration": 3,
+        "truncated_before_commitment": 2
+      },
+      "unknown_finish_missing": 0,
+      "unknown_nontruncated": 0,
+      "unknown_nontruncated_classified": 0,
+      "unknown_review_required": 0,
+      "unknown_truncated": 5,
+      "unknown_unclassified": 0
+    },
+    "repeated_thinking_marker": {
+      "attempted": 2,
+      "legacy_unknown": 2,
+      "methods": {
+        "no_visible_answer": 1,
+        "special_marker_inside_response": 1
+      },
+      "original_joint_success": 0,
+      "recovered_correct": 0,
+      "recovered_joint_success": 0,
+      "recovered_wrong": 0,
+      "remaining_unknown": 2,
+      "strategy": "strip_orphan_closing_prefix_only",
+      "termination_by_semantic_outcome": {
+        "length": {
+          "correct": 0,
+          "unknown": 2,
+          "wrong": 0
+        },
+        "missing": {
+          "correct": 0,
+          "unknown": 0,
+          "wrong": 0
+        },
+        "other": {
+          "correct": 0,
+          "unknown": 0,
+          "wrong": 0
+        },
+        "stop": {
+          "correct": 0,
+          "unknown": 0,
+          "wrong": 0
+        }
+      },
+      "transitions": {
+        "unknown->unknown": 2
+      },
+      "unknown_breakdown": {
+        "truncated": 2
+      },
+      "unknown_by_termination": {
+        "length": {
+          "truncated": 2
+        },
+        "missing": {},
+        "other": {},
+        "stop": {}
+      },
+      "unknown_details": {
+        "no_visible_answer": 1,
+        "special_marker_inside_response": 1
+      },
+      "unknown_finish_missing": 0,
+      "unknown_nontruncated": 0,
+      "unknown_nontruncated_classified": 0,
+      "unknown_review_required": 0,
+      "unknown_truncated": 2,
+      "unknown_unclassified": 0
+    },
+    "representation_deviation": {
+      "attempted": 70,
+      "legacy_unknown": 0,
+      "methods": {
+        "bitstring": 9,
+        "csv": 15,
+        "json": 9,
+        "representation": 23,
+        "scalar": 13,
+        "truncated_before_commitment": 1
+      },
+      "original_joint_success": 0,
+      "recovered_correct": 7,
+      "recovered_joint_success": 0,
+      "recovered_wrong": 62,
+      "remaining_unknown": 1,
+      "strategy": "normalize_representation_without_guessing",
+      "termination_by_semantic_outcome": {
+        "length": {
+          "correct": 0,
+          "unknown": 1,
+          "wrong": 0
+        },
+        "missing": {
+          "correct": 0,
+          "unknown": 0,
+          "wrong": 0
+        },
+        "other": {
+          "correct": 0,
+          "unknown": 0,
+          "wrong": 0
+        },
+        "stop": {
+          "correct": 7,
+          "unknown": 0,
+          "wrong": 62
+        }
+      },
+      "transitions": {
+        "correct->correct": 7,
+        "wrong->unknown": 1,
+        "wrong->wrong": 62
+      },
+      "unknown_breakdown": {
+        "truncated": 1
+      },
+      "unknown_by_termination": {
+        "length": {
+          "truncated": 1
+        },
+        "missing": {},
+        "other": {},
+        "stop": {}
+      },
+      "unknown_details": {
+        "truncated_before_commitment": 1
+      },
+      "unknown_finish_missing": 0,
+      "unknown_nontruncated": 0,
+      "unknown_nontruncated_classified": 0,
+      "unknown_review_required": 0,
+      "unknown_truncated": 1,
+      "unknown_unclassified": 0
+    },
+    "tab_to_comma_substitution": {
+      "attempted": 17,
+      "legacy_unknown": 17,
+      "methods": {
+        "literal_claim": 1,
+        "literal_response": 14,
+        "multiple_or_malformed_literal_records": 1,
+        "truncated_before_commitment": 1
+      },
+      "original_joint_success": 0,
+      "recovered_correct": 0,
+      "recovered_joint_success": 0,
+      "recovered_wrong": 15,
+      "remaining_unknown": 2,
+      "strategy": "retain_wrong_literal",
+      "termination_by_semantic_outcome": {
+        "length": {
+          "correct": 0,
+          "unknown": 1,
+          "wrong": 0
+        },
+        "missing": {
+          "correct": 0,
+          "unknown": 0,
+          "wrong": 0
+        },
+        "other": {
+          "correct": 0,
+          "unknown": 0,
+          "wrong": 0
+        },
+        "stop": {
+          "correct": 0,
+          "unknown": 1,
+          "wrong": 15
+        }
+      },
+      "transitions": {
+        "unknown->unknown": 2,
+        "unknown->wrong": 15
+      },
+      "unknown_breakdown": {
+        "multiple_or_malformed_literal_records": 1,
+        "truncated": 1
+      },
+      "unknown_by_termination": {
+        "length": {
+          "truncated": 1
+        },
+        "missing": {},
+        "other": {},
+        "stop": {
+          "multiple_or_malformed_literal_records": 1
+        }
+      },
+      "unknown_details": {
+        "multiple_or_malformed_literal_records": 1,
+        "truncated_before_commitment": 1
+      },
+      "unknown_finish_missing": 0,
+      "unknown_nontruncated": 1,
+      "unknown_nontruncated_classified": 1,
+      "unknown_review_required": 1,
+      "unknown_truncated": 1,
+      "unknown_unclassified": 0
+    },
+    "tag_error": {
+      "attempted": 5,
+      "legacy_unknown": 1,
+      "methods": {
+        "json": 4,
+        "missing_answer_field": 1
+      },
+      "original_joint_success": 0,
+      "recovered_correct": 4,
+      "recovered_joint_success": 0,
+      "recovered_wrong": 0,
+      "remaining_unknown": 1,
+      "strategy": "retain_claim_preserve_contract",
+      "termination_by_semantic_outcome": {
+        "length": {
+          "correct": 0,
+          "unknown": 0,
+          "wrong": 0
+        },
+        "missing": {
+          "correct": 0,
+          "unknown": 0,
+          "wrong": 0
+        },
+        "other": {
+          "correct": 0,
+          "unknown": 0,
+          "wrong": 0
+        },
+        "stop": {
+          "correct": 4,
+          "unknown": 1,
+          "wrong": 0
+        }
+      },
+      "transitions": {
+        "correct->correct": 4,
+        "unknown->unknown": 1
+      },
+      "unknown_breakdown": {
+        "missing_answer_field": 1
+      },
+      "unknown_by_termination": {
+        "length": {},
+        "missing": {},
+        "other": {},
+        "stop": {
+          "missing_answer_field": 1
+        }
+      },
+      "unknown_details": {
+        "missing_answer_field": 1
+      },
+      "unknown_finish_missing": 0,
+      "unknown_nontruncated": 1,
+      "unknown_nontruncated_classified": 1,
+      "unknown_review_required": 0,
+      "unknown_truncated": 0,
+      "unknown_unclassified": 0
+    },
+    "thinking_marker_in_visible_output": {
+      "attempted": 141,
+      "legacy_unknown": 134,
+      "methods": {
+        "answer_with_explanation": 1,
+        "bare_extracted_integer": 2,
+        "bit_separators": 4,
+        "bitstring": 3,
+        "byte_unit": 1,
+        "conflicting_declarations": 4,
+        "explicit_claim_recovery": 7,
+        "explicit_declaration": 17,
+        "explicit_no_answer": 1,
+        "json": 19,
+        "json_abstention": 2,
+        "matching_terminal_claim": 1,
+        "no_visible_answer": 1,
+        "repeated_declaration": 1,
+        "representation": 2,
+        "scalar": 14,
+        "special_marker_inside_response": 3,
+        "structured_claim": 8,
+        "terminal_answer_phrase": 2,
+        "truncated_before_commitment": 48
+      },
+      "original_joint_success": 1,
+      "recovered_correct": 31,
+      "recovered_joint_success": 1,
+      "recovered_wrong": 53,
+      "remaining_unknown": 57,
+      "strategy": "strip_thought_boundary_only",
+      "termination_by_semantic_outcome": {
+        "length": {
+          "correct": 0,
+          "unknown": 52,
+          "wrong": 0
+        },
+        "missing": {
+          "correct": 0,
+          "unknown": 0,
+          "wrong": 0
+        },
+        "other": {
+          "correct": 0,
+          "unknown": 0,
+          "wrong": 0
+        },
+        "stop": {
+          "correct": 31,
+          "unknown": 5,
+          "wrong": 53
+        }
+      },
+      "transitions": {
+        "correct->correct": 2,
+        "unknown->correct": 29,
+        "unknown->unknown": 57,
+        "unknown->wrong": 48,
+        "wrong->wrong": 5
+      },
+      "unknown_breakdown": {
+        "conflicting_declarations": 4,
+        "explicit_no_answer": 1,
+        "truncated": 52
+      },
+      "unknown_by_termination": {
+        "length": {
+          "truncated": 52
+        },
+        "missing": {},
+        "other": {},
+        "stop": {
+          "conflicting_declarations": 4,
+          "explicit_no_answer": 1
+        }
+      },
+      "unknown_details": {
+        "conflicting_declarations": 4,
+        "explicit_no_answer": 1,
+        "no_visible_answer": 1,
+        "special_marker_inside_response": 3,
+        "truncated_before_commitment": 48
+      },
+      "unknown_finish_missing": 0,
+      "unknown_nontruncated": 5,
+      "unknown_nontruncated_classified": 5,
+      "unknown_review_required": 0,
+      "unknown_truncated": 52,
+      "unknown_unclassified": 0
+    },
+    "tool_marker_in_visible_output": {
+      "attempted": 1,
+      "legacy_unknown": 1,
+      "methods": {
+        "special_marker_inside_response": 1
+      },
+      "original_joint_success": 0,
+      "recovered_correct": 0,
+      "recovered_joint_success": 0,
+      "recovered_wrong": 0,
+      "remaining_unknown": 1,
+      "strategy": "abstain_tool_content",
+      "termination_by_semantic_outcome": {
+        "length": {
+          "correct": 0,
+          "unknown": 1,
+          "wrong": 0
+        },
+        "missing": {
+          "correct": 0,
+          "unknown": 0,
+          "wrong": 0
+        },
+        "other": {
+          "correct": 0,
+          "unknown": 0,
+          "wrong": 0
+        },
+        "stop": {
+          "correct": 0,
+          "unknown": 0,
+          "wrong": 0
+        }
+      },
+      "transitions": {
+        "unknown->unknown": 1
+      },
+      "unknown_breakdown": {
+        "truncated": 1
+      },
+      "unknown_by_termination": {
+        "length": {
+          "truncated": 1
+        },
+        "missing": {},
+        "other": {},
+        "stop": {}
+      },
+      "unknown_details": {
+        "special_marker_inside_response": 1
+      },
+      "unknown_finish_missing": 0,
+      "unknown_nontruncated": 0,
+      "unknown_nontruncated_classified": 0,
+      "unknown_review_required": 0,
+      "unknown_truncated": 1,
+      "unknown_unclassified": 0
+    },
+    "truncated_declaration_prefix": {
+      "attempted": 1,
+      "legacy_unknown": 1,
+      "methods": {
+        "repeated_declaration": 1
+      },
+      "original_joint_success": 0,
+      "recovered_correct": 1,
+      "recovered_joint_success": 0,
+      "recovered_wrong": 0,
+      "remaining_unknown": 0,
+      "strategy": "require_repeated_identical_complete_declarations",
+      "termination_by_semantic_outcome": {
+        "length": {
+          "correct": 1,
+          "unknown": 0,
+          "wrong": 0
+        },
+        "missing": {
+          "correct": 0,
+          "unknown": 0,
+          "wrong": 0
+        },
+        "other": {
+          "correct": 0,
+          "unknown": 0,
+          "wrong": 0
+        },
+        "stop": {
+          "correct": 0,
+          "unknown": 0,
+          "wrong": 0
+        }
+      },
+      "transitions": {
+        "unknown->correct": 1
+      },
+      "unknown_breakdown": {},
+      "unknown_by_termination": {
+        "length": {},
+        "missing": {},
+        "other": {},
+        "stop": {}
+      },
+      "unknown_details": {},
+      "unknown_finish_missing": 0,
+      "unknown_nontruncated": 0,
+      "unknown_nontruncated_classified": 0,
+      "unknown_review_required": 0,
+      "unknown_truncated": 0,
+      "unknown_unclassified": 0
+    },
+    "unresolved_decision": {
+      "attempted": 1741,
+      "legacy_unknown": 1741,
+      "methods": {
+        "answer_or_intermediate_ambiguous": 1,
+        "answer_with_explanation": 20,
+        "bare_extracted_integer": 2,
+        "bit_separators": 18,
+        "bitstring": 24,
+        "byte_unit": 13,
+        "conflicting_answer_directives": 1,
+        "conflicting_declarations": 18,
+        "conflicting_json_keys": 1,
+        "empty_declaration": 10,
+        "empty_output": 1,
+        "equation_rhs": 3,
+        "explicit_claim_recovery": 215,
+        "explicit_count": 1,
+        "explicit_declaration": 69,
+        "explicit_empty_sequence": 1,
+        "explicit_equation_result": 1,
+        "explicit_host_count": 1,
+        "explicit_no_answer": 9,
+        "explicit_status": 1,
+        "explicit_text_pair": 3,
+        "identical_scalar_lines": 2,
+        "instruction_echo_without_claim": 6,
+        "invalid_bit_value": 10,
+        "json": 19,
+        "json_abstention": 2,
+        "literal_claim": 7,
+        "literal_delivered": 13,
+        "literal_response": 51,
+        "malformed_structured_payload": 2,
+        "matching_terminal_claim": 7,
+        "missing_answer_field": 5,
+        "multiple_or_malformed_literal_records": 2,
+        "no_visible_answer": 2,
+        "nonterminal_declaration": 3,
+        "ordered_bit_sequence": 1,
+        "placeholder_without_answer": 1,
+        "repeated_declaration": 6,
+        "repeated_question_without_answer": 1,
+        "repeated_terminal_value": 1,
+        "representation": 26,
+        "route_tuple_claims": 1,
+        "scalar": 14,
+        "source_echo_without_claim": 1,
+        "special_marker_inside_response": 3,
+        "split_answer_phrase": 3,
+        "structured_claim": 92,
+        "tautological_answer": 1,
+        "terminal_answer_phrase": 12,
+        "terminal_entity_phrase": 2,
+        "truncated_before_commitment": 970,
+        "truncated_or_conflicting_declarations": 4,
+        "unsupported_answer_unit": 6,
+        "whole_answer_representation": 48,
+        "wrong_entity": 2,
+        "wrong_structured_answer_type": 2
+      },
+      "original_joint_success": 0,
+      "recovered_correct": 182,
+      "recovered_joint_success": 0,
+      "recovered_wrong": 509,
+      "remaining_unknown": 1050,
+      "strategy": "conservative_recovery_or_abstain",
+      "termination_by_semantic_outcome": {
+        "length": {
+          "correct": 1,
+          "unknown": 981,
+          "wrong": 1
+        },
+        "missing": {
+          "correct": 0,
+          "unknown": 0,
+          "wrong": 0
+        },
+        "other": {
+          "correct": 0,
+          "unknown": 0,
+          "wrong": 0
+        },
+        "stop": {
+          "correct": 181,
+          "unknown": 69,
+          "wrong": 508
+        }
+      },
+      "transitions": {
+        "unknown->correct": 182,
+        "unknown->unknown": 1050,
+        "unknown->wrong": 509
+      },
+      "unknown_breakdown": {
+        "answer_or_intermediate_ambiguous": 1,
+        "conflicting_answer_directives": 1,
+        "conflicting_declarations": 18,
+        "conflicting_json_keys": 1,
+        "empty_declaration": 10,
+        "empty_output": 1,
+        "explicit_no_answer": 9,
+        "instruction_echo_without_claim": 6,
+        "malformed_structured_payload": 2,
+        "missing_answer_field": 5,
+        "multiple_or_malformed_literal_records": 2,
+        "no_visible_answer": 1,
+        "placeholder_without_answer": 1,
+        "repeated_question_without_answer": 1,
+        "source_echo_without_claim": 1,
+        "tautological_answer": 1,
+        "truncated": 981,
+        "unsupported_answer_unit": 6,
+        "wrong_structured_answer_type": 2
+      },
+      "unknown_by_termination": {
+        "length": {
+          "truncated": 981
+        },
+        "missing": {},
+        "other": {},
+        "stop": {
+          "answer_or_intermediate_ambiguous": 1,
+          "conflicting_answer_directives": 1,
+          "conflicting_declarations": 18,
+          "conflicting_json_keys": 1,
+          "empty_declaration": 10,
+          "empty_output": 1,
+          "explicit_no_answer": 9,
+          "instruction_echo_without_claim": 6,
+          "malformed_structured_payload": 2,
+          "missing_answer_field": 5,
+          "multiple_or_malformed_literal_records": 2,
+          "no_visible_answer": 1,
+          "placeholder_without_answer": 1,
+          "repeated_question_without_answer": 1,
+          "source_echo_without_claim": 1,
+          "tautological_answer": 1,
+          "unsupported_answer_unit": 6,
+          "wrong_structured_answer_type": 2
+        }
+      },
+      "unknown_details": {
+        "answer_or_intermediate_ambiguous": 1,
+        "conflicting_answer_directives": 1,
+        "conflicting_declarations": 18,
+        "conflicting_json_keys": 1,
+        "empty_declaration": 10,
+        "empty_output": 1,
+        "explicit_no_answer": 9,
+        "instruction_echo_without_claim": 6,
+        "malformed_structured_payload": 2,
+        "missing_answer_field": 5,
+        "multiple_or_malformed_literal_records": 2,
+        "no_visible_answer": 2,
+        "nonterminal_declaration": 3,
+        "placeholder_without_answer": 1,
+        "repeated_question_without_answer": 1,
+        "source_echo_without_claim": 1,
+        "special_marker_inside_response": 3,
+        "tautological_answer": 1,
+        "truncated_before_commitment": 970,
+        "truncated_or_conflicting_declarations": 4,
+        "unsupported_answer_unit": 6,
+        "wrong_structured_answer_type": 2
+      },
+      "unknown_finish_missing": 0,
+      "unknown_nontruncated": 69,
+      "unknown_nontruncated_classified": 69,
+      "unknown_review_required": 11,
+      "unknown_truncated": 981,
+      "unknown_unclassified": 0
+    },
+    "value_used_as_key": {
+      "attempted": 5,
+      "legacy_unknown": 0,
+      "methods": {
+        "json": 5
+      },
+      "original_joint_success": 0,
+      "recovered_correct": 0,
+      "recovered_joint_success": 0,
+      "recovered_wrong": 5,
+      "remaining_unknown": 0,
+      "strategy": "retain_wrong_structure",
+      "termination_by_semantic_outcome": {
+        "length": {
+          "correct": 0,
+          "unknown": 0,
+          "wrong": 0
+        },
+        "missing": {
+          "correct": 0,
+          "unknown": 0,
+          "wrong": 0
+        },
+        "other": {
+          "correct": 0,
+          "unknown": 0,
+          "wrong": 0
+        },
+        "stop": {
+          "correct": 0,
+          "unknown": 0,
+          "wrong": 5
+        }
+      },
+      "transitions": {
+        "wrong->wrong": 5
+      },
+      "unknown_breakdown": {},
+      "unknown_by_termination": {
+        "length": {},
+        "missing": {},
+        "other": {},
+        "stop": {}
+      },
+      "unknown_details": {},
+      "unknown_finish_missing": 0,
+      "unknown_nontruncated": 0,
+      "unknown_nontruncated_classified": 0,
+      "unknown_review_required": 0,
+      "unknown_truncated": 0,
+      "unknown_unclassified": 0
+    },
+    "wrong_answer_type": {
+      "attempted": 80,
+      "legacy_unknown": 1,
+      "methods": {
+        "json": 79,
+        "missing_answer_field": 1
+      },
+      "original_joint_success": 0,
+      "recovered_correct": 33,
+      "recovered_joint_success": 0,
+      "recovered_wrong": 46,
+      "remaining_unknown": 1,
+      "strategy": "safe_integer_field_conversion_only",
+      "termination_by_semantic_outcome": {
+        "length": {
+          "correct": 0,
+          "unknown": 0,
+          "wrong": 0
+        },
+        "missing": {
+          "correct": 0,
+          "unknown": 0,
+          "wrong": 0
+        },
+        "other": {
+          "correct": 0,
+          "unknown": 0,
+          "wrong": 0
+        },
+        "stop": {
+          "correct": 33,
+          "unknown": 1,
+          "wrong": 46
+        }
+      },
+      "transitions": {
+        "correct->correct": 33,
+        "unknown->unknown": 1,
+        "wrong->wrong": 46
+      },
+      "unknown_breakdown": {
+        "missing_answer_field": 1
+      },
+      "unknown_by_termination": {
+        "length": {},
+        "missing": {},
+        "other": {},
+        "stop": {
+          "missing_answer_field": 1
+        }
+      },
+      "unknown_details": {
+        "missing_answer_field": 1
+      },
+      "unknown_finish_missing": 0,
+      "unknown_nontruncated": 1,
+      "unknown_nontruncated_classified": 1,
+      "unknown_review_required": 0,
+      "unknown_truncated": 0,
+      "unknown_unclassified": 0
+    },
+    "wrong_output_entity_cidr": {
+      "attempted": 3,
+      "legacy_unknown": 3,
+      "methods": {
+        "truncated_before_commitment": 1,
+        "wrong_entity": 2
+      },
+      "original_joint_success": 0,
+      "recovered_correct": 0,
+      "recovered_joint_success": 0,
+      "recovered_wrong": 2,
+      "remaining_unknown": 1,
+      "strategy": "retain_wrong_entity",
+      "termination_by_semantic_outcome": {
+        "length": {
+          "correct": 0,
+          "unknown": 1,
+          "wrong": 0
+        },
+        "missing": {
+          "correct": 0,
+          "unknown": 0,
+          "wrong": 0
+        },
+        "other": {
+          "correct": 0,
+          "unknown": 0,
+          "wrong": 0
+        },
+        "stop": {
+          "correct": 0,
+          "unknown": 0,
+          "wrong": 2
+        }
+      },
+      "transitions": {
+        "unknown->unknown": 1,
+        "unknown->wrong": 2
+      },
+      "unknown_breakdown": {
+        "truncated": 1
+      },
+      "unknown_by_termination": {
+        "length": {
+          "truncated": 1
+        },
+        "missing": {},
+        "other": {},
+        "stop": {}
+      },
+      "unknown_details": {
+        "truncated_before_commitment": 1
+      },
+      "unknown_finish_missing": 0,
+      "unknown_nontruncated": 0,
+      "unknown_nontruncated_classified": 0,
+      "unknown_review_required": 0,
+      "unknown_truncated": 1,
+      "unknown_unclassified": 0
+    },
+    "wrong_value": {
+      "attempted": 515,
+      "legacy_unknown": 0,
+      "methods": {
+        "bitstring": 24,
+        "csv": 43,
+        "explicit_claim_recovery": 2,
+        "explicit_declaration": 89,
+        "json": 36,
+        "repeated_declaration": 11,
+        "representation": 49,
+        "scalar": 253,
+        "terminal_answer_phrase": 2,
+        "truncated_before_commitment": 6
+      },
+      "original_joint_success": 0,
+      "recovered_correct": 0,
+      "recovered_joint_success": 0,
+      "recovered_wrong": 509,
+      "remaining_unknown": 6,
+      "strategy": "retain_claim",
+      "termination_by_semantic_outcome": {
+        "length": {
+          "correct": 0,
+          "unknown": 6,
+          "wrong": 1
+        },
+        "missing": {
+          "correct": 0,
+          "unknown": 0,
+          "wrong": 0
+        },
+        "other": {
+          "correct": 0,
+          "unknown": 0,
+          "wrong": 0
+        },
+        "stop": {
+          "correct": 0,
+          "unknown": 0,
+          "wrong": 508
+        }
+      },
+      "transitions": {
+        "wrong->unknown": 6,
+        "wrong->wrong": 509
+      },
+      "unknown_breakdown": {
+        "truncated": 6
+      },
+      "unknown_by_termination": {
+        "length": {
+          "truncated": 6
+        },
+        "missing": {},
+        "other": {},
+        "stop": {}
+      },
+      "unknown_details": {
+        "truncated_before_commitment": 6
+      },
+      "unknown_finish_missing": 0,
+      "unknown_nontruncated": 0,
+      "unknown_nontruncated_classified": 0,
+      "unknown_review_required": 0,
+      "unknown_truncated": 6,
+      "unknown_unclassified": 0
+    }
+  },
+  "by_model": {
+    "granite42-3b-q2k": {
+      "attempted": 508,
+      "legacy_unknown": 420,
+      "methods": {
+        "answer_with_explanation": 2,
+        "bit_separators": 1,
+        "conflicting_answer_directives": 1,
+        "conflicting_declarations": 4,
+        "conflicting_json_keys": 1,
+        "csv": 2,
+        "explicit_claim_recovery": 16,
+        "explicit_declaration": 1,
+        "explicit_empty_sequence": 1,
+        "explicit_no_answer": 8,
+        "instruction_echo_without_claim": 6,
+        "json": 33,
+        "literal_claim": 5,
+        "literal_delivered": 2,
+        "literal_response": 6,
+        "malformed_structured_payload": 2,
+        "missing_answer_field": 1,
+        "multiple_or_malformed_literal_records": 2,
+        "nonterminal_declaration": 3,
+        "ordered_bit_sequence": 1,
+        "placeholder_without_answer": 1,
+        "repeated_declaration": 1,
+        "repeated_question_without_answer": 1,
+        "representation": 12,
+        "scalar": 38,
+        "source_echo_without_claim": 1,
+        "structured_claim": 12,
+        "truncated_before_commitment": 311,
+        "truncated_or_conflicting_declarations": 3,
+        "whole_answer_representation": 27,
+        "wrong_entity": 2,
+        "wrong_structured_answer_type": 1
+      },
+      "original_joint_success": 29,
+      "recovered_correct": 44,
+      "recovered_joint_success": 29,
+      "recovered_wrong": 118,
+      "remaining_unknown": 346,
+      "termination_by_semantic_outcome": {
+        "length": {
+          "correct": 0,
+          "unknown": 317,
+          "wrong": 0
+        },
+        "missing": {
+          "correct": 0,
+          "unknown": 0,
+          "wrong": 0
+        },
+        "other": {
+          "correct": 0,
+          "unknown": 0,
+          "wrong": 0
+        },
+        "stop": {
+          "correct": 44,
+          "unknown": 29,
+          "wrong": 118
+        }
+      },
+      "transitions": {
+        "correct->correct": 33,
+        "unknown->correct": 11,
+        "unknown->unknown": 346,
+        "unknown->wrong": 63,
+        "wrong->wrong": 55
+      },
+      "unknown_breakdown": {
+        "conflicting_answer_directives": 1,
+        "conflicting_declarations": 4,
+        "conflicting_json_keys": 1,
+        "explicit_no_answer": 8,
+        "instruction_echo_without_claim": 6,
+        "malformed_structured_payload": 2,
+        "missing_answer_field": 1,
+        "multiple_or_malformed_literal_records": 2,
+        "placeholder_without_answer": 1,
+        "repeated_question_without_answer": 1,
+        "source_echo_without_claim": 1,
+        "truncated": 317,
+        "wrong_structured_answer_type": 1
+      },
+      "unknown_by_termination": {
+        "length": {
+          "truncated": 317
+        },
+        "missing": {},
+        "other": {},
+        "stop": {
+          "conflicting_answer_directives": 1,
+          "conflicting_declarations": 4,
+          "conflicting_json_keys": 1,
+          "explicit_no_answer": 8,
+          "instruction_echo_without_claim": 6,
+          "malformed_structured_payload": 2,
+          "missing_answer_field": 1,
+          "multiple_or_malformed_literal_records": 2,
+          "placeholder_without_answer": 1,
+          "repeated_question_without_answer": 1,
+          "source_echo_without_claim": 1,
+          "wrong_structured_answer_type": 1
+        }
+      },
+      "unknown_details": {
+        "conflicting_answer_directives": 1,
+        "conflicting_declarations": 4,
+        "conflicting_json_keys": 1,
+        "explicit_no_answer": 8,
+        "instruction_echo_without_claim": 6,
+        "malformed_structured_payload": 2,
+        "missing_answer_field": 1,
+        "multiple_or_malformed_literal_records": 2,
+        "nonterminal_declaration": 3,
+        "placeholder_without_answer": 1,
+        "repeated_question_without_answer": 1,
+        "source_echo_without_claim": 1,
+        "truncated_before_commitment": 311,
+        "truncated_or_conflicting_declarations": 3,
+        "wrong_structured_answer_type": 1
+      },
+      "unknown_finish_missing": 0,
+      "unknown_nontruncated": 29,
+      "unknown_nontruncated_classified": 29,
+      "unknown_review_required": 4,
+      "unknown_truncated": 317,
+      "unknown_unclassified": 0
+    },
+    "phi4mini-instruct-q2k": {
+      "attempted": 508,
+      "legacy_unknown": 247,
+      "methods": {
+        "answer_with_explanation": 1,
+        "bit_separators": 8,
+        "bitstring": 5,
+        "byte_unit": 8,
+        "csv": 3,
+        "equation_rhs": 1,
+        "explicit_claim_recovery": 22,
+        "explicit_declaration": 55,
+        "identical_scalar_lines": 1,
+        "json": 67,
+        "literal_delivered": 3,
+        "literal_response": 25,
+        "missing_answer_field": 4,
+        "repeated_declaration": 6,
+        "representation": 32,
+        "scalar": 91,
+        "structured_claim": 41,
+        "truncated_before_commitment": 124,
+        "truncated_or_conflicting_declarations": 1,
+        "unsupported_answer_unit": 1,
+        "whole_answer_representation": 9
+      },
+      "original_joint_success": 104,
+      "recovered_correct": 185,
+      "recovered_joint_success": 104,
+      "recovered_wrong": 193,
+      "remaining_unknown": 130,
+      "termination_by_semantic_outcome": {
+        "length": {
+          "correct": 1,
+          "unknown": 125,
+          "wrong": 2
+        },
+        "missing": {
+          "correct": 0,
+          "unknown": 0,
+          "wrong": 0
+        },
+        "other": {
+          "correct": 0,
+          "unknown": 0,
+          "wrong": 0
+        },
+        "stop": {
+          "correct": 184,
+          "unknown": 5,
+          "wrong": 191
+        }
+      },
+      "transitions": {
+        "correct->correct": 153,
+        "unknown->correct": 32,
+        "unknown->unknown": 129,
+        "unknown->wrong": 86,
+        "wrong->unknown": 1,
+        "wrong->wrong": 107
+      },
+      "unknown_breakdown": {
+        "missing_answer_field": 4,
+        "truncated": 125,
+        "unsupported_answer_unit": 1
+      },
+      "unknown_by_termination": {
+        "length": {
+          "truncated": 125
+        },
+        "missing": {},
+        "other": {},
+        "stop": {
+          "missing_answer_field": 4,
+          "unsupported_answer_unit": 1
+        }
+      },
+      "unknown_details": {
+        "missing_answer_field": 4,
+        "truncated_before_commitment": 124,
+        "truncated_or_conflicting_declarations": 1,
+        "unsupported_answer_unit": 1
+      },
+      "unknown_finish_missing": 0,
+      "unknown_nontruncated": 5,
+      "unknown_nontruncated_classified": 5,
+      "unknown_review_required": 1,
+      "unknown_truncated": 125,
+      "unknown_unclassified": 0
+    },
+    "qwen3-4b-q2k": {
+      "attempted": 1524,
+      "legacy_unknown": 759,
+      "methods": {
+        "answer_with_explanation": 10,
+        "bare_extracted_integer": 2,
+        "bit_separators": 9,
+        "bitstring": 43,
+        "byte_unit": 5,
+        "conflicting_declarations": 13,
+        "csv": 32,
+        "empty_declaration": 10,
+        "empty_output": 1,
+        "equation_rhs": 2,
+        "explicit_claim_recovery": 112,
+        "explicit_count": 1,
+        "explicit_declaration": 218,
+        "explicit_equation_result": 1,
+        "explicit_host_count": 1,
+        "explicit_no_answer": 1,
+        "explicit_text_pair": 3,
+        "identical_scalar_lines": 1,
+        "invalid_bit_value": 10,
+        "json": 286,
+        "json_abstention": 13,
+        "literal_delivered": 2,
+        "literal_response": 82,
+        "matching_terminal_claim": 7,
+        "no_visible_answer": 2,
+        "repeated_declaration": 16,
+        "repeated_terminal_value": 1,
+        "representation": 59,
+        "route_tuple_claims": 1,
+        "scalar": 165,
+        "special_marker_inside_response": 3,
+        "split_answer_phrase": 3,
+        "structured_claim": 31,
+        "tautological_answer": 1,
+        "terminal_answer_phrase": 8,
+        "terminal_entity_phrase": 1,
+        "truncated_before_commitment": 352,
+        "unsupported_answer_unit": 4,
+        "whole_answer_representation": 12
+      },
+      "original_joint_success": 256,
+      "recovered_correct": 500,
+      "recovered_joint_success": 256,
+      "recovered_wrong": 637,
+      "remaining_unknown": 387,
+      "termination_by_semantic_outcome": {
+        "length": {
+          "correct": 1,
+          "unknown": 356,
+          "wrong": 0
+        },
+        "missing": {
+          "correct": 0,
+          "unknown": 0,
+          "wrong": 0
+        },
+        "other": {
+          "correct": 0,
+          "unknown": 0,
+          "wrong": 0
+        },
+        "stop": {
+          "correct": 499,
+          "unknown": 31,
+          "wrong": 637
+        }
+      },
+      "transitions": {
+        "correct->correct": 387,
+        "unknown->correct": 113,
+        "unknown->unknown": 382,
+        "unknown->wrong": 264,
+        "wrong->unknown": 5,
+        "wrong->wrong": 373
+      },
+      "unknown_breakdown": {
+        "conflicting_declarations": 13,
+        "empty_declaration": 10,
+        "empty_output": 1,
+        "explicit_no_answer": 1,
+        "no_visible_answer": 1,
+        "tautological_answer": 1,
+        "truncated": 356,
+        "unsupported_answer_unit": 4
+      },
+      "unknown_by_termination": {
+        "length": {
+          "truncated": 356
+        },
+        "missing": {},
+        "other": {},
+        "stop": {
+          "conflicting_declarations": 13,
+          "empty_declaration": 10,
+          "empty_output": 1,
+          "explicit_no_answer": 1,
+          "no_visible_answer": 1,
+          "tautological_answer": 1,
+          "unsupported_answer_unit": 4
+        }
+      },
+      "unknown_details": {
+        "conflicting_declarations": 13,
+        "empty_declaration": 10,
+        "empty_output": 1,
+        "explicit_no_answer": 1,
+        "no_visible_answer": 2,
+        "special_marker_inside_response": 3,
+        "tautological_answer": 1,
+        "truncated_before_commitment": 352,
+        "unsupported_answer_unit": 4
+      },
+      "unknown_finish_missing": 0,
+      "unknown_nontruncated": 31,
+      "unknown_nontruncated_classified": 31,
+      "unknown_review_required": 4,
+      "unknown_truncated": 356,
+      "unknown_unclassified": 0
+    },
+    "smollm3-3b-q2k": {
+      "attempted": 508,
+      "legacy_unknown": 315,
+      "methods": {
+        "answer_or_intermediate_ambiguous": 1,
+        "answer_with_explanation": 7,
+        "conflicting_declarations": 1,
+        "csv": 10,
+        "explicit_claim_recovery": 67,
+        "explicit_declaration": 53,
+        "explicit_status": 1,
+        "json": 107,
+        "literal_claim": 2,
+        "literal_delivered": 6,
+        "literal_response": 20,
+        "representation": 10,
+        "scalar": 16,
+        "structured_claim": 8,
+        "terminal_answer_phrase": 7,
+        "terminal_entity_phrase": 1,
+        "truncated_before_commitment": 189,
+        "unsupported_answer_unit": 1,
+        "wrong_structured_answer_type": 1
+      },
+      "original_joint_success": 37,
+      "recovered_correct": 150,
+      "recovered_joint_success": 37,
+      "recovered_wrong": 165,
+      "remaining_unknown": 193,
+      "termination_by_semantic_outcome": {
+        "length": {
+          "correct": 0,
+          "unknown": 189,
+          "wrong": 0
+        },
+        "missing": {
+          "correct": 0,
+          "unknown": 0,
+          "wrong": 0
+        },
+        "other": {
+          "correct": 0,
+          "unknown": 0,
+          "wrong": 0
+        },
+        "stop": {
+          "correct": 150,
+          "unknown": 4,
+          "wrong": 165
+        }
+      },
+      "transitions": {
+        "correct->correct": 124,
+        "unknown->correct": 26,
+        "unknown->unknown": 193,
+        "unknown->wrong": 96,
+        "wrong->wrong": 69
+      },
+      "unknown_breakdown": {
+        "answer_or_intermediate_ambiguous": 1,
+        "conflicting_declarations": 1,
+        "truncated": 189,
+        "unsupported_answer_unit": 1,
+        "wrong_structured_answer_type": 1
+      },
+      "unknown_by_termination": {
+        "length": {
+          "truncated": 189
+        },
+        "missing": {},
+        "other": {},
+        "stop": {
+          "answer_or_intermediate_ambiguous": 1,
+          "conflicting_declarations": 1,
+          "unsupported_answer_unit": 1,
+          "wrong_structured_answer_type": 1
+        }
+      },
+      "unknown_details": {
+        "answer_or_intermediate_ambiguous": 1,
+        "conflicting_declarations": 1,
+        "truncated_before_commitment": 189,
+        "unsupported_answer_unit": 1,
+        "wrong_structured_answer_type": 1
+      },
+      "unknown_finish_missing": 0,
+      "unknown_nontruncated": 4,
+      "unknown_nontruncated_classified": 4,
+      "unknown_review_required": 2,
+      "unknown_truncated": 189,
+      "unknown_unclassified": 0
+    }
+  },
+  "overall": {
+    "attempted": 3048,
+    "legacy_unknown": 1741,
+    "methods": {
+      "answer_or_intermediate_ambiguous": 1,
+      "answer_with_explanation": 20,
+      "bare_extracted_integer": 2,
+      "bit_separators": 18,
+      "bitstring": 48,
+      "byte_unit": 13,
+      "conflicting_answer_directives": 1,
+      "conflicting_declarations": 18,
+      "conflicting_json_keys": 1,
+      "csv": 47,
+      "empty_declaration": 10,
+      "empty_output": 1,
+      "equation_rhs": 3,
+      "explicit_claim_recovery": 217,
+      "explicit_count": 1,
+      "explicit_declaration": 327,
+      "explicit_empty_sequence": 1,
+      "explicit_equation_result": 1,
+      "explicit_host_count": 1,
+      "explicit_no_answer": 9,
+      "explicit_status": 1,
+      "explicit_text_pair": 3,
+      "identical_scalar_lines": 2,
+      "instruction_echo_without_claim": 6,
+      "invalid_bit_value": 10,
+      "json": 493,
+      "json_abstention": 13,
+      "literal_claim": 7,
+      "literal_delivered": 13,
+      "literal_response": 133,
+      "malformed_structured_payload": 2,
+      "matching_terminal_claim": 7,
+      "missing_answer_field": 5,
+      "multiple_or_malformed_literal_records": 2,
+      "no_visible_answer": 2,
+      "nonterminal_declaration": 3,
+      "ordered_bit_sequence": 1,
+      "placeholder_without_answer": 1,
+      "repeated_declaration": 23,
+      "repeated_question_without_answer": 1,
+      "repeated_terminal_value": 1,
+      "representation": 113,
+      "route_tuple_claims": 1,
+      "scalar": 310,
+      "source_echo_without_claim": 1,
+      "special_marker_inside_response": 3,
+      "split_answer_phrase": 3,
+      "structured_claim": 92,
+      "tautological_answer": 1,
+      "terminal_answer_phrase": 15,
+      "terminal_entity_phrase": 2,
+      "truncated_before_commitment": 976,
+      "truncated_or_conflicting_declarations": 4,
+      "unsupported_answer_unit": 6,
+      "whole_answer_representation": 48,
+      "wrong_entity": 2,
+      "wrong_structured_answer_type": 2
+    },
+    "original_joint_success": 426,
+    "recovered_correct": 879,
+    "recovered_joint_success": 426,
+    "recovered_wrong": 1113,
+    "remaining_unknown": 1056,
+    "termination_by_semantic_outcome": {
+      "length": {
+        "correct": 2,
+        "unknown": 987,
+        "wrong": 2
+      },
+      "missing": {
+        "correct": 0,
+        "unknown": 0,
+        "wrong": 0
+      },
+      "other": {
+        "correct": 0,
+        "unknown": 0,
+        "wrong": 0
+      },
+      "stop": {
+        "correct": 877,
+        "unknown": 69,
+        "wrong": 1111
+      }
+    },
+    "transitions": {
+      "correct->correct": 697,
+      "unknown->correct": 182,
+      "unknown->unknown": 1050,
+      "unknown->wrong": 509,
+      "wrong->unknown": 6,
+      "wrong->wrong": 604
+    },
+    "unknown_breakdown": {
+      "answer_or_intermediate_ambiguous": 1,
+      "conflicting_answer_directives": 1,
+      "conflicting_declarations": 18,
+      "conflicting_json_keys": 1,
+      "empty_declaration": 10,
+      "empty_output": 1,
+      "explicit_no_answer": 9,
+      "instruction_echo_without_claim": 6,
+      "malformed_structured_payload": 2,
+      "missing_answer_field": 5,
+      "multiple_or_malformed_literal_records": 2,
+      "no_visible_answer": 1,
+      "placeholder_without_answer": 1,
+      "repeated_question_without_answer": 1,
+      "source_echo_without_claim": 1,
+      "tautological_answer": 1,
+      "truncated": 987,
+      "unsupported_answer_unit": 6,
+      "wrong_structured_answer_type": 2
+    },
+    "unknown_by_termination": {
+      "length": {
+        "truncated": 987
+      },
+      "missing": {},
+      "other": {},
+      "stop": {
+        "answer_or_intermediate_ambiguous": 1,
+        "conflicting_answer_directives": 1,
+        "conflicting_declarations": 18,
+        "conflicting_json_keys": 1,
+        "empty_declaration": 10,
+        "empty_output": 1,
+        "explicit_no_answer": 9,
+        "instruction_echo_without_claim": 6,
+        "malformed_structured_payload": 2,
+        "missing_answer_field": 5,
+        "multiple_or_malformed_literal_records": 2,
+        "no_visible_answer": 1,
+        "placeholder_without_answer": 1,
+        "repeated_question_without_answer": 1,
+        "source_echo_without_claim": 1,
+        "tautological_answer": 1,
+        "unsupported_answer_unit": 6,
+        "wrong_structured_answer_type": 2
+      }
+    },
+    "unknown_details": {
+      "answer_or_intermediate_ambiguous": 1,
+      "conflicting_answer_directives": 1,
+      "conflicting_declarations": 18,
+      "conflicting_json_keys": 1,
+      "empty_declaration": 10,
+      "empty_output": 1,
+      "explicit_no_answer": 9,
+      "instruction_echo_without_claim": 6,
+      "malformed_structured_payload": 2,
+      "missing_answer_field": 5,
+      "multiple_or_malformed_literal_records": 2,
+      "no_visible_answer": 2,
+      "nonterminal_declaration": 3,
+      "placeholder_without_answer": 1,
+      "repeated_question_without_answer": 1,
+      "source_echo_without_claim": 1,
+      "special_marker_inside_response": 3,
+      "tautological_answer": 1,
+      "truncated_before_commitment": 976,
+      "truncated_or_conflicting_declarations": 4,
+      "unsupported_answer_unit": 6,
+      "wrong_structured_answer_type": 2
+    },
+    "unknown_finish_missing": 0,
+    "unknown_nontruncated": 69,
+    "unknown_nontruncated_classified": 69,
+    "unknown_review_required": 11,
+    "unknown_truncated": 987,
+    "unknown_unclassified": 0
+  },
+  "version": "answer-recovery-v0.3"
+}

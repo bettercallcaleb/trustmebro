@@ -38,3 +38,12 @@ Labels overlap. Generic contract violations, unresolved answers, and truncation 
 The summary contains 50 observed candidate diagnostic labels after consolidation, not 50 independently validated failure mechanisms. The detection rules are conservative where possible but not exhaustive; precision and recall against independently annotated data are not established. Exact-text deduplication is for corpus indexing, not event counts. Identical text can have different meanings on different tasks. The included tests cover manually specified positive and negative fixtures and deterministic replay of the complete frozen dataset; they do not substitute for human annotation of every reply.
 
 The repository's MIT license covers the benchmark software and original benchmark material. Model weights remain subject to their respective upstream licenses. No third-party model weights are included.
+
+## Answer recovery
+
+    python3 recovery.py corpus corpus/responses.jsonl --out corpus-replay.json
+    python3 recovery.py run run.json --out recovered.json
+
+[Recovery summary](recovery-summary.json) reports original-to-recovered transitions and the outcome for each observed label. [Recovery policy](../docs/RECOVERY.md) describes the rules and limitations. Anomaly flags are not erased by answer recovery.
+
+The [non-truncated unresolved audit](nontruncated-unresolved.jsonl) records each remaining normally stopped unresolved response with its specific recovery blocker and source fingerprint. Zero unclassified replies in this development corpus does not establish independent annotation accuracy.
