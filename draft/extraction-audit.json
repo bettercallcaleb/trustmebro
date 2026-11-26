@@ -1,0 +1,20 @@
+{
+  "version": "extraction-abstention-draft-v0.1",
+  "seeds": 100,
+  "variants_per_seed": 2,
+  "tasks": 3200,
+  "by_polarity": {
+    "unanswerable": 1600,
+    "answerable": 1600
+  },
+  "unique_source_texts": 3200,
+  "duplicate_source_texts": 0,
+  "oracle_fixture_passes": 3200,
+  "prompt_character_median": 1144.5,
+  "heuristic_semantic_baselines": {
+    "always_abstain_semantic_correct": 0.5,
+    "last_number_semantic_correct": 0.5,
+    "bare_final_or_abstain_semantic_correct": 0.5909375
+  },
+  "note": "CPU fixture and structural checks only; semantic labels derive from authored templates, not a second independently annotated corpus. Heuristics do not earn evidence or strict-format credit."
+}
