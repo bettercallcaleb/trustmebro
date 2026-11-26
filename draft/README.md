@@ -1,6 +1,6 @@
 # Core Depth — candidate design, not a released benchmark
 
-The original Core remains a quick sanity check. This CPU-only draft is a new reasoning candidate, not a replacement of Ladder or IFEval. It is deliberately not wired into the model runner. No GPU evaluation has been authorized.
+The original Core remains a quick sanity check. This CPU-only draft is a new reasoning candidate, not a replacement of Ladder or IFEval. It is deliberately not wired into the model runner. The approved initial 80-request GPU calibration has completed. No further GPU evaluation is authorized by this draft.
 
 | Family | L1 | L2 | L3 | L4 |
 |---|---|---|---|---|
@@ -32,4 +32,4 @@ The audit uses 100 seeds x 2 variants x 5 families x 4 levels. One exact prompt 
 4. With only two variants per cell, judge gross ceiling/floor, reversals, and obvious shortcuts, not statistical monotonicity. Flag suspicious cells (both models consistently solve all levels or fail all levels, repeated L4 success with L1 failure, or high truncation). Revise or remove flawed families; use fresh predeclared seeds for confirmation rather than tune and report on the same data.
 5. After a separate approval, integrate a versioned track into the harness and measure a broader panel. Retain Core sanity, Ladder, IFEval and efficiency as separate results. No composite score.
 
-A future output-control track should supply a correct value, then vary representation, ordering, schema and irrelevant text constraints without changing problem-solving difficulty. Compare with unsupplied-answer tasks and record strict output success separately. Do not replace official IFEval with an unvalidated proxy.
+The candidate [reliability scorer and paired delivery controls](RELIABILITY.md) preserve the original protocol and expose specific observed failures. The 80-response replay is complete; the new 60-item delivery panel is CPU-validated only. Official IFEval remains separate.
